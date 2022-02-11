@@ -1,0 +1,66 @@
+// Dropdowns
+// *****************************************************************
+
+// On hover outline
+[data-trigger='hover'] {
+  outline: 0;
+}
+
+.dropdown-menu {
+  margin: $dropdown-spacer 0;
+  box-shadow: $dropdown-box-shadow;
+  // Animations
+  animation: dropdownAnimation 0.1s;
+
+  // Mega dropdown inside the dropdown menu
+  .mega-dropdown > & {
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  // Badge within dropdown menu
+  .badge[class^='float-'],
+  .badge[class*=' float-'] {
+    position: relative;
+    top: 0.071em;
+  }
+}
+// Dropdown item line height
+.dropdown-item {
+  line-height: $dropdown-link-line-height;
+}
+
+// Hidden dropdown toggle arrow
+.dropdown-toggle.hide-arrow,
+.dropdown-toggle-hide-arrow > .dropdown-toggle {
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+// Dropdown caret icon
+
+@if $enable-caret {
+  // Dropdown arrow
+  .dropdown-toggle::after {
+    @include caret-down;
+  }
+  // Dropend arrow
+  .dropend .dropdown-toggle::after {
+    @include caret-right;
+  }
+  // Dropstart arrow
+  .dropstart .dropdown-toggle::before {
+    @include caret-left;
+  }
+  // Dropup arrow
+  .dropup .dropdown-toggle::after {
+    @include caret-up;
+  }
+
+  .dropstart .dropdown-toggle::before,
+  .dropend .dropdown-toggle::after {
+    vertical-align: $caret-vertical-align;
+  }
+}

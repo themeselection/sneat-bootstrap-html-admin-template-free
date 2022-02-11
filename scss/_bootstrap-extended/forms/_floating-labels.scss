@@ -1,0 +1,12 @@
+// Floating Labels
+// *******************************************************************************
+
+// Display placeholder on focus
+.form-floating {
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown) {
+    &::placeholder {
+      color: $input-placeholder-color;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+/**
+* Apex Charts
+*/
+@use '../../scss/_bootstrap-extended/include' as light;
+@import '../../scss/_custom-variables/libs';
+@import '../../node_modules/apexcharts-clevision/dist/apexcharts';
+
+// Light style
+@if $enable-light-style {
+  .light-style {
+    .apexcharts-canvas {
+      .apexcharts-tooltip {
+        background: light.$white;
+        border-color: light.$border-color;
+        box-shadow: light.$popover-box-shadow;
+        .apexcharts-tooltip-title {
+          background: light.$white;
+          border-color: light.$border-color;
+          font-family: light.$font-family-base !important;
+          font-weight: 600;
+        }
+      }
+      .apexcharts-xaxistooltip,
+      .apexcharts-yaxistooltip {
+        background: light.$body-bg;
+        border-color: light.$border-color;
+        &.apexcharts-xaxistooltip-bottom,
+        &.apexcharts-yaxistooltip-bottom {
+          &:after {
+            border-bottom-color: light.$body-bg;
+          }
+          &:before {
+            border-bottom-color: light.$border-color;
+          }
+        }
+        &.apexcharts-xaxistooltip-left,
+        &.apexcharts-yaxistooltip-left {
+          &:after {
+            border-left-color: light.$body-bg;
+          }
+          &:before {
+            border-left-color: light.$border-color;
+          }
+        }
+        &.apexcharts-xaxistooltip-right,
+        &.apexcharts-yaxistooltip-right {
+          &:after {
+            border-right-color: light.$body-bg;
+          }
+          &:before {
+            border-right-color: light.$border-color;
+          }
+        }
+        &.apexcharts-xaxistooltip-top,
+        &.apexcharts-yaxistooltip-top {
+          &:after {
+            border-top-color: light.$body-bg;
+          }
+          &:before {
+            border-top-color: light.$border-color;
+          }
+        }
+      }
+      .apexcharts-tooltip-text {
+        font-family: light.$font-family-base !important;
+        filter: none;
+      }
+      .apexcharts-marker {
+        filter: drop-shadow(0 2px 4px #a1acb866);
+      }
+    }
+  }
+}

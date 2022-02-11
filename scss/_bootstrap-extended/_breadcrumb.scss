@@ -1,0 +1,47 @@
+// Breadcrumbs
+// *******************************************************************************
+
+.breadcrumb-item,
+.breadcrumb-item a {
+  color: $breadcrumb-color;
+
+  &:hover,
+  &:focus {
+    color: $breadcrumb-active-color;
+  }
+
+  &.active {
+    font-weight: $font-weight-semibold;
+    &::before {
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+.breadcrumb-item.active a {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
+}
+
+// Breadcrumb divider styles
+.breadcrumb-style1,
+.breadcrumb-style2 {
+  .breadcrumb-item + .breadcrumb-item::before {
+    font-family: boxicons;
+    vertical-align: middle;
+  }
+}
+.breadcrumb-style1 .breadcrumb-item + .breadcrumb-item::before {
+  content: '\ecb3';
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+.breadcrumb-style2 .breadcrumb-item + .breadcrumb-item::before {
+  content: '\ee4a';
+  font-size: $font-size-lg;
+  line-height: 1.35rem;
+}

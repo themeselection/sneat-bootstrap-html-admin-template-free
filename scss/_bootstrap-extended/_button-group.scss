@@ -1,0 +1,59 @@
+// Button groups
+// *******************************************************************************
+
+// * Split button
+// *******************************************************************************
+
+.dropdown-toggle-split,
+.btn-lg + .dropdown-toggle-split,
+.btn-group-lg > .btn + .dropdown-toggle-split,
+.input-group-lg .btn + .dropdown-toggle-split,
+.btn-xl + .dropdown-toggle-split,
+.btn-group-xl > .btn + .dropdown-toggle-split {
+  padding-right: 0.7em;
+  padding-left: 0.7em;
+}
+
+.btn-sm + .dropdown-toggle-split,
+.btn-group-sm > .btn + .dropdown-toggle-split,
+.input-group-sm .btn + .dropdown-toggle-split {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+}
+
+.btn-xs + .dropdown-toggle-split,
+.btn-group-xs > .btn + .dropdown-toggle-split {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+// * Sizing
+// *******************************************************************************
+
+.btn-group-xs > .btn {
+  @extend .btn-xs;
+}
+
+.btn-group-xl > .btn {
+  @extend .btn-xl;
+}
+
+// Button groups border
+
+.btn-group > .btn-group:first-child > .btn:not([class*='btn-outline-']):first-child,
+.input-group > .btn:not([class*='btn-outline-']):first-child,
+:not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):first-child,
+.input-group > .btn-group:first-child > .btn:not([class*='btn-outline-']):first-child {
+  @include ltr-style {
+    border-left-color: transparent;
+  }
+}
+
+.btn-group > .btn-group:last-child > .btn:not([class*='btn-outline-']):last-of-type,
+.input-group > .btn:not([class*='btn-outline-']):last-of-type,
+:not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):last-of-type,
+.input-group > .btn-group:last-child > .btn:not([class*='btn-outline-']):last-of-type {
+  @include ltr-style {
+    border-right-color: transparent;
+  }
+}

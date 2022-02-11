@@ -1,0 +1,56 @@
+// Accordions
+// *******************************************************************************
+
+.accordion-header + .accordion-collapse .accordion-body {
+  padding-top: 0;
+}
+
+.accordion {
+  // accordion without icon
+  &.accordion-without-arrow {
+    .accordion-button::after {
+      background-image: none !important;
+    }
+  }
+  // Active accordion box shadow
+  .accordion-item.active {
+    box-shadow: $floating-component-shadow;
+  }
+}
+
+// added box shadow
+.card.accordion-item {
+  box-shadow: $box-shadow-sm;
+}
+
+.accordion-button.collapsed:focus {
+  box-shadow: none;
+}
+.accordion-button {
+  box-shadow: none;
+}
+
+.accordion-header {
+  line-height: 1.54;
+}
+
+.accordion-item {
+  &:not(:first-of-type) {
+    border-top: $accordion-border-width solid $accordion-border-color;
+  }
+}
+
+// Accordion border radius
+.accordion-button {
+  font-weight: inherit;
+  @include border-top-radius($accordion-border-radius);
+  &.collapsed {
+    @include border-radius($accordion-border-radius);
+  }
+}
+
+// Default card styles of accordion
+.accordion > .card:not(:last-of-type) {
+  border-radius: $accordion-border-radius !important;
+  margin-bottom: 0.6875rem;
+}

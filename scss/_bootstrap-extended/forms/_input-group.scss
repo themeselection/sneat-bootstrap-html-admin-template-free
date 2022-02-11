@@ -1,0 +1,68 @@
+// Input groups
+// *******************************************************************************
+
+// Using :focus-within to apply focus/validation border and shadow to default and merged input-group
+.input-group {
+  &:focus-within {
+    box-shadow: $input-focus-box-shadow;
+    .form-control,
+    .input-group-text {
+      box-shadow: none;
+    }
+  }
+  // For disabled input group
+  &.disabled {
+    .input-group-text {
+      background-color: $input-disabled-bg;
+    }
+  }
+}
+
+// input-group-text icon size
+.input-group-text {
+  background-clip: padding-box;
+  i {
+    @include font-size($input-font-size);
+  }
+}
+.input-group-lg > .input-group-text {
+  i {
+    @include font-size($input-font-size-lg);
+  }
+}
+.input-group-sm > .input-group-text {
+  i {
+    @include font-size($input-font-size-sm);
+  }
+}
+
+// Merge input
+
+// Input group merge .form-control border & padding
+@include ltr-only {
+  .input-group-merge {
+    .input-group-text {
+      &:first-child {
+        border-right: 0;
+      }
+      &:last-child {
+        border-left: 0;
+      }
+    }
+    .form-control {
+      &:not(:first-child) {
+        padding-left: 0;
+        border-left: 0;
+      }
+      &:not(:last-child) {
+        padding-right: 0;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+// Adding transition (On focus border color change)
+.input-group-text {
+  @include transition($input-transition);
+}

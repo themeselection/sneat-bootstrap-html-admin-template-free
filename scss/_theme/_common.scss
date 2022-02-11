@@ -1,0 +1,49 @@
+// Theme mixin
+// *******************************************************************************
+
+@mixin template-common-theme($background, $color: null) {
+  @include text-variant('.text-primary', $background);
+  @include bg-variant('.bg-primary', $background);
+  @include bg-label-variant('.bg-label-primary', $background);
+  @include border-label-variant('.border-label-primary', $background);
+  @include border-light-variant('.border-light-primary', $background);
+  @include template-pagination-theme($background, $color);
+  @include template-progress-bar-theme($background, $color);
+  @include template-list-group-theme($background, $color);
+  @include template-alert-variant('.alert-primary', $background);
+
+  // Need to add shift-color as BS5 updated with table variant colors like this
+
+  @include template-table-variant('primary', shift-color($background, $table-bg-scale));
+  @include template-button-variant('.btn-primary', $background, $color);
+  @include template-button-outline-variant('.btn-outline-primary', $background, $color);
+  @include template-dropdown-theme(rgba($background, 0.08), $background);
+  @include template-nav-theme($background, $color);
+  @include template-form-control-theme($background);
+  @include template-form-check-theme($background, $color);
+  @include template-form-switch-theme($background);
+  @include template-file-input-theme($background);
+
+  @include template-text-divider-variant('.divider-primary', $background);
+
+  @include template-navbar-style('.navbar.bg-primary', $primary-color);
+  @include template-menu-style('.menu.bg-primary', $primary-color);
+  @include template-footer-style('.footer.bg-primary', $primary-color);
+  @include template-toast-theme('.bg-primary', $primary-color, $color);
+  @include template-float-label-theme($primary-color);
+  @include template-svg-color($primary-color);
+
+  html:not([dir='rtl']) .border-primary,
+  html[dir='rtl'] .border-primary {
+    border-color: $background !important;
+  }
+  a {
+    color: $background;
+    &:hover {
+      color: tint-color($background, 10%);
+    }
+  }
+  .fill-primary {
+    fill: $background;
+  }
+}

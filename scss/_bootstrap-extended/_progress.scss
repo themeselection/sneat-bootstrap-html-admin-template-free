@@ -1,0 +1,31 @@
+// Progress
+// *******************************************************************************
+
+.progress {
+  overflow: initial; //revet the default style for box-shadow
+}
+
+// Progress Shadow Variant
+@each $color, $value in $theme-colors {
+  @if $color != primary {
+    @include template-progress-bar-shadow-variant('.bg-#{$color}', $value);
+  }
+}
+
+@include ltr-only {
+  .progress-bar-striped {
+    @include gradient-striped(rgba($white, 0.07), 45deg);
+  }
+
+  .progress {
+    //  border radius for first and last child
+    .progress-bar:last-child {
+      border-top-right-radius: $progress-border-radius;
+      border-bottom-right-radius: $progress-border-radius;
+    }
+    .progress-bar:first-child {
+      border-top-left-radius: $progress-border-radius;
+      border-bottom-left-radius: $progress-border-radius;
+    }
+  }
+}

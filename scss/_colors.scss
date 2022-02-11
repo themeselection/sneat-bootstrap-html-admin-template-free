@@ -1,0 +1,39 @@
+@import '_components/include';
+
+// * Bootstrap colors (Uncomment required colors)
+// *******************************************************************************
+
+$bootstrap-colors: () !default;
+
+@each $color-name, $color-value in $bootstrap-colors {
+  @include bg-variant('.bg-#{$color-name}', $color-value);
+  @include bg-label-variant('.bg-label-#{$color-name}', $color-value);
+
+  @include border-label-variant('.border-label-#{$color-name}', $color-value);
+  @include border-light-variant('.border-light-#{$color-name}', $color-value);
+
+  .border-#{$color-name} {
+    border-color: $color-value !important;
+  }
+
+  @include template-button-variant('.btn-#{$color-name}', $color-value);
+  @include template-button-outline-variant('.btn-outline-#{$color-name}', $color-value);
+}
+
+// * Navbar
+// *******************************************************************************
+
+@each $color, $value in $theme-colors {
+  @if $color !=primary and $color !=light {
+    @include template-navbar-style('.navbar.bg-#{$color}', $value);
+  }
+}
+
+@include template-navbar-style('.navbar.bg-white', #fff, $color: $text-muted, $active-color: $body-color);
+@include template-navbar-style('.navbar.bg-light', $gray-100, $color: $text-muted, $active-color: $body-color);
+
+// * Footer
+// *******************************************************************************
+
+@include template-footer-style('.footer.bg-white', #fff, $color: $text-muted, $active-color: $body-color);
+@include template-footer-style('.footer.bg-light', $gray-100, $color: $text-muted, $active-color: $body-color);

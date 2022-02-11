@@ -1,0 +1,92 @@
+// Pagination
+// *******************************************************************************
+
+// Pagination next, prev, first & last css padding
+.page-item {
+  &.first,
+  &.last,
+  &.next,
+  &.prev,
+  &.previous {
+    .page-link {
+      padding-top: $pagination-padding-y - 0.125rem;
+      padding-bottom: $pagination-padding-y - 0.125rem;
+    }
+  }
+  &.disabled {
+    .page-link {
+      border-color: $pagination-border-color;
+    }
+  }
+  &.active {
+    .page-link {
+      margin: 0 0.1rem 0 0.3rem;
+    }
+  }
+}
+
+// Pagination basic style
+.page-link,
+.page-link > a {
+  @include border-radius($border-radius);
+
+  line-height: $pagination-line-height;
+  text-align: center;
+  min-width: calc(
+    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + #{$pagination-border-width * 2}'}
+  );
+
+  &:focus {
+    color: $pagination-hover-color;
+  }
+}
+
+.page-link.btn-primary {
+  box-shadow: none !important;
+}
+
+// Sizing
+// *******************************************************************************
+
+// Pagination Large
+.pagination-lg .page-link,
+.pagination-lg > li > a:not(.page-link) {
+  min-width: calc(
+    #{'#{($font-size-lg * $pagination-line-height) + ($pagination-padding-y-lg * 2)} + #{$pagination-border-width * 2}'}
+  );
+}
+.pagination-lg > .page-item {
+  &.first,
+  &.last,
+  &.next,
+  &.prev,
+  &.previous {
+    .page-link {
+      padding-top: $pagination-padding-y-lg - 0.0845rem;
+      padding-bottom: $pagination-padding-y-lg - 0.0845rem;
+    }
+  }
+}
+
+// Pagination Small
+.pagination-sm .page-link,
+.pagination-sm > li > a:not(.page-link) {
+  min-width: calc(
+    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + #{$pagination-border-width * 2}'}
+  );
+  .tf-icon {
+    font-size: $font-size-base;
+  }
+}
+.pagination-sm > .page-item {
+  &.first,
+  &.last,
+  &.next,
+  &.prev,
+  &.previous {
+    .page-link {
+      padding-top: $pagination-padding-y-sm - 0.075rem;
+      padding-bottom: $pagination-padding-y-sm - 0.075rem;
+    }
+  }
+}

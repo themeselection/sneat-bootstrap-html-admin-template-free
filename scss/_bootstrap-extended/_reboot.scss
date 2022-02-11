@@ -1,0 +1,32 @@
+// Reboot
+//
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+//! Fix: Autofill input bg and text color issue on different OS and browsers
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}

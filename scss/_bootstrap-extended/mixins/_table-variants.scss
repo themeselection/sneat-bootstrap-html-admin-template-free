@@ -1,0 +1,31 @@
+// Tables
+// *******************************************************************************
+
+@mixin template-table-variant($parent, $background, $layout-color: $white) {
+  .table-#{$parent} {
+    $color: color-contrast(opaque($body-bg, $background));
+    $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
+    $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
+    $active-bg: mix($color, $background, percentage($table-active-bg-factor));
+    $dark-border-color: if($parent == 'dark', mix($color, $background, percentage($table-border-factor)), inherit);
+
+    --#{$variable-prefix}table-bg: #{$background};
+    --#{$variable-prefix}table-striped-bg: #{$striped-bg};
+    --#{$variable-prefix}table-striped-color: #{color-contrast($striped-bg)};
+    --#{$variable-prefix}table-active-bg: #{$active-bg};
+    --#{$variable-prefix}table-active-color: #{color-contrast($active-bg)};
+    --#{$variable-prefix}table-hover-bg: #{$hover-bg};
+    --#{$variable-prefix}table-hover-color: #{color-contrast($hover-bg)};
+
+    color: $color;
+    border-color: mix($color, $background, percentage($table-border-factor));
+    // Highlight border color between thead, tbody and tfoot.
+    th {
+      border-bottom-color: $dark-border-color !important;
+    }
+
+    .btn-icon {
+      color: $color;
+    }
+  }
+}

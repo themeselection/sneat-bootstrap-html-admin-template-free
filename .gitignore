@@ -1,0 +1,60 @@
+# System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Windows shortcuts
+*.lnk
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Optional sass cache
+/.sass-cache
+gulpfile.tmp.*
+
+################################################################################
+############################### DEVELOPMENT_ONLY ###############################
+
+# Excludes generated 
+/dist
+/build
+/tmp
+/temp
+
+# Assets
+# **/assets/vendor
+# **/static/vendor
+
+# HTML files
+/html-starter
+/html-demo
+/html-starter-demo

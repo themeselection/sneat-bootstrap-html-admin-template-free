@@ -1,0 +1,37 @@
+// Navs
+// *******************************************************************************
+
+@mixin template-nav-size($padding-y, $padding-x, $font-size, $line-height) {
+  > .nav .nav-link,
+  &.nav .nav-link {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+}
+
+@mixin template-nav-variant($parent, $background, $color: null) {
+  // .nav-link class hover theme color for basic nav
+  .nav .nav-link {
+    &:hover,
+    &:focus {
+      color: shift-color($background, $link-shade-percentage);
+    }
+  }
+
+  $pills-selector: if($parent== '', '.nav-pills', '#{$parent}.nav-pills, #{$parent} > .nav-pills');
+
+  #{$pills-selector} .nav-link.active {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $background;
+      color: if($color, $color, color-contrast($background));
+      box-shadow: 0 2px 4px 0 rgba($background, 0.4);
+    }
+  }
+}
+
+@mixin template-nav-theme($background, $color: null) {
+  @include template-nav-variant('', $background, $color);
+}

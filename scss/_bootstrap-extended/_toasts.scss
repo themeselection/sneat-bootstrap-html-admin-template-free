@@ -1,0 +1,58 @@
+// Toasts
+// *******************************************************************************
+
+// Toast Mixin
+@each $color, $value in $theme-colors {
+  @if $color != primary {
+    @include template-toast-variant('.bg-#{$color}', $value);
+  }
+}
+
+.bs-toast[class^='bg-'],
+.bs-toast[class*=' bg-'] {
+  border: none;
+}
+
+.toast.bs-toast {
+  background-color: rgba($toast-background-color, $toast-bg-factor);
+  z-index: $zindex-toast;
+  .toast-header {
+    padding-bottom: 0.5rem;
+    position: relative;
+    .btn-close {
+      position: absolute;
+      top: -8px;
+      border-radius: $border-radius;
+      padding: 0.45rem;
+      background-size: $toast-btn-close-size;
+      transition: all 0.23s ease 0.1s;
+      background-color: $toast-background-color;
+      box-shadow: $box-shadow-sm;
+      @include ltr-style {
+        right: 2px;
+      }
+
+      // For hover effect of close btn
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+        outline: none;
+      }
+    }
+  }
+  .toast-header ~ .toast-body {
+    padding-top: 0;
+  }
+}
+
+// Bootstrap Toasts Example
+.toast-ex {
+  position: fixed;
+  top: 4.1rem;
+  right: 2.5rem;
+}
+// Placement Toast example
+.toast-placement-ex {
+  position: fixed;
+}
