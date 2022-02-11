@@ -1,24 +1,20 @@
 <p align="center">
-   <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank">
+   <a href="https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/" target="_blank">
       <img src="https://user-images.githubusercontent.com/749684/150333149-805037bc-8874-4a1f-876a-61a9683f8ef5.png" alt="sneat-logo" width="30px" height="auto">
    </a>
 </p>
 
 <h1 align="center">
-   <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" align="center">
+   <a href="https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/" target="_blank" align="center">
       Sneat - Free Bootstrap 5 HTML Admin Template
    </a>
 </h1>
 
 <p align="center">Most Powerful & Comprehensive Free Bootstrap 5 HTML Admin Dashboard Template built for developers!</p>
 
-<p align="center">   
-   <a href="https://twitter.com/Theme_Selection" target="_blank">
-      <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Theme_Selection">
-   </a>
-</p>
+[![License](https://img.shields.io/github/license/themeselection/sneat-html-admin-template-free%22%20alt=%22license)](https://github.com/themeselection/sneat-html-admin-template-free/blob/main/LICENSE) [![Version](https://img.shields.io/github/release/themeselection/sneat-html-admin-template-free.svg)](https://github.com/themeselection/sneat-html-admin-template-free/releases) [![GitHub issues open](https://img.shields.io/github/issues/themeselection/sneat-html-admin-template-free/issues.svg?maxAge=2592000)](https://github.com/themeselection/sneat-html-admin-template-free/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/themeselection/sneat-html-admin-template-free/issues.svg?maxAge=2592000)](https://github.com/themeselection/sneat-html-admin-template-free/issues?q=is%3Aissue+is%3Aclosed) [![enter image description here](https://img.shields.io/twitter/follow/Theme_Selection)](https://twitter.com/Theme_Selection)
 
-<kbd>[![Sneat - Bootstrap 5 HTML Admin Template Demo Screenshot](https://user-images.githubusercontent.com/5073095/153555410-8697dca6-7e97-400e-bce8-e5d397d21523.png)](https://themeselection.com/products/sneat-bootstrap-html-admin-template/)</kbd>
+[![Sneat - Bootstrap 5 HTML Admin Template Demo Screenshot](https://user-images.githubusercontent.com/80033712/153581472-452394ee-327a-4d00-a41a-c6e8036b7096.png)](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/)
 
 ## Introduction
 
@@ -74,68 +70,66 @@ Run a task with specified environment(development/production) just execute the t
 
 > **Tip:** Use `npm run` command to list all predefined npm tasks from `package.json` file.
 
-## What's Included  📦
+## What's Included 📦
 
- - Dashboard
- - Layouts
-	 - Without menu
-	 - Without Navbar
-	 - Container
-	 - Fluid
-	 - Blank
+- Dashboard
+- Layouts
+  - Without menu
+  - Without Navbar
+  - Container
+  - Fluid
+  - Blank
 - Pages
-	 - Account Settings
-	 -  Login
-	 - Register
-	 - Forgot Password
-	 - Error
-	 - Under Maintenance
+  - Account Settings
+  - Login
+  - Register
+  - Forgot Password
+  - Error
+  - Under Maintenance
 - Cards
 - User Interface
-	- **All Bootstrap Components** 
+  - **All Bootstrap Components**
 - Extended UI
-	- Perfect Scrollbar
-	- Text Divider
+  - Perfect Scrollbar
+  - Text Divider
 - Boxicon
 - Form Elements
-	- Basic Inputs
-	- Input Groups
+  - Basic Inputs
+  - Input Groups
 - Form Layout
-	- Vertical Form 
-	- Horizontal Form
-- Tables   
+  - Vertical Form
+  - Horizontal Form
+- Tables
 
-## What's in Premium Version  💎
+## What's in Premium Version 💎
 
-| Sneat Free Version  | Sneat Premium Version  |
-|---------------------|------------------------|
-| [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/) | [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/html/vertical-menu-template/) |
-| [Download](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) | [Purchase](https://themeselection.com/products/sneat-bootstrap-html-admin-template/) |
-| Single vertical Menu | Vertical Menu + Horizontal Menu |
-| Simple Light Style| Light & Dark Style |
-| Default Theme | Default, Semi Dark & Bordered Themes |
-| Fixed Layout(Menu) | Fixed & Static Layout(Menu) |
-| 1 Simple Dashboard | 3 Niche Dashboards |
-| - | Multiple Ready to use Application like Calendar, Invoice, Users List, Users View, Roles and Permission etc.  |
-| Simple From Elements | Advance form elements, validation & form wizard |
-| Basic Cards | Basic, Advance , Statistics, Analytics, Gamifications and Actions Cards |
-| Basic User Interface(Components) | Advance and Custom User Interfaces(Components) |
-| Two Extended Components | Twelve Ready to use Extended Components  |
-| - | Quick Search - Quickly navigate between pages (w/ hotkey support) |
-| Basic Pages | Authentication Pages in 2 Variants + Ready to use pages like User Profile, Account Settings,FAQ, Help Center, Pricing, Misc etc.  |
-| - | 3D Characters + Illustrations |
-| Basic tables | Advanced tables |
-| - | Quick customization using theme config file |
-| - | Leaflet Maps |
-| 1 Chart Library | 2 Chart Libraries |
-| - | Multiple Navbar & Menu Options |
-| - | Starter-kit |
-| - | Internationalization support |
-| - | RTL Support |
-| Regular Support | Priority Support |
-| Detailed Documentation | Detailed Documentation |
-
- 
+| Sneat Free Version                                                                        | Sneat Premium Version                                                                                                            |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)    | [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/html/vertical-menu-template/)                         |
+| [Download](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) | [Purchase](https://themeselection.com/products/sneat-bootstrap-html-admin-template/)                                             |
+| Single vertical Menu                                                                      | Vertical Menu + Horizontal Menu                                                                                                  |
+| Simple Light Style                                                                        | Light & Dark Style                                                                                                               |
+| Default Theme                                                                             | Default, Semi Dark & Bordered Themes                                                                                             |
+| Fixed Layout(Menu)                                                                        | Fixed & Static Layout(Menu)                                                                                                      |
+| 1 Simple Dashboard                                                                        | 3 Niche Dashboards                                                                                                               |
+| -                                                                                         | Multiple Ready to use Application like Calendar, Invoice, Users List, Users View, Roles and Permission etc.                      |
+| Simple From Elements                                                                      | Advance form elements, validation & form wizard                                                                                  |
+| Basic Cards                                                                               | Basic, Advance , Statistics, Analytics, Gamifications and Actions Cards                                                          |
+| Basic User Interface(Components)                                                          | Advance and Custom User Interfaces(Components)                                                                                   |
+| Two Extended Components                                                                   | Twelve Ready to use Extended Components                                                                                          |
+| -                                                                                         | Quick Search - Quickly navigate between pages (w/ hotkey support)                                                                |
+| Basic Pages                                                                               | Authentication Pages in 2 Variants + Ready to use pages like User Profile, Account Settings,FAQ, Help Center, Pricing, Misc etc. |
+| -                                                                                         | 3D Characters + Illustrations                                                                                                    |
+| Basic tables                                                                              | Advanced tables                                                                                                                  |
+| -                                                                                         | Quick customization using theme config file                                                                                      |
+| -                                                                                         | Leaflet Maps                                                                                                                     |
+| 1 Chart Library                                                                           | 2 Chart Libraries                                                                                                                |
+| -                                                                                         | Multiple Navbar & Menu Options                                                                                                   |
+| -                                                                                         | Starter-kit                                                                                                                      |
+| -                                                                                         | Internationalization support                                                                                                     |
+| -                                                                                         | RTL Support                                                                                                                      |
+| Regular Support                                                                           | Priority Support                                                                                                                 |
+| Detailed Documentation                                                                    | Detailed Documentation                                                                                                           |
 
 ## Documentation 📜
 
@@ -152,10 +146,10 @@ At present, we officially aim to support the last two versions of the following 
 - Opera (latest)
 
 ## Useful Links 🎁
-* [Freebies](https://themeselection.com/products/category/download-free-admin-templates/)
-* [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/)
-* [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
 
+- [Freebies](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
 
 ## Support 👨‍💻
 
@@ -163,9 +157,11 @@ We use GitHub issues as support tickets to manage Item support.
 
 1. In order to raise the GitHub issue, you must have a github account. [Raise a Issue](https://github.com/themeselection/sneat-html-admin-template-free/issues)
 
-## License 
-* Copyright © [ThemeSelection](https://themeselection.com/)
-* Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
+## License
+
+- Copyright © [ThemeSelection](https://themeselection.com/)
+- Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
+
 ## Contributing 🦸
 
 Contribution are always welcome and recommended! Here is how:
