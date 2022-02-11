@@ -6,11 +6,11 @@
 
 <h1 align="center">
    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" align="center">
-      Sneat - Bootstrap 5 HTML Admin Template Free
+      Sneat - Free Bootstrap 5 HTML Admin Template
    </a>
 </h1>
 
-<p align="center">Most Powerful & Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!</p>
+<p align="center">Most Powerful & Comprehensive Free Bootstrap 5 HTML Admin Dashboard Template built for developers!</p>
 
 <p align="center">   
    <a href="https://twitter.com/Theme_Selection" target="_blank">
@@ -22,9 +22,9 @@
 
 ## Introduction
 
-If you’re a developer looking for most Powerful & comprehensive **Bootstrap 5 HTML Admin Dashboard Template** built for developers, rich with features, and highly customizable look no further than Sneat. We’ve followed the highest industry standards to bring you the very best admin template that is not only fast and easy to use but highly scalable. Offering ultimate convenience and flexibility, you’ll be able to build whatever application you want with very little hassle.
+If you’re a developer looking for most Powerful & comprehensive [**Free Bootstrap 5 HTML Admin Dashboard Template**](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) built for developers, rich with features, and highly customizable look no further than Sneat. We’ve followed the highest industry standards to bring you the very best admin template that is not only fast and easy to use but highly scalable. Offering ultimate convenience and flexibility, you’ll be able to build whatever application you want with very little hassle.
 
-Build premium quality applications with ease. Use our innovative admin template to create eye-catching, high-quality WebApps. Your apps will be completely responsive, ensuring they’ll look stunning and function flawlessly on desktops, tablets, and mobile devices.
+Build premium quality applications with ease. Use our innovative [bootstrap admin templates](https://themeselection.com/products/category/bootstrap-admin-templates/) to create eye-catching, high-quality WebApps. Your apps will be completely responsive, ensuring they’ll look stunning and function flawlessly on desktops, tablets, and mobile devices.
 
 [View Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)
 
@@ -50,7 +50,7 @@ npm install --global gulp-cli
 
 ```bash
 # For npm
-npm install
+npm install --legacy-peer-deps
 
 # For Yarn
 yarn
@@ -141,12 +141,31 @@ Run a task with specified environment(development/production) just execute the t
 
 Check out our live [Documentation](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/)
 
+## Browser Support 🖥️
+
+At present, we officially aim to support the last two versions of the following browsers:
+
+- Chrome (latest)
+- FireFox (latest)
+- Safari (latest)
+- Microsoft Edge (latest)
+- Opera (latest)
+
+## Useful Links 🎁
+* [Freebies](https://themeselection.com/products/category/download-free-admin-templates/)
+* [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/)
+* [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
+
+
 ## Support 👨‍💻
 
 We use GitHub issues as support tickets to manage Item support.
 
 1. In order to raise the GitHub issue, you must have a github account. [Raise a Issue](https://github.com/themeselection/sneat-html-admin-template-free/issues)
 
+## License 
+* Copyright © [ThemeSelection](https://themeselection.com/)
+* Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
 ## Contributing 🦸
 
 Contribution are always welcome and recommended! Here is how:
