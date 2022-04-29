@@ -7,3 +7,9 @@ All notable changes to this template will be documented in this file.
 ### Added
 
 - Initial Release
+
+## [1.0.1] - [2022-04-29]
+
+### Fixes
+
+- Minor CSS fixes and improvements
