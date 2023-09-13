@@ -183,7 +183,7 @@ Contributions are always welcome and recommended! Here is how:
 
 ## Changelog 📆
 
-Please refer to the [CHANGELOG](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/changelog.html) file. We will add detailed release notes to each new release.
+Please refer to the [CHANGELOG](https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/blob/main/CHANGELOG.md) file. We will add detailed release notes to each new release.
 
 ## Social Media 🌍
 
