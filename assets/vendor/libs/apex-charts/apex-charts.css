@@ -690,12 +690,21 @@
   background: #fff;
   border-color: #d9dee3;
   font-family: var(--bs-font-sans-serif) !important;
-  font-weight: 600;
+}
+.light-style .apexcharts-canvas .apexcharts-tooltip.apexcharts-theme-light {
+  color: #566a7f;
+}
+.light-style .apexcharts-canvas .apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+}
+.light-style .apexcharts-canvas .apexcharts-tooltip .apexcharts-tooltip-title {
+  font-weight: 500;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip {
   background: #f5f5f9;
   border-color: #d9dee3;
+  color: #566a7f;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom:after, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-bottom:after,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-bottom:after,
@@ -742,5 +751,14 @@
   filter: none;
 }
 .light-style .apexcharts-canvas .apexcharts-marker {
-  filter: drop-shadow(0 2px 4px #a1acb866);
+  filter: drop-shadow(0 2px 4px rgba(161, 172, 184, 0.4));
+}
+
+#orderStatisticsChart .apexcharts-xcrosshairs.apexcharts-active,
+#orderStatisticsChart .apexcharts-ycrosshairs.apexcharts-active,
+#totalRevenueChart .apexcharts-xcrosshairs.apexcharts-active,
+#totalRevenueChart .apexcharts-ycrosshairs.apexcharts-active,
+#expensesBarChart .apexcharts-xcrosshairs.apexcharts-active,
+#expensesBarChart .apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 0;
 }

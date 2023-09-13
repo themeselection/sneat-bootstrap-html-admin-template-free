@@ -13,6 +13,12 @@
     background-color: $background;
     color: if($color, $color, color-contrast($background)) !important;
   }
+  // DataTables collection dropdown item active
+  .dt-button-collection {
+    .dropdown-item:not(.disabled):active {
+      background-color: $background;
+    }
+  }
 }
 
 @mixin template-dropdown-theme($background, $color: null) {

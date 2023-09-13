@@ -1,0 +1,25 @@
+name: 'Deploy - Changelog'
+
+on: workflow_dispatch
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Convert changelog.md to changelog.html
+        uses: jd-solanki/gh-action-md-to-html@v1.2.0
+        with:
+          files: '[["CHANGELOG.md", "changelog.html"]]'
+          theme: 'light'
+
+      - name: Upload new changelog
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSHKEY }}
+          source: changelog.html
+          target: ${{ secrets.PROD_DIR }}

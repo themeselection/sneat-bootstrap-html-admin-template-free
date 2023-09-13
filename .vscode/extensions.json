@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "abusaidm.html-snippets",
+    "syler.sass-indented",
+    "mrmlnc.vscode-scss",
+    "gamunu.vscode-yarn",
+    "zignd.html-css-class-completion",
+  ]
+}

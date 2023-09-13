@@ -31,11 +31,9 @@
     }
   }
 
-  .card {
-    #{$parent} {
-      hr {
-        background-color: $color !important;
-      }
+  #{$parent} {
+    hr {
+      background-color: $color !important;
     }
   }
 }

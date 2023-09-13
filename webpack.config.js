@@ -1,7 +1,6 @@
 const path = require('path');
 const glob = require('glob');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 // -------------------------------------------------------------------------------
 // Config
 
@@ -24,7 +23,7 @@ const packageRegex = package => `(?:\\\\|\\/)${package}(?:\\\\|\\/).+?\\.js$`;
 
 const collectEntries = () => {
   const fileList = glob.sync(`!(${conf.exclude.join('|')})/**/!(_)*.@(js|es6)`) || [];
-  const fileListFiltered = fileList.filter(str => !str.includes('formvalidation'));
+  const fileListFiltered = fileList.filter(str => !str.includes('@form-validation'));
   return fileListFiltered.reduce((entries, file) => {
     const filePath = file.replace(/\\/g, '/');
     return { ...entries, [filePath.replace(/\.(?:js|es6)$/, '')]: `./${filePath}` };
@@ -46,12 +45,17 @@ const babelLoader = () => ({
 
 const webpackConfig = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   entry: collectEntries(),
 
   output: {
     path: conf.distPath,
     filename: '[name].js',
-    libraryTarget: 'window'
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
@@ -97,7 +101,6 @@ const webpackConfig = {
   externals: {
     jquery: 'jQuery',
     moment: 'moment',
-    'datatables.net': '$.fn.dataTable',
     jsdom: 'jsdom',
     velocity: 'Velocity',
     hammer: 'Hammer',
@@ -124,9 +127,9 @@ if (conf.sourcemaps) {
 // Minifies sources by default in production mode
 if (process.env.NODE_ENV !== 'production' && conf.minify) {
   webpackConfig.plugins.push(
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        warnings: false
+    new TerserPlugin({
+      optimization: {
+        minimize: true
       },
       sourceMap: conf.sourcemaps,
       parallel: true

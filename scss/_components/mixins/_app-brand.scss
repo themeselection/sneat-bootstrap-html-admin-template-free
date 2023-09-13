@@ -18,7 +18,9 @@
     opacity: 0;
   }
   .app-brand .layout-menu-toggle {
-    display: none !important;
+    // display: none !important;
+    opacity: 0;
+    left: calc(#{$menu-collapsed-width} - 1.5rem);
   }
 
   .app-brand-img {

@@ -56,7 +56,7 @@
   @include template-app-brand-collapsed();
 }
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
   .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
     .layout-menu {
     @include template-app-brand-collapsed();

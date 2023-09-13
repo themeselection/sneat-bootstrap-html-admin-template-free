@@ -52,6 +52,7 @@
           }
           .menu-sub {
             box-shadow: $menu-horizontal-menu-box-shadow;
+            z-index: 1;
           }
         }
       }
@@ -108,16 +109,23 @@
   position: absolute;
   left: $menu-width - 1.25rem;
   border-radius: 50%;
-
+  opacity: 1;
   i {
     width: 1.5rem;
     height: 1.5rem;
     transition: all $menu-animation-duration ease-in-out;
+    line-height: 1.05;
   }
   @include media-breakpoint-down(xl) {
     display: none !important;
     .layout-menu-expanded & {
       display: block !important;
     }
+  }
+}
+
+.menu-vertical {
+  .menu-item {
+    position: relative;
   }
 }

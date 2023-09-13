@@ -11,13 +11,15 @@
   .popover-arrow {
     z-index: 1;
   }
-  &.bs-popover-bottom > .popover-arrow {
-    &::after {
-      border-bottom-color: if(not $dark-style, rgba-to-hex($popover-header-bg), $popover-header-bg);
-      top: 2px;
-    }
-    &:before {
-      top: 1px;
+  &.bs-popover-auto {
+    &[data-popper-placement='bottom'] > .popover-arrow {
+      &::after {
+        border-bottom-color: if(not $dark-style, rgba-to-hex($popover-header-bg), $popover-header-bg);
+        top: 2px;
+      }
+      &:before {
+        top: 1px;
+      }
     }
   }
 }
