@@ -5,7 +5,7 @@
 @mixin template-form-control-theme($color) {
   .form-control:focus,
   .form-select:focus {
-    border-color: $color;
+    border-color: $color !important;
   }
 
   // Using :focus-within to apply focus border color to default and merged input-group
@@ -13,7 +13,7 @@
     &:focus-within {
       .form-control,
       .input-group-text {
-        border-color: $color;
+        border-color: $color !important;
       }
     }
   }
@@ -41,10 +41,18 @@
 // Form Switch
 @mixin template-form-switch-theme($background) {
   $focus-color: $background;
-  $focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$focus-color}'/></svg>");
+  $focus-bg-image: str-replace(
+    str-replace($form-switch-focus-bg-image, '#{$form-switch-focus-color}', $focus-color),
+    '#',
+    '%23'
+  );
 
   $checked-color: $component-active-color;
-  $checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$checked-color}'/></svg>");
+  $checked-bg-image: str-replace(
+    str-replace($form-switch-checked-bg-image, '#{$form-switch-checked-color}', $checked-color),
+    '#',
+    '%23'
+  );
 
   .form-switch {
     .form-check-input {
@@ -162,7 +170,7 @@
 
   .form-control {
     @include form-validation-state-selector($state) {
-      border-color: $color;
+      border-color: $color !important;
 
       .dark-style & {
         border-color: $color !important;
@@ -180,7 +188,7 @@
       }
 
       &:focus {
-        border-color: $color;
+        border-color: $color !important;
         box-shadow: $focus-box-shadow;
       }
     }
@@ -200,7 +208,7 @@
 
   .form-select {
     @include form-validation-state-selector($state) {
-      border-color: $color;
+      border-color: $color !important;
       @if $enable-validation-icons {
         background-size: $form-select-bg-size, $form-select-feedback-icon-size;
         @include ltr-style {
@@ -248,10 +256,10 @@
     .form-control {
       @include form-validation-state-selector($state) {
         ~ .input-group-text {
-          border-color: $color;
+          border-color: $color !important;
         }
         &:focus {
-          border-color: $color;
+          border-color: $color !important;
           box-shadow: none;
           // ? .input-group has .input-group-text last/sibling
           ~ .input-group-text {

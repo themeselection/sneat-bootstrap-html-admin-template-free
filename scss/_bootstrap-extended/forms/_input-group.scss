@@ -3,6 +3,12 @@
 
 // Using :focus-within to apply focus/validation border and shadow to default and merged input-group
 .input-group {
+  &:hover {
+    .input-group-text,
+    .form-control {
+      border-color: $input-border-hover-color;
+    }
+  }
   &:focus-within {
     box-shadow: $input-focus-box-shadow;
     .form-control,

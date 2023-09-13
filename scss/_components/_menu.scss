@@ -103,7 +103,7 @@
   // link hover animation
   .menu:not(.menu-no-animation) & {
     transition-duration: $menu-animation-duration;
-    transition-property: color, background-color;
+    transition-property: color, background-color, left;
   }
 
   > :not(.menu-icon) {
@@ -209,7 +209,7 @@
 
   .menu-item.active:not(.open) > {
     .menu-link {
-      font-weight: $font-weight-semibold;
+      font-weight: $font-weight-medium;
     }
   }
   .menu-item .menu-toggle {

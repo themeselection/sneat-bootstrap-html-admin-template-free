@@ -143,7 +143,7 @@
     }
   }
 
-  @include media-breakpoint-down(xl) {
+  @include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
     .navbar-nav {
       .nav-item.dropdown {
         .dropdown-menu {
@@ -175,7 +175,7 @@
 }
 
 // * Navbar require high z-index as we use z-index for menu slide-out for below large screen
-@include media-breakpoint-down(xl) {
+@include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
   .layout-navbar {
     z-index: $zindex-menu-fixed;
   }
@@ -186,7 +186,9 @@
 .layout-menu {
   position: relative;
   flex: 1 0 auto;
-
+  a:focus-visible {
+    outline: none;
+  }
   .menu {
     transform: translate3d(0, 0, 0);
   }
@@ -216,7 +218,7 @@
 // * Fixed and fixed off-canvas layout (Layout Fixed)
 // *******************************************************************************
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
   // Menu
 
   .layout-menu-fixed,
@@ -251,7 +253,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   padding-bottom: 0 !important;
 }
 
-@include media-breakpoint-down(xl) {
+@include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
   .layout-menu-fixed .layout-wrapper.layout-navbar-full .layout-menu,
   .layout-menu-fixed-offcanvas .layout-wrapper.layout-navbar-full .layout-menu {
     top: 0 !important;
@@ -274,7 +276,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   }
 }
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
   // Fix navbar within Navbar Full layout in fixed mode
   .layout-menu-fixed .layout-navbar-full .layout-navbar,
   .layout-menu-fixed-offcanvas .layout-navbar-full .layout-navbar {
@@ -304,7 +306,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   right: 0;
 }
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
   // Fixed footer - Menu expanded
   .layout-footer-fixed:not(.layout-menu-collapsed) {
     .layout-wrapper:not(.layout-without-menu) .content-footer {
@@ -316,7 +318,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
 // * Small screens layout
 // *******************************************************************************
 
-@include media-breakpoint-down(xl) {
+@include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
   .layout-menu {
     position: fixed !important;
     top: 0 !important;
@@ -379,7 +381,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   z-index: $zindex-fixed;
 }
 
-@include media-breakpoint-down(xl) {
+@include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
   .layout-menu {
     z-index: $zindex-layout-mobile;
   }
@@ -389,7 +391,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   }
 }
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
   // Default expanded
 
   // Navbar full layout
@@ -450,7 +452,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   }
 }
 
-@include media-breakpoint-down(xl) {
+@include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
   .layout-transitioning {
     .layout-overlay {
       animation: menuAnimation $menu-animation-duration;
@@ -463,8 +465,10 @@ html:not(.layout-footer-fixed) .content-wrapper {
   }
 }
 
-@include media-breakpoint-up(xl) {
-  .layout-menu-collapsed:not(.layout-transitioning):not(.layout-menu-offcanvas):not(.layout-menu-fixed):not(.layout-menu-fixed-offcanvas)
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
+  .layout-menu-collapsed:not(.layout-transitioning):not(.layout-menu-offcanvas):not(.layout-menu-fixed):not(
+      .layout-menu-fixed-offcanvas
+    )
     .layout-menu {
     transition-duration: $menu-animation-duration;
     transition-property: margin-left, margin-right, width;

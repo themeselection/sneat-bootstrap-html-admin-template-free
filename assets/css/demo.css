@@ -19,7 +19,7 @@
   text-transform: lowercase;
 }
 
-/* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
+/* ! For .layout-navbar-fixed added fix padding top to .layout-page */
 /* Detached navbar */
 .layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page {
   padding-top: 76px !important;
@@ -27,6 +27,10 @@
 /* Default navbar */
 .layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
   padding-top: 64px !important;
+}
+.docs-page .layout-navbar-fixed.layout-wrapper:not(.layout-without-menu) .layout-page,
+.docs-page .layout-menu-fixed.layout-wrapper:not(.layout-without-menu) .layout-page {
+  padding-top: 62px !important;
 }
 
 /* Navbar page z-index issue solution */
@@ -79,6 +83,19 @@
 
 [dir='rtl'] .rtl-only {
   display: block !important;
+}
+
+/* Dropdown buttons going out of small screens */
+@media (max-width: 576px) {
+  #dropdown-variation-demo .btn-group .text-truncate {
+    width: 231px;
+    position: relative;
+  }
+  #dropdown-variation-demo .btn-group .text-truncate::after {
+    position: absolute;
+    top: 45%;
+    right: 0.65rem;
+  }
 }
 
 /*

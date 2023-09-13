@@ -84,6 +84,16 @@ $utilities: map-merge(
           0: 0
         )
       ),
+    'border-style': (
+      property: border-style,
+      class: border,
+      responsive: true,
+      values: (
+        solid: solid,
+        dashed: dashed,
+        none: none
+      )
+    ),
     'border-top': (
       property: border-top,
       values: (
@@ -112,6 +122,14 @@ $utilities: map-merge(
           )
         )
     ),
+    'border-label-color': (
+      property: border-color,
+      class: border-label,
+      local-vars: (
+        'border-opacity': 0.4
+      ),
+      values: $utilities-border-colors
+    ),
     'border-width': (
       property: border-width,
       class: border,
@@ -128,8 +146,10 @@ $utilities: map-merge(
           map-merge(
             $sizes-px,
             (
+              20: 20%,
               25: 25%,
               50: 50%,
+              60: 60%,
               75: 75%,
               100: 100%,
               auto: auto
@@ -467,12 +487,12 @@ $utilities: map-merge(
       property: font-weight,
       class: fw,
       values: (
-        light: $font-weight-light,
         lighter: $font-weight-lighter,
+        light: $font-weight-light,
         normal: $font-weight-normal,
-        bold: $font-weight-bold,
+        medium: $font-weight-medium,
         semibold: $font-weight-semibold,
-        //(C)
+        bold: $font-weight-bold,
         bolder: $font-weight-bolder
       )
     ),
@@ -534,6 +554,8 @@ $utilities: map-merge(
               'white-50': rgba($white, 0.5),
               // deprecated
               'light': $text-light,
+              // (c)
+              'heading': $headings-color,
               // (c)
               'reset': inherit
             )

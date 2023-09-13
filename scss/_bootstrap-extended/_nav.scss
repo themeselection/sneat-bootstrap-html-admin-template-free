@@ -31,6 +31,18 @@
 // Tab and pills style
 .nav-tabs,
 .nav-pills {
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:not(.active) {
+      &:hover,
+      &:focus {
+        color: $nav-tabs-link-active-color;
+      }
+    }
+  }
+
   &:not(.nav-fill):not(.nav-justified) .nav-link {
     width: 100%;
   }
@@ -174,6 +186,7 @@
   }
   .nav-link {
     text-align: right;
+    justify-content: end;
   }
 
   .nav-tabs {
@@ -247,6 +260,7 @@
   }
   .nav-link {
     text-align: left;
+    justify-content: start;
   }
   .nav-tabs {
     ~ .tab-content {

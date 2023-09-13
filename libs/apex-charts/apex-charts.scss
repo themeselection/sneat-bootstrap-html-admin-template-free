@@ -10,20 +10,29 @@
   .light-style {
     .apexcharts-canvas {
       .apexcharts-tooltip {
-        background: light.$white;
+        background: light.$card-bg;
         border-color: light.$border-color;
         box-shadow: light.$popover-box-shadow;
         .apexcharts-tooltip-title {
-          background: light.$white;
+          background: light.$card-bg;
           border-color: light.$border-color;
           font-family: light.$font-family-base !important;
-          font-weight: 600;
+        }
+        &.apexcharts-theme-light {
+          color: light.$headings-color;
+        }
+        &.apexcharts-theme-dark {
+          color: light.$white;
+        }
+        .apexcharts-tooltip-title {
+          font-weight: light.$headings-font-weight;
         }
       }
       .apexcharts-xaxistooltip,
       .apexcharts-yaxistooltip {
         background: light.$body-bg;
         border-color: light.$border-color;
+        color: light.$headings-color;
         &.apexcharts-xaxistooltip-bottom,
         &.apexcharts-yaxistooltip-bottom {
           &:after {
@@ -69,5 +78,14 @@
         filter: drop-shadow(0 2px 4px #a1acb866);
       }
     }
+  }
+}
+// bar charts with radius hover fix
+#orderStatisticsChart,
+#totalRevenueChart,
+#expensesBarChart {
+  .apexcharts-xcrosshairs.apexcharts-active,
+  .apexcharts-ycrosshairs.apexcharts-active {
+    opacity: 0;
   }
 }

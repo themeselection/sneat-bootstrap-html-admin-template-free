@@ -33,14 +33,15 @@ module.exports = {
     minify: false,
 
     // Generate sourcemaps.
-    sourcemaps: true,
+    sourcemaps: false,
 
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'eval-source-map',
 
     // Use this option with caution because it will remove entire output directory.
     // Will affect only and `build` command
-    cleanDist: false
+    cleanDist: true,
+    fastDev: true
   },
   production: {
     // Build path can be both relative or absolute.
@@ -59,6 +60,7 @@ module.exports = {
 
     // Use this option with caution because it will remove entire output directory.
     // Will affect only `build:prod` command
-    cleanDist: true
+    cleanDist: true,
+    fastDev: false
   }
 };

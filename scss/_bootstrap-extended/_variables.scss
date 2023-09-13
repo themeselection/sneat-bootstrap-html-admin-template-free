@@ -217,9 +217,13 @@ $font-size-lg: 1rem !default;
 $font-size-sm: 0.75rem !default;
 $font-size-xs: $font-size-sm !default; // (C)
 
-$font-weight-semibold: 600 !default; // (C)
-$font-weight-bolder: 900 !default;
-$font-weight-lighter: 100 !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default; // (C)
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
 
 $line-height-base: 1.53 !default;
 $line-height-xl: 1.5 !default; // (C)
@@ -237,7 +241,7 @@ $h6-font-size: $font-size-base !default;
 
 // scss-docs-start headings-variables
 $headings-margin-bottom: $spacer !default;
-$headings-font-weight: 500 !default;
+$headings-font-weight: $font-weight-medium !default;
 $headings-line-height: 1.1 !default;
 $headings-color: rgba-to-hex($gray-900, $rgba-to-hex-bg) !default;
 // scss-docs-end headings-variables
@@ -274,6 +278,8 @@ $text-muted-hover: rgba-to-hex($gray-600, $rgba-to-hex-bg) !default; // (C)
 $text-light: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default; // (C)
 $text-lighter: rgba-to-hex($gray-300, $rgba-to-hex-bg) !default; // (C)
 $text-lightest: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default; // (C)
+
+$dt-font-weight: $font-weight-medium !default;
 // scss-docs-end type-variables
 
 // * Z-index master list
@@ -302,7 +308,7 @@ $table-cell-padding-x-sm: 0.625rem !default;
 
 $table-cell-vertical-align: middle !default;
 
-$table-th-font-weight: $font-weight-semibold !default;
+$table-th-font-weight: $font-weight-medium !default;
 
 $table-striped-bg-factor: 0.03 !default;
 $table-striped-bg: rgba-to-hex(rgba($black, $table-striped-bg-factor), $rgba-to-hex-bg) !default;
@@ -424,6 +430,7 @@ $input-disabled-bg: rgba-to-hex($gray-100, $rgba-to-hex-bg) !default;
 
 $input-color: $body-color !default;
 $input-border-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default;
+$input-border-hover-color: rgba-to-hex($gray-300, $rgba-to-hex-bg) !default; // (C)
 
 $input-hover-border-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default; // (C)
 
@@ -431,7 +438,6 @@ $input-focus-border-color-scale: 50% !default; //(C)
 $input-focus-border-color: tint-color($component-active-bg, $input-focus-border-color-scale) !default;
 
 $input-placeholder-transition: all 0.25s ease;
-$input-placeholder-transform: translate(5px);
 $input-placeholder-color: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default;
 
 $input-height-inner: px-to-rem(
@@ -451,6 +457,7 @@ $form-datatables-check-input-size: 18px !default; // (C) For datatables with che
 
 $form-check-input-border: 1px solid $input-border-color !default;
 
+$form-check-label-cursor: pointer !default;
 $form-check-label-disabled-color: $text-muted !default; // (C)R
 
 $form-check-input-checked-color: $component-active-color !default;
@@ -460,7 +467,7 @@ $form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://w
 $form-check-input-indeterminate-color: $component-active-color !default;
 $form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 10h8'/></svg>") !default;
 
-$form-check-input-disabled-bg: $input-disabled-bg !default;
+$form-check-input-disabled-bg: $input-disabled-bg !default; //(C)
 // scss-docs-end form-check-variables
 
 // scss-docs-start form-switch-variables
@@ -726,7 +733,7 @@ $toast-btn-close-size: 0.625em !default; // (C)
 // *******************************************************************************
 
 $badge-font-size: 0.8125em !default;
-$badge-font-weight: 500 !default;
+$badge-font-weight: $font-weight-medium !default;
 $badge-padding-y: 0.52em !default;
 $badge-padding-x: 0.593em !default;
 $badge-border-radius: $border-radius-sm !default;
@@ -791,7 +798,7 @@ $list-group-bg: transparent !default;
 $list-group-border-color: $border-color !default;
 $list-group-item-padding-y: 0.58rem !default;
 $list-group-item-padding-x: 0.9375rem !default;
-$list-group-item-color-scale: 0 !default;
+$list-group-item-color-scale: 0% !default;
 $list-group-border-radius: $border-radius-lg !default;
 $list-group-item-bg-hover-scale: 5% !default; //  (c)
 

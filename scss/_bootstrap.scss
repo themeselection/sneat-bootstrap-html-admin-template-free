@@ -1,3 +1,6 @@
+@import '../node_modules/bootstrap/scss/mixins/banner';
+@include bsBanner('');
+
 @import '_bootstrap-extended/include';
 
 // Import bootstrap core scss from node_module

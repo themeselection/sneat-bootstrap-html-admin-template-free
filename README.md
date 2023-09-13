@@ -92,7 +92,7 @@ Run a task with the specified environment(development/production) just execute t
 - Extended UI
   - Perfect Scrollbar
   - Text Divider
-- Boxicon
+- Boxicons
 - Form Elements
   - Basic Inputs
   - Input Groups
@@ -103,33 +103,33 @@ Run a task with the specified environment(development/production) just execute t
 
 ## What's in Premium Version 💎
 
-| Sneat Free Version                                                                        | Sneat Premium Version                                                                                                            |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)    | [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/html/vertical-menu-template/)                         |
-| [Download](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) | [Purchase](https://themeselection.com/products/sneat-bootstrap-html-admin-template/)                                             |
-| Single vertical Menu                                                                      | Vertical Menu + Horizontal Menu                                                                                                  |
-| Simple Light Style                                                                        | Light & Dark Style                                                                                                               |
-| Default Theme                                                                             | Default, Semi Dark & Bordered Themes                                                                                             |
-| Fixed Layout(Menu)                                                                        | Fixed & Static Layout(Menu)                                                                                                      |
-| 1 Simple Dashboard                                                                        | 3 Niche Dashboards                                                                                                               |
-| -                                                                                         | Multiple Ready Applications like Calendar, Invoice, Users List, Users View, Roles and Permission, etc.                      |
-| Simple From Elements                                                                      | Advance form elements, validation & form wizard                                                                                  |
-| Basic Cards                                                                               | Basic, Advance, Statistics, Analytics, Gamification and Actions Cards                                                          |
-| Basic User Interface(Components)                                                          | Advance and Custom User Interfaces(Components)                                                                                   |
-| Two Extended Components                                                                   | Twelve Ready to use Extended Components                                                                                          |
-| -                                                                                         | Quick Search - Quickly navigate between pages (w/ hotkey support)                                                                |
+| Sneat Free Version                                                                        | Sneat Premium Version                                                                                                              |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)    | [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/html/vertical-menu-template/)                           |
+| [Download](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) | [Purchase](https://themeselection.com/products/sneat-bootstrap-html-admin-template/)                                               |
+| Single vertical Menu                                                                      | Vertical Menu + Horizontal Menu                                                                                                    |
+| Simple Light Style                                                                        | Light & Dark Style                                                                                                                 |
+| Default Theme                                                                             | Default, Semi Dark & Bordered Themes                                                                                               |
+| Fixed Layout(Menu)                                                                        | Fixed & Static Layout(Menu)                                                                                                        |
+| 1 Simple Dashboard                                                                        | 3 Niche Dashboards                                                                                                                 |
+| -                                                                                         | Multiple Ready Applications like Calendar, Invoice, Users List, Users View, Roles and Permission, etc.                             |
+| Simple From Elements                                                                      | Advance form elements, validation & form wizard                                                                                    |
+| Basic Cards                                                                               | Basic, Advance, Statistics, Analytics, Gamification and Actions Cards                                                              |
+| Basic User Interface(Components)                                                          | Advance and Custom User Interfaces(Components)                                                                                     |
+| Two Extended Components                                                                   | Twelve Ready to use Extended Components                                                                                            |
+| -                                                                                         | Quick Search - Quickly navigate between pages (w/ hotkey support)                                                                  |
 | Basic Pages                                                                               | Authentication Pages in 2 Variants + Ready-to-use pages like User Profile, Account Settings, FAQ, Help Center, Pricing, Misc, etc. |
-| -                                                                                         | 3D Characters + Illustrations                                                                                                    |
-| Basic tables                                                                              | Advanced tables                                                                                                                  |
-| -                                                                                         | Quick customization using theme config file                                                                                      |
-| -                                                                                         | Leaflet Maps                                                                                                                     |
-| 1 Chart Library                                                                           | 2 Chart Libraries                                                                                                                |
-| -                                                                                         | Multiple Navbar & Menu Options                                                                                                   |
-| -                                                                                         | Starter-kit                                                                                                                      |
-| -                                                                                         | Internationalization support                                                                                                     |
-| -                                                                                         | RTL Support                                                                                                                      |
-| Regular Support                                                                           | Priority Support                                                                                                                 |
-| Detailed Documentation                                                                    | Detailed Documentation                                                                                                           |
+| -                                                                                         | 3D Characters + Illustrations                                                                                                      |
+| Basic tables                                                                              | Advanced tables                                                                                                                    |
+| -                                                                                         | Quick customization using theme config file                                                                                        |
+| -                                                                                         | Leaflet Maps                                                                                                                       |
+| 1 Chart Library                                                                           | 2 Chart Libraries                                                                                                                  |
+| -                                                                                         | Multiple Navbar & Menu Options                                                                                                     |
+| -                                                                                         | Starter-kit                                                                                                                        |
+| -                                                                                         | Internationalization support                                                                                                       |
+| -                                                                                         | RTL Support                                                                                                                        |
+| Regular Support                                                                           | Priority Support                                                                                                                   |
+| Detailed Documentation                                                                    | Detailed Documentation                                                                                                             |
 
 ## Documentation 📜
 

@@ -7,6 +7,20 @@
   }
 }
 
+// Firefox fix for table head border bottom
+.table {
+  > :not(caption) > * > * {
+    background-clip: padding-box;
+  }
+  tr {
+    > td {
+      .dropdown {
+        position: static;
+      }
+    }
+  }
+}
+
 // Style for table inside card
 .card {
   .table {
@@ -45,6 +59,17 @@
 .table.table-dark .btn.btn-icon {
   color: $table-border-color;
 }
+
+// class for to remove table border bottom
+.table-border-bottom-0 {
+  tr:last-child {
+    td,
+    th {
+      border-bottom-width: 0;
+    }
+  }
+}
+
 // .table {
 //   .btn-group {
 //     display: block;
