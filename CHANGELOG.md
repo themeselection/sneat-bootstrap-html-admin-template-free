@@ -2,7 +2,13 @@
 
 All notable changes to this template will be documented in this file.
 
-## [1.1.0] - [2022-09-13]
+## [1.1.1] - [2023-09-27]
+
+### Fixed
+
+- Minor Improvements
+
+## [1.1.0] - [2023-09-13]
 
 ### Fixed
 
