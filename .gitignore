@@ -44,16 +44,20 @@ gulpfile.tmp.*
 ################################################################################
 ############################### DEVELOPMENT_ONLY ###############################
 
-# Excludes generated 
+# Excludes generated
 /dist
 /build
 /tmp
 /temp
 
 # Assets
+# **/assets/vendor
 # **/static/vendor
 
 # HTML files
 /html-starter
 /html-demo
 /html-starter-demo
+
+# Package Lock files
+/package-lock.json
