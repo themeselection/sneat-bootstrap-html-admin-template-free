@@ -2,6 +2,18 @@
 
 All notable changes to this template will be documented in this file.
 
+## v1.2.0 (2023-11-01)
+
+### Updated
+
+- Updated Bootstrap to latest version(5.3.2)
+- Updated SCSS & Mixins as per Bootstrap 5.3.2
+
+### Fixed
+
+- Carousel HTML Structure as per latest Bootstrap
+- Minor improvements & Bugfixes
+
 ## [1.1.1] - [2023-09-27]
 
 ### Fixed
