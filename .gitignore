@@ -55,7 +55,6 @@ gulpfile.tmp.*
 # **/static/vendor
 
 # HTML files
-/html-starter
 /html-demo
 /html-starter-demo
 

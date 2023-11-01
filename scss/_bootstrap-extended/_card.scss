@@ -134,6 +134,18 @@
   }
 }
 
+.card-title {
+  &:not(:is(h1, h2, h3, h4, h5, h6)) {
+    color: $body-color;
+  }
+}
+
+.card-title {
+  &:not(:is(h1, h2, h3, h4, h5, h6)) {
+    color: $body-color;
+  }
+}
+
 // * Horizontal card radius issue fix
 .card-img-left {
   @include border-start-radius($card-inner-border-radius);

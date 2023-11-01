@@ -1,7 +1,7 @@
 // * Carets
 // *******************************************************************************
 
-@mixin caret-up {
+@mixin caret-up($caret-width) {
   margin-top: -0;
   width: $caret-width;
   height: $caret-width;
@@ -11,7 +11,7 @@
   transform: rotate(-45deg);
 }
 
-@mixin caret-down {
+@mixin caret-down($caret-width) {
   margin-top: -1 * divide($caret-width, 1.5);
   width: $caret-width;
   height: $caret-width;
@@ -21,7 +21,7 @@
   transform: rotate(45deg);
 }
 
-@mixin caret-left {
+@mixin caret-left($caret-width) {
   margin-top: -1 * divide($caret-width, 2.5);
   width: $caret-width;
   height: $caret-width;
@@ -31,7 +31,7 @@
   transform: rotate(45deg);
 }
 
-@mixin caret-right {
+@mixin caret-right($caret-width) {
   margin-top: -1 * divide($caret-width, 2.5);
   width: $caret-width;
   height: $caret-width;

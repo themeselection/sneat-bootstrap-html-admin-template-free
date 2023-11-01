@@ -2,7 +2,7 @@
   "name": "sneat-bootstrap-html-admin-template-free",
   "description": "Most Powerful & Comprehensive Free Bootstrap 5 HTML Admin Dashboard Template built for developers! 🚀",
   "license": "MIT",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": {
     "name": "ThemeSelection",
     "url": "https://themeselection.com/"
@@ -44,7 +44,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "apexcharts-clevision": "^3.28.5",
-    "bootstrap": "~5.2.3",
+    "bootstrap": "~5.3.2",
     "boxicons": "~2.1.4",
     "highlight.js": "~11.8.0",
     "jquery": "~3.7.0",
@@ -85,7 +85,7 @@
     "html-loader": "~4.2.0",
     "js-beautify": "^1.14.8",
     "prettier": "^2.8.8",
-    "sass": "1.63.6",
+    "sass": "^1.68.0",
     "sass-loader": "~13.3.2",
     "string-replace-webpack-plugin": "~0.1.3",
     "style-loader": "~3.3.3",
@@ -95,11 +95,11 @@
   },
   "overrides": {
     "prop-types": "15.7.2",
-    "sass": "1.63.6"
+    "sass": "1.68.0"
   },
   "resolutions": {
     "prop-types": "15.7.2",
-    "sass": "1.63.6"
+    "sass": "1.68.0"
   },
   "gulp-environment": {
     "environments": [

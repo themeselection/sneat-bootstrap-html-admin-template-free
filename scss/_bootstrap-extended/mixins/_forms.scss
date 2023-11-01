@@ -125,7 +125,8 @@
   $icon: null,
   $tooltip-color: null,
   $tooltip-bg-color: null,
-  $focus-box-shadow: null
+  $focus-box-shadow: null,
+  $border-color: null
 ) {
 }
 
@@ -135,7 +136,8 @@
   $icon,
   $tooltip-color: color-contrast($color),
   $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
-  $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity)
+  $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity),
+  $border-color: $color
 ) {
   .#{$state}-feedback {
     display: none;

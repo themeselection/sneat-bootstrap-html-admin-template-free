@@ -33,7 +33,7 @@
   line-height: $pagination-line-height;
   text-align: center;
   min-width: calc(
-    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + #{$pagination-border-width * 2}'}
+    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + calc(#{$pagination-border-width} * 2)'}
   );
 
   &:focus {
@@ -52,7 +52,7 @@
 .pagination-lg .page-link,
 .pagination-lg > li > a:not(.page-link) {
   min-width: calc(
-    #{'#{($font-size-lg * $pagination-line-height) + ($pagination-padding-y-lg * 2)} + #{$pagination-border-width * 2}'}
+    #{'#{($font-size-lg * $pagination-line-height) + ($pagination-padding-y-lg * 2)} + calc(#{$pagination-border-width} * 2)'}
   );
 }
 .pagination-lg > .page-item {
@@ -72,7 +72,7 @@
 .pagination-sm .page-link,
 .pagination-sm > li > a:not(.page-link) {
   min-width: calc(
-    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + #{$pagination-border-width * 2}'}
+    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + calc(#{$pagination-border-width} * 2)'}
   );
   .tf-icon {
     font-size: $font-size-base;

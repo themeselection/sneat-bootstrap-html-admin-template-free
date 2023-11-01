@@ -84,9 +84,11 @@ $min-contrast-ratio: 1.7 !default;
 
 $enable-negative-margins: true !default;
 $enable-validation-icons: false !default;
+$enable-dark-mode: false !default;
 
 // Prefix for :root CSS variables
 $variable-prefix: bs- !default;
+$prefix: $variable-prefix !default;
 
 // * Spacing
 // *******************************************************************************
@@ -190,6 +192,10 @@ $hr-color: $border-color !default;
 $hr-opacity: 1 !default;
 $bordered-row-border-color: $hr-color !default; // (C)
 
+$focus-ring-width: 0.15rem !default;
+$focus-ring-opacity: 0.75 !default;
+$focus-ring-color: rgba($gray-700, $focus-ring-opacity) !default;
+
 // scss-docs-start caret-variables
 $caret-width: 0.42em !default;
 $caret-vertical-align: middle !default;
@@ -220,7 +226,7 @@ $font-size-xs: $font-size-sm !default; // (C)
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
-$font-weight-medium: 500 !default; // (C)
+$font-weight-medium: 500 !default;
 $font-weight-semibold: 600 !default;
 $font-weight-bold: 700 !default;
 $font-weight-bolder: bolder !default;
@@ -297,6 +303,18 @@ $zindex-toast: 1095 !default; // (C)
 $zindex-tooltip: 1099 !default;
 $zindex-notification: 999999 !default; // (C)
 
+// scss-docs-start zindex-levels-map
+$zindex-levels: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5
+) !default;
+// scss-docs-end zindex-levels-map
+
 // * Tables
 // *******************************************************************************
 
@@ -308,17 +326,26 @@ $table-cell-padding-x-sm: 0.625rem !default;
 
 $table-cell-vertical-align: middle !default;
 
+$table-color: var(--#{$prefix}body-color) !default;
+$table-bg: transparent !default;
+
 $table-th-font-weight: $font-weight-medium !default;
 
 $table-striped-bg-factor: 0.03 !default;
 $table-striped-bg: rgba-to-hex(rgba($black, $table-striped-bg-factor), $rgba-to-hex-bg) !default;
 
+$table-active-bg-factor: 0.1 !default;
+$table-active-bg: rgba($black, $table-active-bg-factor) !default;
+
 $table-hover-bg-factor: 0.06 !default;
 $table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
 
+$table-border-factor: 0.1 !default;
 $table-border-color: $border-color !default;
 
 $table-group-separator-color: $table-border-color !default;
+
+$table-caption-color: $text-muted !default;
 
 // * Buttons + Forms
 // *******************************************************************************
@@ -456,6 +483,7 @@ $form-check-input-width: 1.2em !default;
 $form-datatables-check-input-size: 18px !default; // (C) For datatables with checkbox- update according to $form-check-input-width
 
 $form-check-input-border: 1px solid $input-border-color !default;
+$form-check-input-focus-box-shadow: $input-btn-focus-box-shadow !default;
 
 $form-check-label-cursor: pointer !default;
 $form-check-label-disabled-color: $text-muted !default; // (C)R
@@ -518,6 +546,11 @@ $form-range-thumb-focus-box-shadow: 0 0 8px 0px $gray-400 !default;
 $form-range-thumb-active-bg: $form-range-thumb-bg !default;
 $form-range-thumb-disabled-bg: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default;
 // scss-docs-end form-range-variables
+
+// scss-docs-start form-file-variables
+$form-file-button-bg: $input-group-addon-bg !default;
+$form-file-button-hover-bg: shade-color($form-file-button-bg, 5%) !default;
+// scss-docs-end form-file-variables
 
 // scss-docs-start form-floating-variables
 $form-floating-label-opacity: 0.75 !default;
@@ -592,6 +625,7 @@ $navbar-light-toggler-border-color: rgba($black, 0.06) !default;
 $dropdown-min-width: 12rem !default;
 $dropdown-padding-y: 0.3125rem !default;
 $dropdown-font-size: $font-size-base !default;
+$dropdown-bg: $white !default;
 $dropdown-border-color: $floating-component-border-color !default;
 $dropdown-divider-bg: $border-color !default;
 $dropdown-box-shadow: $floating-component-shadow !default;
@@ -637,6 +671,7 @@ $pagination-focus-bg: rgba-to-hex(rgba($black, 0.16), $rgba-to-hex-bg) !default;
 
 $pagination-hover-color: $pagination-color !default;
 $pagination-hover-bg: rgba-to-hex(rgba($black, 0.16), $rgba-to-hex-bg) !default;
+$pagination-hover-border-color: $gray-300 !default;
 
 $pagination-disabled-color: $text-muted !default;
 $pagination-disabled-bg: rgba-to-hex(rgba($black, 0.04), $rgba-to-hex-bg) !default;
@@ -644,6 +679,7 @@ $pagination-disabled-bg: rgba-to-hex(rgba($black, 0.04), $rgba-to-hex-bg) !defau
 // * Cards
 // *******************************************************************************
 
+$card-title-color: $headings-color !default;
 $card-spacer-y: $spacer * 1.5 !default;
 $card-spacer-x: $spacer * 1.5 !default;
 $card-title-font-size: $h5-font-size !default; // (C)
@@ -657,6 +693,7 @@ $card-inner-border-color: $border-inner-color !default; // (C)
 $card-cap-padding-y: $spacer * 1.5 !default;
 
 $card-cap-bg: transparent !default;
+$card-bg: $white !default;
 $card-img-overlay-padding: 1.5rem !default;
 
 // * Accordion
@@ -666,10 +703,11 @@ $accordion-padding-y: 0.79rem !default;
 $accordion-padding-x: 1.125rem !default;
 $accordion-color: $body-color !default;
 $accordion-bg: $white !default;
-$accordion-button-color: $headings-color !default;
-
 $accordion-border-width: 0 !default;
 $accordion-border-color: $border-color !default;
+$accordion-border-radius: $border-radius !default;
+
+$accordion-button-color: $headings-color !default;
 $accordion-button-active-bg: $accordion-bg !default;
 $accordion-button-active-color: $accordion-button-color !default;
 
@@ -686,6 +724,7 @@ $accordion-button-active-icon: url("data:image/svg+xml,%3Csvg width='12' height=
 // *******************************************************************************
 
 $tooltip-bg: $dark !default;
+$tooltip-color: $white !default;
 $tooltip-opacity: 1 !default;
 $tooltip-box-shadow: $box-shadow-sm !default; // (C)
 $tooltip-padding-y: 0.25rem !default;
@@ -747,6 +786,8 @@ $badge-line-height: 0.75 !default; // (C)
 $modal-inner-padding: $spacer * 1.5 !default;
 $modal-dialog-margin: 1.5rem !default;
 
+$modal-content-color: null !default;
+$modal-content-bg: $white !default;
 $modal-content-border-width: 0px !default;
 $modal-content-box-shadow-xs: 0 2px 16px 0 rgba($black, 0.45) !default;
 $modal-content-box-shadow-sm-up: 0 2px 20px 0 rgba($black, 0.45) !default;
@@ -876,6 +917,8 @@ $close-font-weight: 300 !default; // (C)
 
 // scss-docs-start offcanvas-variables
 $offcanvas-transition-duration: 0.25s !default;
+$offcanvas-bg-color: $modal-content-bg !default;
+$offcanvas-color: $modal-content-color !default;
 // scss-docs-end offcanvas-variables
 
 // Utilities

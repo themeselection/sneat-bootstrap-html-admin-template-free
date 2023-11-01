@@ -715,11 +715,25 @@
                   <h5 class="my-4">Bootstrap carousel</h5>
 
                   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
-                      <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
-                      <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
-                    </ol>
+                    <div class="carousel-indicators">
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <img class="d-block w-100" src="../assets/img/elements/13.jpg" alt="First slide" />
@@ -758,14 +772,28 @@
                   <h5 class="my-4">Bootstrap crossfade carousel (dark)</h5>
 
                   <div
-                    id="carouselExample-cf"
+                    id="carouselExampleDark"
                     class="carousel carousel-dark slide carousel-fade"
                     data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="0" class="active"></li>
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="1"></li>
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="2"></li>
-                    </ol>
+                    <div class="carousel-indicators">
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleDark"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleDark"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleDark"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <img class="d-block w-100" src="../assets/img/elements/18.jpg" alt="First slide" />
@@ -789,11 +817,11 @@
                         </div>
                       </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExample-cf" role="button" data-bs-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExample-cf" role="button" data-bs-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </a>
@@ -828,7 +856,7 @@
                   <a
                     href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                     target="_blank"
-                    class="footer-link me-4"
+                    class="footer-link"
                     >Support</a
                   >
                 </div>

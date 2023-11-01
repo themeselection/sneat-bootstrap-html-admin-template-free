@@ -152,6 +152,7 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 .list-group-item-primary {
+  border-color: #696cff;
   background-color: #e1e2ff;
   color: #696cff !important;
 }
@@ -163,19 +164,21 @@ button.list-group-item-primary {
 a.list-group-item-primary:hover, a.list-group-item-primary:focus,
 button.list-group-item-primary:hover,
 button.list-group-item-primary:focus {
+  border-color: #696cff;
   background-color: #d6d7f2;
   color: #696cff;
 }
 a.list-group-item-primary.active,
 button.list-group-item-primary.active {
-  border-color: #696cff;
-  background-color: #696cff;
-  color: #696cff;
+  border-color: #696cff !important;
+  background-color: #696cff !important;
+  color: #fff !important;
 }
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   border-color: #696cff;
   background-color: #696cff;
+  color: #fff;
 }
 
 .alert-primary {

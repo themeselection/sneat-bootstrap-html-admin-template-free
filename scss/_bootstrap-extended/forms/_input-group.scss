@@ -64,6 +64,9 @@
         padding-right: 0;
         border-right: 0;
       }
+      &:is(textarea):not(:last-child) {
+        padding-right: $input-btn-padding-x;
+      }
     }
   }
 }

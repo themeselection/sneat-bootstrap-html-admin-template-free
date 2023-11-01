@@ -51,7 +51,7 @@ label.btn {
   $btn-icon-size-lg: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2);
   $btn-icon-size-sm: ($btn-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2);
   $btn-icon-size-xs: ($btn-font-size-xs * $btn-line-height-xs) + ($btn-padding-y-xs * 2);
-  $borders-width: $btn-border-width * 2;
+  $borders-width: calc(#{$btn-border-width} * 2);
   --#{$prefix}btn-active-border-color: transparent;
 
   padding: 0;

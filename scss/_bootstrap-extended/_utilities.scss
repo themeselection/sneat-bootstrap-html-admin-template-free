@@ -16,6 +16,35 @@ $utilities: map-merge(
         values: baseline top middle bottom text-bottom text-top
       ),
     // scss-docs-end utils-vertical-align
+    // Object Fit utilities
+    // scss-docs-start utils-object-fit
+    'object-fit':
+      (
+        responsive: true,
+        property: object-fit,
+        values: (
+          contain: contain,
+          cover: cover,
+          fill: fill,
+          scale: scale-down,
+          none: none
+        )
+      ),
+    // scss-docs-end utils-object-fit
+    // Opacity utilities
+    // scss-docs-start utils-opacity
+    'opacity':
+      (
+        property: opacity,
+        values: (
+          0: 0,
+          25: 0.25,
+          50: 0.5,
+          75: 0.75,
+          100: 1
+        )
+      ),
+    // scss-docs-end utils-opacity
     // scss-docs-start utils-overflow
     'overflow':
       (
@@ -61,20 +90,6 @@ $utilities: map-merge(
       values: $position-values
     ),
     // scss-docs-end utils-position
-    // scss-docs-start utils-zindex
-    'zindex':
-      (
-        property: z-index,
-        class: zindex,
-        values: (
-          1: 1,
-          2: 2,
-          3: 3,
-          4: 4,
-          5: 5
-        )
-      ),
-    // scss-docs-end utils-zindex
     // scss-docs-start utils-borders
     'border':
       (
@@ -134,6 +149,17 @@ $utilities: map-merge(
       property: border-width,
       class: border,
       values: $border-widths
+    ),
+    'border-opacity': (
+      css-var: true,
+      class: border-opacity,
+      values: (
+        10: 0.1,
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1
+      )
     ),
     // scss-docs-end utils-borders
     // Sizing utilities
@@ -253,12 +279,6 @@ $utilities: map-merge(
       property: flex-wrap,
       class: flex,
       values: wrap nowrap wrap-reverse
-    ),
-    'gap': (
-      responsive: true,
-      property: gap,
-      class: gap,
-      values: $spacers
     ),
     'justify-content': (
       responsive: true,
@@ -449,6 +469,24 @@ $utilities: map-merge(
       class: pb,
       values: $spacers
     ),
+    'gap': (
+      responsive: true,
+      property: gap,
+      class: gap,
+      values: $spacers
+    ),
+    'row-gap': (
+      responsive: true,
+      property: row-gap,
+      class: row-gap,
+      values: $spacers
+    ),
+    'column-gap': (
+      responsive: true,
+      property: column-gap,
+      class: column-gap,
+      values: $spacers
+    ),
     // scss-docs-end utils-spacing
     // Text
     // scss-docs-start utils-text
@@ -561,7 +599,69 @@ $utilities: map-merge(
             )
           )
       ),
+    'text-opacity': (
+      css-var: true,
+      class: text-opacity,
+      values: (
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1
+      )
+    ),
     // scss-docs-end utils-color
+    // scss-docs-start utils-links
+    'link-opacity':
+      (
+        css-var: true,
+        class: link-opacity,
+        state: hover,
+        values: (
+          10: 0.1,
+          25: 0.25,
+          50: 0.5,
+          75: 0.75,
+          100: 1
+        )
+      ),
+    'link-offset': (
+      property: text-underline-offset,
+      class: link-offset,
+      state: hover,
+      values: (
+        1: 0.125em,
+        2: 0.25em,
+        3: 0.375em
+      )
+    ),
+    'link-underline': (
+      property: text-decoration-color,
+      class: link-underline,
+      local-vars: (
+        'link-underline-opacity': 1
+      ),
+      values:
+        map-merge(
+          $utilities-links-underline,
+          (
+            null: rgba(var(--#{$prefix}link-color-rgb), var(--#{$prefix}link-underline-opacity, 1))
+          )
+        )
+    ),
+    'link-underline-opacity': (
+      css-var: true,
+      class: link-underline-opacity,
+      state: hover,
+      values: (
+        0: 0,
+        10: 0.1,
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1
+      )
+    ),
+    // scss-docs-end utils-links
     // scss-docs-start utils-bg-color
     'background-color':
       (
@@ -584,6 +684,22 @@ $utilities: map-merge(
             )
           )
       ),
+    'bg-opacity': (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        10: 0.1,
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1
+      )
+    ),
+    'subtle-background-color': (
+      property: background-color,
+      class: bg,
+      values: $utilities-bg-subtle
+    ),
     // scss-docs-end utils-bg-color
     'gradient':
       (
@@ -646,6 +762,14 @@ $utilities: map-merge(
         )
       ),
     // scss-docs-end utils-visibility
+    // scss-docs-start utils-zindex
+    'z-index':
+      (
+        property: z-index,
+        class: z,
+        values: $zindex-levels
+      ),
+    // scss-docs-end utils-zindex
     // Custom Utilities
     // *******************************************************************************
     // scss-docs-start utils-flex-basis
