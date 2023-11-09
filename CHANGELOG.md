@@ -2,6 +2,12 @@
 
 All notable changes to this template will be documented in this file.
 
+## v1.2.1 (2023-11-09)
+
+### Fixed
+
+- Minor improvements & Bugfixes
+
 ## v1.2.0 (2023-11-01)
 
 ### Updated
