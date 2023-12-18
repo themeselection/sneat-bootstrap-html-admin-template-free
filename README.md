@@ -133,6 +133,10 @@ Run a task with the specified environment(development/production) just execute t
 
 ## Documentation 📜
 
+<!-- If you have docs in wiki then use below line -->
+
+Check GitHub [Wiki](https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/wiki) of this repository.
+
 Check out our live [Documentation](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/)
 
 ## Browser Support 🖥️
@@ -144,23 +148,6 @@ At present, we officially aim to support the last two versions of the following 
 - Safari (latest)
 - Microsoft Edge (latest)
 - Opera (latest)
-
-## Useful Links 🎁
-
-- [Freebies](https://themeselection.com/item/category/freebies/)
-- [Free Admin Templates](https://themeselection.com/item/category/free-admin-templates/)
-- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
-
-## Support 👨‍💻
-
-We use GitHub issues as support tickets to manage Item support.
-
-1. In order to raise the GitHub issue, you must have a GitHub account. [Raise an Issue](https://github.com/themeselection/sneat-html-admin-template-free/issues)
-
-## License ©
-
-- Copyright © [ThemeSelection](https://themeselection.com/)
-- Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
 
 ## Contributing 🦸
 
@@ -185,9 +172,41 @@ Contributions are always welcome and recommended! Here is how:
 
 Please refer to the [CHANGELOG](https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/blob/main/CHANGELOG.md) file. We will add detailed release notes to each new release.
 
+## NOTE 🏷️
+
+**We request you to keep ThemeSelection credit link in the footer section.**
+
+## Looking For Premium Admin Templates ?? 👀
+
+**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and Premium [Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/), [VueJS Admin Templates](https://themeselection.com/products/category/vuejs-admin-templates/), [Laravel Admin Templates](https://themeselection.com/products/category/laravel-admin-templates/), HTML Themes, and [Free UI Kits](https://themeselection.com/products/category/free-ui-kits/) to create your applications faster!.
+
+If you want to [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/) like Materio then do visit [ThemeSelection](https://themeselection.com/).
+
+## Other variants
+
+- [Laravel free variant](https://themeselection.com/item/sneat-free-bootstrap-html-laravel-admin-template/)
+<!-- Add others here -->
+
 ## Social Media 🌍
 
 - Twitter : [https://twitter.com/Theme_Selection](https://twitter.com/Theme_Selection)
 - Facebook : [https://www.facebook.com/ThemeSelections/](https://www.facebook.com/ThemeSelections/)
 - Pinterest : [https://pinterest.com/themeselect/](https://pinterest.com/themeselect/)
 - Instagram : [https://www.instagram.com/themeselection/](https://www.instagram.com/themeselection/)
+
+## Useful Links 🎁
+
+- [Freebies](https://themeselection.com/item/category/freebies/)
+- [Free Admin Templates](https://themeselection.com/item/category/free-admin-templates/)
+- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
+
+## Support 👨‍💻
+
+We use GitHub issues as support tickets to manage Item support.
+
+1. In order to raise the GitHub issue, you must have a GitHub account. [Raise an Issue](https://github.com/themeselection/sneat-html-admin-template-free/issues)
+
+## License ©
+
+- Copyright © [ThemeSelection](https://themeselection.com/)
+- Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
