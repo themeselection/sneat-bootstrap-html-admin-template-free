@@ -223,7 +223,13 @@ For free products, enjoy community support via GitHub issues. Upgrade to Premium
 
 If you want to [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/) like Materio then do visit [ThemeSelection](https://themeselection.com/).
 
-## Social Media 🌍
+## Useful Links 🎁
+
+- [Freebies](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
+
+## Social Media :earth_africa:
 
 - [Twitter](https://twitter.com/Theme_Selection)
 - [Facebook](https://www.facebook.com/ThemeSelections/)
