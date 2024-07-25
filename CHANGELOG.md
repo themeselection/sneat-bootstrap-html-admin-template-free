@@ -2,6 +2,22 @@
 
 All notable changes to this template will be documented in this file.
 
+## v2.0.0 (2024-07-25)
+
+### Added
+
+- New Design Alignments
+- New spacer & utility classes
+
+### Updated
+
+- Bootstrap 5.3.3
+- Documentation
+
+### Fixed
+
+- UI improvements & bug fixes
+
 ## v1.2.1 (2023-11-09)
 
 ### Fixed
