@@ -20,11 +20,7 @@
     ),
     shift-color($background, $list-group-item-color-scale, $card-bg)
   );
-  $color: if(
-    $parent == '.list-group-item-dark' and $dark-style,
-    color-contrast($background),
-    shift-color($background, $list-group-item-color-scale)
-  );
+  $color: shift-color($background, $list-group-item-color-scale);
   $hover-background: shade-color($background-color, $list-group-item-bg-hover-scale);
   #{$parent} {
     border-color: $border-color;
@@ -58,9 +54,8 @@
     &,
     &:hover,
     &:focus {
-      border-color: $background;
-      background-color: $background;
-      color: color-contrast($background);
+      background-color: rgba-to-hex(rgba($background, 0.16), $card-bg);
+      color: $background;
     }
   }
 }

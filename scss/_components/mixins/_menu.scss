@@ -85,10 +85,6 @@
       border-color: map-get($colors, border) !important;
     }
 
-    .menu-inner > .menu-header::before {
-      background-color: map-get($colors, border);
-    }
-
     .menu-block::before {
       background-color: map-get($colors, muted-color);
     }
@@ -104,7 +100,7 @@
 
     .menu-inner > .menu-item.open .menu-item.open > .menu-toggle::before,
     .menu-inner > .menu-item.open .menu-item.active > .menu-link::before {
-      box-shadow: 0 0 0 2px $active-bg;
+      box-shadow: 0 0 0 1px $active-bg;
     }
 
     .ps__thumb-y,

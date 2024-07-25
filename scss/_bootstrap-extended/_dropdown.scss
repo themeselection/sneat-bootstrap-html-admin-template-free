@@ -7,6 +7,7 @@
 }
 
 .dropdown-menu {
+  margin-top: 1px !important;
   box-shadow: $dropdown-box-shadow;
 
   // Mega dropdown inside the dropdown menu
@@ -24,7 +25,10 @@
 }
 // Dropdown item line height
 .dropdown-item {
-  line-height: $dropdown-link-line-height;
+  li:not(:first-child) &,
+  .dropdown-menu &:not(:first-child) {
+    margin-top: 2px;
+  }
 }
 
 // Hidden dropdown toggle arrow
@@ -60,4 +64,7 @@
   .dropend .dropdown-toggle::after {
     vertical-align: $caret-vertical-align;
   }
+}
+.dropdown-toggle-split:after {
+  margin-left: 0 !important;
 }

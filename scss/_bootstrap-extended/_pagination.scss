@@ -9,20 +9,19 @@
   &.prev,
   &.previous {
     .page-link {
-      padding-top: $pagination-padding-y - 0.125rem;
-      padding-bottom: $pagination-padding-y - 0.125rem;
+      padding: $pagination-padding-y - 0.043rem $pagination-padding-x - 0.067rem;
     }
   }
-  &.disabled {
+  &.disabled,
+  &[disabled] {
     .page-link {
-      border-color: $pagination-border-color;
+      opacity: $pagination-disabled-opacity;
+      pointer-events: none;
     }
   }
-  &.active {
-    .page-link {
-      margin: 0 0.1rem 0 0.3rem;
-    }
-  }
+}
+.page-item:last-child .tf-icon {
+  transform: translateX(7%);
 }
 
 // Pagination basic style
@@ -30,14 +29,37 @@
 .page-link > a {
   @include border-radius($border-radius);
 
-  line-height: $pagination-line-height;
   text-align: center;
   min-width: calc(
+    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-x * 1.923)} + calc(#{$pagination-border-width} * 2)'}
+  );
+  min-height: calc(
     #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + calc(#{$pagination-border-width} * 2)'}
   );
 
   &:focus {
     color: $pagination-hover-color;
+  }
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+// Add spacing between pagination items
+.page-item + .page-item .page-link,
+.pagination li + li > a:not(.page-link) {
+  .pagination-sm & {
+    margin-left: 0.25rem;
+  }
+  .pagination-lg & {
+    margin-left: 0.5rem;
+  }
+}
+
+// Removed border from default pagination and set line-height of icons
+.pagination {
+  .page-link {
+    border-color: transparent;
   }
 }
 
@@ -52,31 +74,22 @@
 .pagination-lg .page-link,
 .pagination-lg > li > a:not(.page-link) {
   min-width: calc(
-    #{'#{($font-size-lg * $pagination-line-height) + ($pagination-padding-y-lg * 2)} + calc(#{$pagination-border-width} * 2)'}
+    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-x-lg * 1.615)} + calc(#{$pagination-border-width} * 2)'}
   );
-}
-.pagination-lg > .page-item {
-  &.first,
-  &.last,
-  &.next,
-  &.prev,
-  &.previous {
-    .page-link {
-      padding-top: $pagination-padding-y-lg - 0.0845rem;
-      padding-bottom: $pagination-padding-y-lg - 0.0845rem;
-    }
-  }
+  min-height: calc(
+    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y-lg * 2.33)} + calc(#{$pagination-border-width} * 2)'}
+  );
 }
 
 // Pagination Small
 .pagination-sm .page-link,
 .pagination-sm > li > a:not(.page-link) {
   min-width: calc(
+    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-x-sm * 2.356)} + calc(#{$pagination-border-width} * 2)'}
+  );
+  min-height: calc(
     #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + calc(#{$pagination-border-width} * 2)'}
   );
-  .tf-icon {
-    font-size: $font-size-base;
-  }
 }
 .pagination-sm > .page-item {
   &.first,
@@ -85,8 +98,7 @@
   &.prev,
   &.previous {
     .page-link {
-      padding-top: $pagination-padding-y-sm - 0.075rem;
-      padding-bottom: $pagination-padding-y-sm - 0.075rem;
+      padding: $pagination-padding-y-sm - 0.1055rem;
     }
   }
 }

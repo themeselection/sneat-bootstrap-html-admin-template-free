@@ -4,7 +4,9 @@
 .footer-link {
   display: inline-block;
 }
-
+.content-footer .footer-container {
+  block-size: 54px;
+}
 // Light footer
 .footer-light {
   color: $navbar-light-color;

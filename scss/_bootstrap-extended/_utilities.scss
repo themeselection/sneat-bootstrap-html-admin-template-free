@@ -71,6 +71,7 @@ $utilities: map-merge(
           null: $box-shadow,
           sm: $box-shadow-sm,
           lg: $box-shadow-lg,
+          xl: $box-shadow-xl,
           none: none
         )
       ),
@@ -512,7 +513,7 @@ $utilities: map-merge(
             //(C)
             large: $large-font-size,
             //(C)
-            xlarge: $xlarge-font-size//(C)
+            xlarge: $xlarge-font-size //(C)
           )
         )
     ),
@@ -531,6 +532,7 @@ $utilities: map-merge(
         medium: $font-weight-medium,
         semibold: $font-weight-semibold,
         bold: $font-weight-bold,
+        extrabold: $font-weight-extrabold,
         bolder: $font-weight-bolder
       )
     ),
@@ -677,9 +679,9 @@ $utilities: map-merge(
               'body': $body-bg,
               'white': $white,
               'transparent': transparent,
-              'lighter': $gray-50,
+              'lighter': rgba-to-hex($gray-60, $rgba-to-hex-bg),
               //(C)
-              'lightest': $gray-25,
+              'lightest': rgba-to-hex($gray-25, $rgba-to-hex-bg),
               //(C)
             )
           )
@@ -882,7 +884,7 @@ a.bg-lighter {
 a.bg-lightest {
   &:hover,
   &:focus {
-    background-color: $gray-50 !important;
+    background-color: $gray-60 !important;
   }
 }
 
@@ -922,6 +924,17 @@ a.bg-lightest {
     &:hover,
     &:focus {
       color: $text-muted-hover !important;
+    }
+  }
+}
+
+.text-paper {
+  color: $card-bg !important;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      color: $primary !important;
     }
   }
 }

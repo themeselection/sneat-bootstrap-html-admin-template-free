@@ -7,3 +7,25 @@
     @include template-alert-variant('.alert-#{$state}', $value);
   }
 }
+// Adjust close link position
+.alert-dismissible {
+  .btn-close {
+    padding: $alert-padding-y * 1.45 $alert-padding-x;
+    background-size: 0.625rem 0.625rem;
+  }
+}
+
+// Alert icon and line-height styles
+.alert {
+  line-height: 1.375rem;
+  .alert-icon {
+    color: $white;
+    height: $alert-icon-size;
+    width: $alert-icon-size;
+    padding: $spacer * 0.68;
+    margin-right: $spacer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -30,3 +30,26 @@ input:-internal-autofill-selected {
   background-clip: text !important;
   -webkit-background-clip: text !important;
 }
+
+h1 {
+  line-height: $h1-line-height;
+}
+h2 {
+  line-height: $h2-line-height;
+}
+
+h3 {
+  line-height: $h3-line-height;
+}
+
+h4 {
+  line-height: $h4-line-height;
+}
+
+h5 {
+  line-height: $h5-line-height;
+}
+
+h6 {
+  line-height: $h6-line-height;
+}

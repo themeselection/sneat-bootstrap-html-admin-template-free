@@ -683,16 +683,16 @@
 
 .light-style .apexcharts-canvas .apexcharts-tooltip {
   background: #fff;
-  border-color: #d9dee3;
-  box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);
+  border-color: #e4e6e8;
+  box-shadow: 0 0.1875rem 0.5rem 0 rgba(34, 48, 62, 0.1);
 }
 .light-style .apexcharts-canvas .apexcharts-tooltip .apexcharts-tooltip-title {
   background: #fff;
-  border-color: #d9dee3;
+  border-color: #e4e6e8;
   font-family: var(--bs-font-sans-serif) !important;
 }
 .light-style .apexcharts-canvas .apexcharts-tooltip.apexcharts-theme-light {
-  color: #566a7f;
+  color: #384551;
 }
 .light-style .apexcharts-canvas .apexcharts-tooltip.apexcharts-theme-dark {
   color: #fff;
@@ -703,8 +703,8 @@
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip {
   background: #f5f5f9;
-  border-color: #d9dee3;
-  color: #566a7f;
+  border-color: #e4e6e8;
+  color: #384551;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom:after, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-bottom:after,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-bottom:after,
@@ -714,7 +714,7 @@
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom:before, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-bottom:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-bottom:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-yaxistooltip-bottom:before {
-  border-bottom-color: #d9dee3;
+  border-bottom-color: #e4e6e8;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-left:after, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-left:after,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-left:after,
@@ -724,7 +724,7 @@
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-left:before, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-left:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-left:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-yaxistooltip-left:before {
-  border-left-color: #d9dee3;
+  border-left-color: #e4e6e8;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-right:after, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-right:after,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-right:after,
@@ -734,7 +734,7 @@
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-right:before, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-right:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-right:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-yaxistooltip-right:before {
-  border-right-color: #d9dee3;
+  border-right-color: #e4e6e8;
 }
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-top:after, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-top:after,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-top:after,
@@ -744,14 +744,11 @@
 .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-xaxistooltip-top:before, .light-style .apexcharts-canvas .apexcharts-xaxistooltip.apexcharts-yaxistooltip-top:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-xaxistooltip-top:before,
 .light-style .apexcharts-canvas .apexcharts-yaxistooltip.apexcharts-yaxistooltip-top:before {
-  border-top-color: #d9dee3;
+  border-top-color: #e4e6e8;
 }
 .light-style .apexcharts-canvas .apexcharts-tooltip-text {
   font-family: var(--bs-font-sans-serif) !important;
   filter: none;
-}
-.light-style .apexcharts-canvas .apexcharts-marker {
-  filter: drop-shadow(0 2px 4px rgba(161, 172, 184, 0.4));
 }
 
 #orderStatisticsChart .apexcharts-xcrosshairs.apexcharts-active,

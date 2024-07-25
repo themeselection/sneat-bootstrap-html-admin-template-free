@@ -9,13 +9,6 @@
   &:focus {
     color: $breadcrumb-active-color;
   }
-
-  &.active {
-    font-weight: $font-weight-medium;
-    &::before {
-      font-weight: $font-weight-normal;
-    }
-  }
 }
 
 .breadcrumb-item.active a {

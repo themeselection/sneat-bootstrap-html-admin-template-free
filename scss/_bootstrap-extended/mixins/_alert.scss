@@ -11,11 +11,11 @@
     shift-color($background, -$alert-border-scale, $card-bg),
     shift-color($background, $alert-border-scale, $card-bg)
   );
-  $color: if($dark-style, shift-color($background, -$alert-color-scale), shift-color($background, $alert-color-scale));
+  $color: $background;
   $background: if(
     $dark-style,
-    shift-color($background, -$alert-bg-scale, $card-bg),
-    shift-color($background, $alert-bg-scale, $card-bg)
+    shade-color($background, $alert-bg-scale, $card-bg),
+    tint-color($background, $alert-bg-tint-scale, $card-bg)
   );
 
   #{$parent} {
@@ -33,7 +33,11 @@
 
   #{$parent} {
     hr {
-      background-color: $color !important;
+      color: $color !important;
+    }
+    .alert-icon {
+      background-color: $color;
+      box-shadow: 0 0 0 0.125rem rgba($color, 0.16);
     }
   }
 }

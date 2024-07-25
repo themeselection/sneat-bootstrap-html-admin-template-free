@@ -3,9 +3,25 @@
 
 .btn {
   cursor: pointer;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
+  &[class*='btn-outline-'] {
+    &:disabled,
+    &.disabled {
+      background: transparent !important;
+    }
+  }
+  .btn-check:focus + &,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    box-shadow: none;
+    &:hover {
+      transform: $btn-focus-transform;
+    }
+  }
   .bx {
     line-height: 1.15;
   }
@@ -13,8 +29,21 @@
   &:disabled {
     cursor: default;
   }
+  &:hover {
+    transform: $btn-hover-transform;
+  }
 }
-
+.btn-group,
+.btn-group-vertical {
+  &:has(.btn.active),
+  &:has(.btn:active),
+  &:has(.btn.focus),
+  &:has(.btn:focus) {
+    .btn {
+      box-shadow: none !important;
+    }
+  }
+}
 // Badge within button
 .btn .badge {
   @include transition($btn-transition);
@@ -28,6 +57,10 @@ label.btn {
 
 .btn-xl {
   @include button-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl);
+}
+
+.btn-sm {
+  line-height: $btn-line-height-sm;
 }
 
 .btn-xs {
@@ -46,11 +79,11 @@ label.btn {
 // Icon button
 
 .btn-icon {
-  $btn-icon-size: ($btn-font-size * $btn-line-height) + ($btn-padding-y * 2);
+  $btn-icon-size: ($btn-font-size * $btn-line-height) + ($btn-padding-y * 1.998);
   $btn-icon-size-xl: ($btn-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2);
-  $btn-icon-size-lg: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2);
-  $btn-icon-size-sm: ($btn-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2);
-  $btn-icon-size-xs: ($btn-font-size-xs * $btn-line-height-xs) + ($btn-padding-y-xs * 2);
+  $btn-icon-size-lg: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 1.998);
+  $btn-icon-size-sm: ($btn-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 1.998);
+  $btn-icon-size-xs: ($btn-font-size-xs * $btn-line-height-xs) + ($btn-padding-y-xs * 1.998);
   $borders-width: calc(#{$btn-border-width} * 2);
   --#{$prefix}btn-active-border-color: transparent;
 

@@ -8,7 +8,7 @@
 'use strict';
 
 // JS global variables
-let config = {
+window.config = {
   colors: {
     primary: '#696cff',
     secondary: '#8592a3',
@@ -17,13 +17,13 @@ let config = {
     warning: '#ffab00',
     danger: '#ff3e1d',
     dark: '#233446',
-    black: '#000',
+    black: '#22303e',
     white: '#fff',
     cardColor: '#fff',
     bodyBg: '#f5f5f9',
-    bodyColor: '#697a8d',
-    headingColor: '#566a7f',
-    textMuted: '#a1acb8',
-    borderColor: '#eceef1'
+    bodyColor: '#646E78',
+    headingColor: '#384551',
+    textMuted: '#a7acb2',
+    borderColor: '#e4e6e8'
   }
 };

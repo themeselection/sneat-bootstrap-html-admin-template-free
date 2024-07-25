@@ -17,7 +17,7 @@
   @include template-table-variant('primary', shift-color($background, $table-bg-scale));
   @include template-button-variant('.btn-primary', $background, $color);
   @include template-button-outline-variant('.btn-outline-primary', $background, $color);
-  @include template-dropdown-theme(rgba($background, 0.08), $background);
+  @include template-dropdown-theme(rgba($background, 0.16), $background);
   @include template-nav-theme($background, $color);
   @include template-form-control-theme($background);
   @include template-form-check-theme($background, $color);

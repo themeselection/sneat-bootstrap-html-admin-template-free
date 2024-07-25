@@ -7,6 +7,23 @@
     @include template-list-group-item-variant('.list-group-item-#{$color}', $value);
   }
 }
+.list-group {
+  .list-group-item {
+    line-height: 1.375rem;
+    padding-bottom: calc($list-group-item-padding-y - 1px);
+  }
+  &:not([class*='list-group-flush']) .list-group-item:first-of-type {
+    padding-top: calc($list-group-item-padding-y - 1px);
+  }
+  &[class*='list-group-flush'] .list-group-item:last-of-type {
+    padding-bottom: $list-group-item-padding-y;
+  }
+  &[class*='list-group-horizontal-md'] .list-group-item {
+    @include media-breakpoint-up(md) {
+      padding-top: calc($list-group-item-padding-y - 1px);
+    }
+  }
+}
 
 .list-group {
   // Timeline CSS
@@ -52,7 +69,7 @@
     .h5,
     h6,
     .h6 {
-      color: $list-group-active-color;
+      color: $primary;
     }
   }
 }

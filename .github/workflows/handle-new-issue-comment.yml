@@ -1,4 +1,4 @@
-name: 'Handle new issue comment'
+name: '💬 Handle new issue comment'
 on:
   issue_comment:
     types: [created]
@@ -9,6 +9,7 @@ jobs:
     name: Handle new issue comment
     steps:
       - name: Toggle awaiting-reply label
-        uses: jd-solanki/gh-action-toggle-awaiting-reply-label@v2.1.0
+        uses: jd-solanki/gh-action-toggle-awaiting-reply-label@v2.1.2
         with:
           label: awaiting-reply
+          only-if-label: support

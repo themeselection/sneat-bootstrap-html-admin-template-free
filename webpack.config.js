@@ -23,8 +23,7 @@ const packageRegex = package => `(?:\\\\|\\/)${package}(?:\\\\|\\/).+?\\.js$`;
 
 const collectEntries = () => {
   const fileList = glob.sync(`!(${conf.exclude.join('|')})/**/!(_)*.@(js|es6)`) || [];
-  const fileListFiltered = fileList.filter(str => !str.includes('@form-validation'));
-  return fileListFiltered.reduce((entries, file) => {
+  return fileList.reduce((entries, file) => {
     const filePath = file.replace(/\\/g, '/');
     return { ...entries, [filePath.replace(/\.(?:js|es6)$/, '')]: `./${filePath}` };
   }, {});
@@ -36,7 +35,7 @@ const babelLoader = () => ({
     presets: [['@babel/preset-env', { targets: 'last 2 versions, ie >= 10' }]],
     plugins: [
       '@babel/plugin-transform-destructuring',
-      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-transform-object-rest-spread',
       '@babel/plugin-transform-template-literals'
     ],
     babelrc: false
@@ -91,12 +90,6 @@ const webpackConfig = {
     ]
   },
   plugins: [],
-  resolve: {
-    extensions: ['.js'],
-    alias: {
-      formvalidation: path.resolve(__dirname, 'libs/formvalidation/dist/es6')
-    }
-  },
 
   externals: {
     jquery: 'jQuery',

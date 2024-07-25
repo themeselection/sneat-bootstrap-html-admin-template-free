@@ -8,9 +8,9 @@ $primary-color: #696cff;
 
 // Navbar
 // ---------------------------------------------------------------------------
-@include template-navbar-style('.bg-navbar-theme', $card-bg, $color: $body-color, $active-color: $headings-color);
+@include template-navbar-style('.bg-navbar-theme', $card-bg, $color: $headings-color, $active-color: $body-color);
 .layout-navbar {
-  background-color: rgba($card-bg, 0.95) !important;
+  background-color: rgba($card-bg, 0.88) !important;
   backdrop-filter: saturate(200%) blur(6px);
 }
 .navbar-detached {
@@ -26,17 +26,11 @@ $primary-color: #696cff;
 @include template-menu-style(
   '.bg-menu-theme',
   $white,
-  $color: $body-color,
+  $color: $headings-color,
   $active-color: $headings-color,
   $border: transparent,
   $active-bg: $white
 );
-// menu shadow
-@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
-  .bg-menu-theme.menu-vertical {
-    box-shadow: 0 0.125rem 0.375rem 0 rgba(rgba-to-hex($gray-500, $rgba-to-hex-bg), 0.12);
-  }
-}
 .bg-menu-theme {
   // Menu header
   .menu-header {
@@ -56,16 +50,18 @@ $primary-color: #696cff;
   .menu-inner .menu-item .menu-link:not(.active):hover {
     html:not(.layout-menu-collapsed) &,
     .layout-menu-hover.layout-menu-collapsed & {
-      background-color: rgba($black, 0.04);
+      background-color: $gray-60;
     }
   }
   // menu item open(horizontal)
   .menu-inner .menu-sub > .menu-item.active {
     > .menu-link.menu-toggle {
-      background-color: rgba($black, 0.04);
+      background-color: $gray-80 !important;
     }
-    .menu-icon {
-      color: $primary-color;
+    &:not(:has(.menu-sub)) {
+      .menu-icon {
+        color: $primary-color;
+      }
     }
   }
   // menu item active
@@ -102,10 +98,4 @@ $primary-color: #696cff;
 
 // Footer
 // ---------------------------------------------------------------------------
-@include template-footer-style('.bg-footer-theme', $body-bg, $color: $body-color, $active-color: $headings-color);
-
-.layout-footer-fixed {
-  .content-footer {
-    box-shadow: 0 0 0.375rem 0.25rem rgba(rgba-to-hex($gray-500, $rgba-to-hex-bg), 0.15);
-  }
-}
+@include template-footer-style('.bg-footer-theme', $card-bg, $color: $body-color, $active-color: $primary-color);

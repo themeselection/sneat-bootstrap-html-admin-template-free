@@ -7,11 +7,16 @@
   .card-link {
     display: inline-block;
   }
-  // ! FIX: To remove padding top from first card-body if used with card-header
+  // ! FIX: to remove padding top from first card-body if used with card-header
   .card-header + .card-body,
-  .card-header + .card-content > .card-body:first-of-type {
+  .card-header + .card-content > .card-body:first-of-type,
+  .card-header + .card-footer,
+  .card-body + .card-footer {
     padding-top: 0;
   }
+}
+.bg-card {
+  background-color: $card-bg;
 }
 
 // Card action
@@ -51,7 +56,6 @@
   // Card header
   .card-header {
     display: flex;
-    line-height: $component-line-height;
     .card-action-title {
       flex-grow: 1;
       margin-right: 0.5rem;
@@ -63,7 +67,7 @@
       right: 1.5rem;
       color: $body-color;
       a {
-        color: $body-color;
+        color: $headings-color;
         .collapse-icon::after {
           margin-top: -0.15rem;
         }
@@ -80,6 +84,11 @@
       margin: 1rem 0 0 0;
     }
   }
+}
+
+// card-subtitle
+.card-subtitle {
+  font-weight: $font-weight-normal;
 }
 
 // Card inner borders
@@ -165,6 +174,20 @@
   }
 }
 
+// Card group
+.card-group {
+  box-shadow: $card-box-shadow;
+  background-color: $card-bg;
+  border-radius: $card-border-radius;
+  .card {
+    box-shadow: none;
+    @include media-breakpoint-down(sm) {
+      &:not(:first-child) .card-img-top {
+        @include border-top-radius(0);
+      }
+    }
+  }
+}
 // List groups
 // *******************************************************************************
 
@@ -183,7 +206,7 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(lg) {
   .card {
     .card-separator {
       border-bottom: $border-width solid $card-border-color;

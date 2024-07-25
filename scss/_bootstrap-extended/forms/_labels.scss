@@ -3,9 +3,10 @@
 
 .form-label,
 .col-form-label {
-  font-size: $form-label-font-size;
   text-transform: $form-label-text-transform;
   letter-spacing: $form-label-letter-spacing;
+  color: $headings-color;
+  white-space: nowrap;
 }
 // Default (vertical ) form label size
 .form-label-lg {
