@@ -16,30 +16,30 @@ module.exports = (conf, srcGlob) => {
   // Build CSS
   // -------------------------------------------------------------------------------
   const buildCssTask = function (cb) {
+    const sassCommand = `sass --load-path=node_modules/ scss:${conf.distPath}/css fonts:${conf.distPath}/fonts libs:${conf.distPath}/libs`;
+    const sassCommandWithMinify = `${sassCommand} --style compressed --no-source-map`;
+    const sassCommandWithoutSourceMap = `${sassCommand} --no-source-map`;
+
     return src(srcGlob('**/*.scss', '!**/_*.scss'))
       .pipe(gulpIf(conf.sourcemaps, sourcemaps.init()))
       .pipe(
-        // If sass is installed on your local machine, it will use command line to compile sass else it will use dart sass npm which 3 time slower
         gulpIf(
           localSass,
           exec(
-            // If conf.minify == true, generate compressed style without sourcemap
-            gulpIf(
-              conf.minify,
-              `sass scss:${conf.distPath}/css fonts:${conf.distPath}/fonts libs:${conf.distPath}/libs --style compressed --no-source-map`,
-              `sass scss:${conf.distPath}/css fonts:${conf.distPath}/fonts libs:${conf.distPath}/libs --no-source-map`
-            ),
+            conf.minify ? sassCommandWithMinify : conf.fastDev ? sassCommandWithoutSourceMap : sassCommand,
             function (err) {
               cb(err);
             }
           ),
-          sass({
-            outputStyle: conf.minify ? 'compressed' : 'expanded'
-          }).on('error', sass.logError)
+          sass
+            .sync({
+              includePaths: ['node_modules'],
+              outputStyle: conf.minify ? 'compressed' : 'expanded'
+            })
+            .on('error', sass.logError)
         )
       )
       .pipe(gulpIf(conf.sourcemaps, sourcemaps.write()))
-
       .pipe(
         rename(function (path) {
           path.dirname = path.dirname.replace('scss', 'css');

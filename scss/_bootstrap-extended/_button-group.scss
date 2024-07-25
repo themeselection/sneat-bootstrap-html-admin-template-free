@@ -4,14 +4,21 @@
 // * Split button
 // *******************************************************************************
 
+.btn-group,
+.btn-group-vertical {
+  &:disabled,
+  &.disabled {
+    opacity: 0.45;
+  }
+}
+
 .dropdown-toggle-split,
 .btn-lg + .dropdown-toggle-split,
 .btn-group-lg > .btn + .dropdown-toggle-split,
 .input-group-lg .btn + .dropdown-toggle-split,
 .btn-xl + .dropdown-toggle-split,
 .btn-group-xl > .btn + .dropdown-toggle-split {
-  padding-right: 0.7em;
-  padding-left: 0.7em;
+  padding: 0.92em;
 }
 
 .btn-sm + .dropdown-toggle-split,
@@ -45,7 +52,7 @@
 :not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):first-child,
 .input-group > .btn-group:first-child > .btn:not([class*='btn-outline-']):first-child {
   @include ltr-style {
-    border-left-color: transparent;
+    border-left-color: transparent !important;
   }
 }
 
@@ -54,6 +61,16 @@
 :not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):last-of-type,
 .input-group > .btn-group:last-child > .btn:not([class*='btn-outline-']):last-of-type {
   @include ltr-style {
-    border-right-color: transparent;
+    border-right-color: transparent !important;
   }
+}
+
+.btn-group-vertical > .btn-group-vertical:first-child > .btn:not([class*='btn-outline-']):first-child,
+:not(.btn-group-vertical):not(.input-group) > .btn-group-vertical > .btn:not([class*='btn-outline-']):first-child {
+  border-top-color: transparent !important;
+}
+
+.btn-group-vertical > .btn-group-vertical:last-child > .btn:not([class*='btn-outline-']):last-of-type,
+:not(.btn-group-vertical):not(.input-group) > .btn-group-vertical > .btn:not([class*='btn-outline-']):last-of-type {
+  border-bottom-color: transparent !important;
 }

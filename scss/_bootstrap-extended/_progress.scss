@@ -13,10 +13,6 @@
 }
 
 @include ltr-only {
-  .progress-bar-striped {
-    @include gradient-striped(rgba($white, 0.07), 45deg);
-  }
-
   .progress {
     //  border radius for first and last child
     .progress-bar:last-child {

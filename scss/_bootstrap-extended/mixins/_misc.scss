@@ -114,7 +114,10 @@
     color: $color !important;
   }
   //! Fix: text-body hover color
-  .text-body[href]:hover {
-    color: shift-color($color, $link-shade-percentage) !important;
+  .text-body,
+  .text-heading {
+    &[href]:hover {
+      color: shift-color($color, $link-shade-percentage) !important;
+    }
   }
 }

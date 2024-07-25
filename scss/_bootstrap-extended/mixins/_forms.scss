@@ -23,14 +23,9 @@
 @mixin template-float-label-theme($color) {
   .form-floating {
     > .form-control:focus,
-    > .form-control:not(:placeholder-shown),
-    > .form-select {
-      ~ label {
-        color: $color;
-      }
-    }
-
-    > .form-control:-webkit-autofill {
+    > .form-control:focus:not(:placeholder-shown),
+    > .form-select:focus,
+    > .form-select:focus:not(:placeholder-shown) {
       ~ label {
         color: $color;
       }
@@ -41,11 +36,7 @@
 // Form Switch
 @mixin template-form-switch-theme($background) {
   $focus-color: $background;
-  $focus-bg-image: str-replace(
-    str-replace($form-switch-focus-bg-image, '#{$form-switch-focus-color}', $focus-color),
-    '#',
-    '%23'
-  );
+  $focus-bg-image: str-replace(str-replace($form-switch-focus-bg-image, '#{$form-switch-color}', $white), '#', '%23');
 
   $checked-color: $component-active-color;
   $checked-bg-image: str-replace(
@@ -86,22 +77,19 @@
 @mixin template-form-check-variant($parent, $background, $color: null) {
   $color: if($color, $color, color-contrast($background));
   $focus-border: $background;
+  $focus-color: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity);
 
   #{$parent} .form-check-input {
-    &:focus {
-      border-color: $focus-border;
-      box-shadow: 0 2px 4px 0 rgba($background, 0.4);
+    &:checked {
+      background-color: $background;
+      border-color: $background;
+      box-shadow: 0 0.125rem 0.25rem 0 rgba($background, 0.4);
     }
 
-    &:disabled {
-      background-color: $form-check-input-disabled-bg;
-    }
-
-    &:checked,
     &[type='checkbox']:indeterminate {
       background-color: $background;
       border-color: $background;
-      box-shadow: 0 2px 4px 0 rgba($background, 0.4);
+      box-shadow: 0 0.125rem 0.25rem 0 rgba($background, 0.4);
     }
   }
 
@@ -136,7 +124,7 @@
   $icon,
   $tooltip-color: color-contrast($color),
   $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
-  $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity),
+  $focus-box-shadow: none,
   $border-color: $color
 ) {
   .#{$state}-feedback {
@@ -173,6 +161,10 @@
   .form-control {
     @include form-validation-state-selector($state) {
       border-color: $color !important;
+      border-width: $input-focus-border-width;
+      ~ .input-group-text {
+        border-width: $input-focus-border-width;
+      }
 
       .dark-style & {
         border-color: $color !important;
@@ -196,7 +188,7 @@
     }
   }
 
-  // stylelint-disable-next-line selector-no-qualifying-type
+  // StyleLint-disable-next-line selector-no-qualifying-type
   textarea.form-control {
     @include form-validation-state-selector($state) {
       @if $enable-validation-icons {
@@ -211,6 +203,12 @@
   .form-select {
     @include form-validation-state-selector($state) {
       border-color: $color !important;
+      background-image: escape-svg($form-select-indicator), escape-svg($icon);
+      border-width: $input-focus-border-width;
+      ~ .input-group-text {
+        border-width: $input-focus-border-width;
+      }
+      background-position: $form-select-bg-position, $form-select-feedback-icon-position;
       @if $enable-validation-icons {
         background-size: $form-select-bg-size, $form-select-feedback-icon-size;
         @include ltr-style {
@@ -236,7 +234,7 @@
         border-color: $color;
       }
 
-      &:focus {
+      &:active {
         box-shadow: $focus-box-shadow;
         border-color: $color;
       }
@@ -265,7 +263,7 @@
           box-shadow: none;
           // ? .input-group has .input-group-text last/sibling
           ~ .input-group-text {
-            border-color: $color;
+            border-color: $color !important;
           }
         }
       }

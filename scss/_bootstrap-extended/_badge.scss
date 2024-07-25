@@ -1,18 +1,13 @@
 // Badges
 // *******************************************************************************
-.badge {
-  text-transform: uppercase;
-  line-height: $badge-line-height;
-}
 
 // Badge Center Style
 
 .badge-center {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  @include badge-size($badge-height, $badge-width, $badge-font-size);
+  padding: 3px;
+  line-height: 1.375;
+  @include badge-size($badge-height, $badge-width, $badge-center-font-size);
   i {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
   }
 }

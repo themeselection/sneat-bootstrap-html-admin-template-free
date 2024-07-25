@@ -3,9 +3,45 @@
 
 .form-select {
   background-clip: padding-box;
+  padding: calc($form-select-padding-y - $input-border-width) calc($form-select-padding-x - $input-border-width);
+  padding-inline-end: calc($form-select-padding-x * 3 - $input-border-width);
   &:hover {
     &:not([disabled]):not([focus]) {
       border-color: $input-border-hover-color;
+    }
+  }
+  &:disabled {
+    background-image: escape-svg($form-select-disabled-indicator);
+  }
+  &:focus {
+    border-width: $input-focus-border-width;
+    padding: calc($form-select-padding-y - $input-focus-border-width)
+      calc($form-select-padding-x * 3 - $input-focus-border-width)
+      calc($form-select-padding-y - $input-focus-border-width) calc($form-select-padding-x - $input-focus-border-width);
+    background-position: right calc($form-select-padding-x - 1px) center;
+  }
+  &.form-select-lg {
+    min-height: $input-height-lg;
+    background-size: 24px 24px;
+    padding: calc($form-select-padding-y-lg - $input-border-width) calc($form-select-padding-x-lg - $input-border-width);
+    padding-inline-end: calc($form-select-padding-x-lg * 3 - $input-border-width);
+    &:focus {
+      padding: calc($form-select-padding-y-lg - $input-focus-border-width)
+        calc($form-select-padding-x-lg * 3 - $input-focus-border-width)
+        calc($form-select-padding-y-lg - $input-focus-border-width)
+        calc($form-select-padding-x-lg - $input-focus-border-width);
+    }
+  }
+  &.form-select-sm {
+    min-height: $input-height-sm;
+    background-size: 20px 20px;
+    padding: calc($form-select-padding-y-sm - $input-border-width) calc($form-select-padding-x-sm - $input-border-width);
+    padding-inline-end: calc($form-select-padding-x-sm * 3 - $input-border-width);
+    &:focus {
+      padding: calc($form-select-padding-y-sm - $input-focus-border-width)
+        calc($form-select-padding-x-sm * 3 - $input-focus-border-width)
+        calc($form-select-padding-y-sm - $input-focus-border-width)
+        calc($form-select-padding-x-sm - $input-focus-border-width);
     }
   }
 }

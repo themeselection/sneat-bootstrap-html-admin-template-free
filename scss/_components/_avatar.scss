@@ -22,9 +22,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;
-    background-color: $secondary;
-    font-weight: $font-weight-medium;
+    color: $component-active-color;
+    background-color: $avatar-bg;
+    font-size: $avatar-initial;
   }
   // Avatar Status indication
   &.avatar-online,
@@ -39,7 +39,7 @@
       width: 8px;
       height: 8px;
       border-radius: 100%;
-      box-shadow: 0 0 0 2px $white;
+      box-shadow: 0 0 0 2px $avatar-group-border;
     }
   }
   &.avatar-online:after {
@@ -60,7 +60,7 @@
 .pull-up {
   transition: all 0.25s ease;
   &:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: $box-shadow;
     z-index: 30;
     border-radius: 50%;
@@ -94,10 +94,11 @@
       // box-shadow: 0 0 0 2px $avatar-group-border, inset 0 0 0 1px rgba($black, 0.07); //0 2px 10px 0 rgba($secondary,.3);
     }
     .avatar-initial {
-      background-color: tint-color($secondary, 20%);
+      background-color: $avatar-bg;
+      color: $headings-color;
     }
     &:hover {
-      z-index: 30;
+      z-index: 30 !important;
       transition: all 0.25s ease;
     }
   }

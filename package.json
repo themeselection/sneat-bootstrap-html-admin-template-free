@@ -2,7 +2,7 @@
   "name": "sneat-bootstrap-html-admin-template-free",
   "description": "Most Powerful & Comprehensive Free Bootstrap 5 HTML Admin Dashboard Template built for developers! 🚀",
   "license": "MIT",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "author": {
     "name": "ThemeSelection",
     "url": "https://themeselection.com/"
@@ -44,32 +44,32 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "apexcharts-clevision": "^3.28.5",
-    "bootstrap": "~5.3.2",
+    "bootstrap": "~5.3.3",
     "boxicons": "~2.1.4",
-    "highlight.js": "~11.8.0",
-    "jquery": "~3.7.0",
+    "highlight.js": "~11.9.0",
+    "jquery": "~3.7.1",
     "masonry-layout": "~4.2.2",
     "perfect-scrollbar": "~1.5.5"
   },
   "devDependencies": {
-    "@babel/core": "~7.22.5",
-    "@babel/plugin-proposal-object-rest-spread": "~7.20.7",
-    "@babel/plugin-transform-destructuring": "~7.22.5",
-    "@babel/plugin-transform-template-literals": "~7.22.5",
-    "@babel/preset-env": "~7.22.5",
-    "ajv": "^8.12.0",
+    "@babel/core": "~7.23.9",
+    "@babel/plugin-transform-destructuring": "~7.23.3",
+    "@babel/plugin-transform-object-rest-spread": "7.23.4",
+    "@babel/plugin-transform-template-literals": "~7.23.3",
+    "@babel/preset-env": "~7.23.9",
+    "ajv": "^8.17.1",
     "ansi-colors": "~4.1.3",
-    "babel-loader": "~9.1.2",
-    "browser-sync": "^2.29.3",
+    "babel-loader": "~9.1.3",
+    "browser-sync": "^3.0.2",
     "color-support": "~1.1.3",
-    "css-loader": "~6.8.1",
+    "css-loader": "~6.9.1",
     "deepmerge": "~4.3.1",
     "del": "~6.1.1",
-    "eslint": "^8.43.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
     "fancy-log": "~2.0.0",
     "gulp": "~4.0.2",
     "gulp-autoprefixer": "~8.0.0",
@@ -83,23 +83,23 @@
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^5.0.0",
     "html-loader": "~4.2.0",
-    "js-beautify": "^1.14.8",
-    "prettier": "^2.8.8",
-    "sass": "1.68.0",
-    "sass-loader": "~13.3.2",
+    "js-beautify": "^1.15.1",
+    "prettier": "^3.3.3",
+    "sass": "~1.76.0",
+    "sass-loader": "~14.0.0",
     "string-replace-webpack-plugin": "~0.1.3",
-    "style-loader": "~3.3.3",
-    "terser-webpack-plugin": "~5.3.9",
-    "webpack": "~5.88.1",
-    "yarn": "~1.22.19"
+    "style-loader": "~3.3.4",
+    "terser-webpack-plugin": "~5.3.10",
+    "webpack": "~5.89.0",
+    "yarn": "~1.22.22"
   },
   "overrides": {
-    "prop-types": "15.7.2",
-    "sass": "1.68.0"
+    "prop-types": "15.8.1",
+    "sass": "1.76.0"
   },
   "resolutions": {
-    "prop-types": "15.7.2",
-    "sass": "1.68.0"
+    "prop-types": "15.8.1",
+    "sass": "1.76.0"
   },
   "gulp-environment": {
     "environments": [

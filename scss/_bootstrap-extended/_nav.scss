@@ -8,38 +8,43 @@
   outline: none !important;
 }
 
-.nav-tabs {
+// To fix height issue of nav pills
+.nav {
+  flex-wrap: inherit;
+  &.nav-pills:not(.nav-align-right):not(.nav-align-left) {
+    flex-wrap: wrap;
+  }
   .nav-item {
-    .nav-link {
-      color: $nav-tabs-btn-color;
-      border: 0;
-      border-radius: 0;
-      &:hover,
-      &:focus {
-        color: $nav-tabs-btn-color;
-      }
-      &:not(.active) {
-        background-color: $nav-tabs-btn-bg;
-      }
-      &.disabled {
-        color: $nav-link-disabled-color;
-      }
-    }
+    white-space: nowrap;
+  }
+  .nav-tabs {
+    background-color: $card-bg;
   }
 }
 
+//nav tabs shadow
+.nav-tabs-shadow {
+  box-shadow: $card-box-shadow;
+}
 // Tab and pills style
 .nav-tabs,
 .nav-pills {
+  &:not(.flex-column),
+  &.flex-column.flex-md-row {
+    row-gap: 8px;
+  }
+  @include media-breakpoint-down(md) {
+    &.flex-column {
+      row-gap: 4px;
+    }
+  }
   .nav-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    &:not(.active) {
-      &:hover,
-      &:focus {
-        color: $nav-tabs-link-active-color;
-      }
+    text-transform: capitalize;
+    &.active {
+      background-color: transparent;
     }
   }
 
@@ -48,15 +53,18 @@
   }
 }
 
-.nav-pills .nav-link {
-  &:not(.active, .disabled) {
-    color: $headings-color;
-  }
-}
-
-.tab-content {
+.tab-content:not(.doc-example-content) {
   padding: $card-spacer-y;
-  border-radius: $border-radius;
+  .tab-pane {
+    opacity: 0;
+    transition: all linear 0.1s;
+    transform: translateX(-30px);
+    &.show {
+      opacity: 1;
+      transform: unset !important;
+      transition: all ease-out 0.2s 0.1s;
+    }
+  }
 }
 
 // For scrollable navs/tabs/pills
@@ -69,18 +77,32 @@
 }
 
 // Tab link
-.nav-tabs .nav-link {
-  background-clip: padding-box;
-  &.active {
-    border-bottom-color: $nav-tabs-link-active-bg;
-    &:hover,
-    &:focus {
-      border-bottom-color: $nav-tabs-link-active-bg;
+.nav-tabs {
+  position: relative;
+  .tab-slider {
+    height: 2px;
+    position: absolute;
+    .nav-align-left &,
+    .nav-align-right & {
+      width: 2px !important;
     }
   }
-  &:hover,
-  &:focus {
-    border-bottom-color: transparent;
+  .nav-link {
+    background-clip: padding-box;
+    border-radius: 0;
+  }
+}
+.nav-pills {
+  .nav-link {
+    padding: $nav-pills-padding-y $nav-pills-padding-x;
+  }
+  & .nav-item .nav-link:not(.active):hover {
+    border-bottom: none;
+    padding-bottom: $nav-link-padding-y;
+    background-color: $nav-pills-link-hover-bg;
+  }
+  ~ .tab-content {
+    box-shadow: $box-shadow;
   }
 }
 
@@ -101,21 +123,18 @@
 .nav-align-right,
 .nav-align-bottom,
 .nav-align-left {
+  .nav-tabs {
+    background: $nav-tabs-link-active-bg;
+  }
   display: flex;
 
   > .nav,
   > div > .nav {
-    border: 0;
     z-index: 1;
     position: relative;
   }
-
-  > .nav .nav-link,
-  > div > .nav .nav-link {
-    &:hover,
-    &:focus {
-      isolation: auto;
-    }
+  &:has(.nav-tabs) {
+    border-radius: $border-radius !important;
   }
 
   .row-bordered > [class^='col-'],
@@ -139,153 +158,164 @@
   > div > .nav {
     flex-grow: 0;
     flex-direction: column;
+    border-bottom-width: 0;
+  }
+
+  > .nav.nav-pills .nav-item:not(:last-child),
+  > div > .nav.nav-pills .nav-item:not(:last-child) {
+    margin: 0 0 $nav-spacer 0 !important;
   }
 
   > .tab-content {
     flex-grow: 1;
+    .tab-pane {
+      transform: translateY(-30px);
+      &.show {
+        transform: translateY(0px);
+      }
+    }
   }
 }
 
 // Top tabs
 .nav-align-top {
+  .tab-content {
+    @include border-bottom-radius($border-radius);
+  }
   flex-direction: column;
   .nav-tabs {
-    ~ .tab-content {
-      z-index: 1;
-      box-shadow: 0px 6px 7px -1px rgba($black, 0.12);
+    border-bottom: $border-width solid $border-color;
+    @include border-top-radius($border-radius);
+    & .nav-link:not(.active):hover {
+      border-bottom: 2px solid $nav-pills-link-hover-bg !important;
+      padding-bottom: calc($nav-link-padding-y - 0.125rem);
     }
-    .nav-item {
-      @include ltr-style {
-        &:first-child .nav-link {
-          border-top-left-radius: $border-radius;
-        }
-        &:last-child .nav-link {
-          border-top-right-radius: $border-radius;
-        }
-        &:not(:first-child) .nav-link {
-          border-left: 1px solid $nav-tabs-border-color;
-        }
-      }
+    &.nav-lg .nav-link:not(.active):hover {
+      padding-bottom: calc($nav-link-padding-y-lg - 0.125rem);
     }
-    .nav-link {
-      &.active {
-        box-shadow: $card-box-shadow;
+    &.nav-sm .nav-link:not(.active):hover {
+      padding-bottom: calc($nav-link-padding-y-sm - 0.125rem);
+    }
+  }
+  .nav-pills ~ .tab-content {
+    @include border-top-radius($border-radius);
+  }
+}
+.nav-align-top,
+.nav-align-bottom {
+  > .tab-content {
+    .tab-pane {
+      transform: translateX(-30px);
+      &.show {
+        transform: translateX(0px) !important;
       }
     }
   }
+  > .nav.nav-pills .nav-item:not(:last-child) {
+    margin-right: $nav-spacer;
+  }
 }
-
-// Right tabs
 .nav-align-right {
+  .tab-content {
+    @include border-start-radius($border-radius);
+  }
   flex-direction: row-reverse;
+  .nav-tabs {
+    border-left: $border-width solid $border-color;
+    @include border-end-radius($border-radius);
+    position: relative;
+    .tab-slider {
+      left: 0;
+    }
+    ~ .tab-content {
+      .card & {
+       border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
+      }
+    }
+    & .nav-link:not(.active):hover {
+      border-left: 2px solid $nav-pills-link-hover-bg !important;
+      padding-left: calc($nav-link-padding-x - 0.125rem);
+    }
+  }
 
   > .nav .nav-item,
   > div > .nav .nav-item {
-    margin-left: -1px;
-    margin-bottom: 0;
+    margin-left: 0;
   }
   .nav-link {
     text-align: right;
     justify-content: end;
   }
-
-  .nav-tabs {
-    ~ .tab-content {
-      box-shadow: $card-box-shadow;
-    }
-    .nav-item {
-      &:not(:first-child) .nav-link {
-        border-top: 1px solid $nav-tabs-border-color;
-      }
-      @include ltr-style {
-        &:first-child .nav-link {
-          border-top-right-radius: $border-radius;
-        }
-        &:last-child .nav-link {
-          border-bottom-right-radius: $border-radius;
-        }
-      }
-    }
-    .nav-link {
-      &.active {
-        @include ltr-style {
-          box-shadow: 5px 4px 6px 0 rgba($black, 0.12);
-        }
-      }
-    }
+  .nav-pills ~ .tab-content {
+    @include border-end-radius($border-radius);
   }
 }
 
 // Bottom tabs
 .nav-align-bottom {
+  .tab-content {
+    @include border-top-radius($border-radius);
+  }
   flex-direction: column-reverse;
 
   > .nav .nav-item,
   > div > .nav .nav-item {
     margin-bottom: 0;
-    margin-top: -1px;
+    margin-top: 0;
   }
 
+  > .nav,
+  > div > .nav {
+    border-bottom-width: 0;
+    border-top: $nav-tabs-border-width solid $nav-tabs-border-color;
+  }
   .nav-tabs {
-    ~ .tab-content {
-      box-shadow: $card-box-shadow;
+    border-top: $border-width solid $border-color;
+    @include border-bottom-radius($border-radius);
+    .tab-slider {
+      bottom: inherit !important;
     }
-    .nav-item {
-      @include ltr-style {
-        &:first-child .nav-link {
-          border-bottom-left-radius: $border-radius;
-        }
-        &:last-child .nav-link {
-          border-bottom-right-radius: $border-radius;
-        }
-        &:not(:first-child) .nav-link {
-          border-left: 1px solid $nav-tabs-border-color;
-        }
-      }
+    & .nav-link:not(.active):hover {
+      border-top: 2px solid $nav-pills-link-hover-bg !important;
+      padding-top: calc($nav-link-padding-y - 0.125rem);
     }
-    .nav-link {
-      &.active {
-        box-shadow: 0 4px 6px 0 rgba($black, 0.12);
-      }
-    }
+  }
+  .nav-pills ~ .tab-content {
+    @include border-bottom-radius($border-radius);
   }
 }
 
 // Left tabs
 .nav-align-left {
+  .tab-content {
+    @include border-end-radius($border-radius);
+  }
+  .nav-tabs {
+    position: relative;
+    ~ .tab-content {
+      .card & {
+        border-left: $nav-tabs-border-width solid $nav-tabs-border-color;
+      }
+    }
+      border-right: $border-width solid $border-color;
+      & .nav-link:not(.active):hover {
+        border-right: 2px solid $nav-pills-link-hover-bg !important;
+        padding-right: calc($nav-link-padding-x - 0.125rem);
+    }
+  }
   > .nav .nav-item,
   > div > .nav .nav-item {
-    margin-right: -1px;
-    margin-bottom: 0;
+    margin-right: 0;
   }
   .nav-link {
     text-align: left;
     justify-content: start;
   }
-  .nav-tabs {
-    ~ .tab-content {
-      box-shadow: $card-box-shadow;
-    }
-    .nav-item {
-      &:not(:first-child) .nav-link {
-        border-top: 1px solid $nav-tabs-border-color;
-      }
-      @include ltr-style {
-        &:first-child .nav-link {
-          border-top-left-radius: $border-radius;
-        }
-        &:last-child .nav-link {
-          border-bottom-left-radius: $border-radius;
-        }
-      }
-    }
-    .nav-link {
-      &.active {
-        @include ltr-style {
-          box-shadow: -5px 2px 6px 0 rgba($black, 0.12);
-        }
-      }
-    }
+  .nav-pills ~ .tab-content {
+    @include border-start-radius($border-radius !important);
+  }
+  &:has(.nav-tabs) {
+    overflow: hidden;
   }
 }
 
@@ -295,33 +325,12 @@
 .nav-align-bottom > .tab-content,
 .nav-align-left > .tab-content {
   flex-shrink: 1;
-  border: $card-border-width solid $border-color;
-  box-shadow: $card-box-shadow;
   background-clip: padding-box;
   background: $nav-tabs-link-active-bg;
-}
-
-.nav-align-top :not(.nav-pills) ~ .tab-content {
-  @include border-radius(0 0 $border-radius $border-radius);
-}
-.nav-align-top .nav-tabs:not(.nav-fill) ~ .tab-content {
-  @include ltr-style {
-    @include border-top-end-radius($border-radius);
+  .card & {
+    background: transparent;
   }
 }
-
-.nav-align-right :not(.nav-pills) ~ .tab-content {
-  @include border-radius($border-radius 0 0 $border-radius);
-}
-
-.nav-align-bottom :not(.nav-pills) ~ .tab-content {
-  @include border-radius($border-radius $border-radius 0 0);
-}
-
-.nav-align-left :not(.nav-pills) ~ .tab-content {
-  @include border-radius(0 $border-radius $border-radius 0);
-}
-
-.nav-align-left > .tab-content {
-  @include border-radius(0 $border-radius $border-radius $border-radius);
+.card .tab-content {
+  box-shadow: none !important;
 }

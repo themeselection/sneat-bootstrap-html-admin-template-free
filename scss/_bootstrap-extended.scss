@@ -30,10 +30,10 @@
 @import '_bootstrap-extended/offcanvas';
 
 // Common Utilities
-@import '../node_modules/bootstrap/scss/utilities/api';
+@import 'bootstrap/scss/utilities/api';
 
 // LTR Utilities
 @include ltr-only {
   @import '_bootstrap-extended/utilities-ltr';
-  @import '../node_modules/bootstrap/scss/utilities/api';
+  @import 'bootstrap/scss/utilities/api';
 }

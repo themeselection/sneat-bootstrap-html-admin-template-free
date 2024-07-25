@@ -123,6 +123,7 @@
 
 .ps__rail-y {
   width: 0.25rem;
+  z-index: 3;
 }
 
 .ps__rail-x,
@@ -162,7 +163,7 @@
 
 .light-style .ps__thumb-x,
 .light-style .ps__thumb-y {
-  background-color: rgba(67, 89, 113, 0.4);
+  background-color: rgba(34, 48, 62, 0.4);
 }
 .light-style .ps__rail-x:hover,
 .light-style .ps__rail-y:hover,
@@ -170,7 +171,7 @@
 .light-style .ps__rail-y:focus,
 .light-style .ps__rail-x.ps--clicking,
 .light-style .ps__rail-y.ps--clicking {
-  background-color: rgba(67, 89, 113, 0.2);
+  background-color: rgba(34, 48, 62, 0.12);
 }
 .light-style .ps__rail-x:hover > .ps__thumb-x,
 .light-style .ps__rail-y:hover > .ps__thumb-y,
@@ -178,7 +179,7 @@
 .light-style .ps__rail-y:focus > .ps__thumb-y,
 .light-style .ps__rail-x.ps--clicking > .ps__thumb-x,
 .light-style .ps__rail-y.ps--clicking > .ps__thumb-y {
-  background-color: rgba(67, 89, 113, 0.7);
+  background-color: rgba(34, 48, 62, 0.7);
 }
 .light-style .ps-inverted .ps__rail-x:hover,
 .light-style .ps-inverted .ps__rail-y:hover,

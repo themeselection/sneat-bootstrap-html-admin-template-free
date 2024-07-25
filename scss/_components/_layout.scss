@@ -62,8 +62,8 @@
 // *******************************************************************************
 .layout-navbar {
   position: relative;
-  padding-top: 0.25rem;
-  padding-bottom: 0.2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   height: $navbar-height;
   flex-wrap: nowrap;
   color: $body-color;
@@ -84,6 +84,7 @@
   }
   // Style for detached navbar
   &.navbar-detached {
+    box-shadow: $box-shadow-sm;
     // Container layout max-width
     $container-xxl: map-get($container-max-widths, xxl);
     &.container-xxl {
@@ -116,7 +117,7 @@
       width: calc(100% - calc(#{$container-padding-x} * 2));
     }
 
-    margin: 0.75rem auto 0;
+    margin: $spacer auto 0;
     border-radius: $border-radius;
     padding: 0 $card-spacer-x;
   }
@@ -124,7 +125,8 @@
   .search-input-wrapper {
     .search-toggler {
       position: absolute;
-      top: 1.25rem;
+      top: 52%;
+      transform: translateY(-50%);
       right: 1rem;
       z-index: 1;
     }
@@ -132,6 +134,31 @@
     .search-input {
       height: 100%;
       box-shadow: none;
+    }
+  }
+
+  .dropdown-menu[data-bs-popper] {
+    .layout-wrapper & {
+      top: 144%;
+    }
+  }
+
+  // Navbar custom dropdown
+  .navbar-dropdown {
+    .dropdown-menu {
+      min-width: $navbar-dropdown-width;
+      overflow: hidden;
+      .dropdown-item {
+        min-height: 2.375rem;
+      }
+      .last-login {
+        white-space: normal;
+      }
+    }
+    &.dropdown-user {
+      .dropdown-menu {
+        min-width: 14rem;
+      }
     }
   }
   &[class*='bg-']:not(.bg-navbar-theme) {
@@ -145,11 +172,13 @@
 
   @include media-breakpoint-down($menu-collapsed-layout-breakpoint) {
     .navbar-nav {
-      .nav-item.dropdown {
-        .dropdown-menu {
-          position: absolute;
-          .last-login {
-            white-space: nowrap;
+      .nav-item {
+        &.dropdown {
+          .dropdown-menu {
+            position: absolute;
+            .last-login {
+              white-space: nowrap;
+            }
           }
         }
       }
@@ -160,9 +189,6 @@
       .nav-item.dropdown {
         position: static;
         float: left;
-        .badge-notifications {
-          top: auto;
-        }
         .dropdown-menu {
           position: absolute;
           left: 0.9rem;
@@ -274,6 +300,11 @@ html:not(.layout-footer-fixed) .content-wrapper {
     right: 0;
     left: 0;
   }
+  .container-p-y {
+    &:not([class^='pt-']):not([class*=' pt-']) {
+      padding-top: calc($container-padding-y + 0.25rem) !important;
+    }
+  }
 }
 
 @include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
@@ -327,7 +358,9 @@ html:not(.layout-footer-fixed) .content-wrapper {
     margin-right: 0 !important;
     margin-left: 0 !important;
     transform: translate3d(-100%, 0, 0);
-    will-change: transform, -webkit-transform;
+    will-change:
+      transform,
+      -webkit-transform;
 
     .layout-menu-expanded & {
       transform: translate3d(0, 0, 0) !important;
@@ -460,7 +493,9 @@ html:not(.layout-footer-fixed) .content-wrapper {
 
     .layout-menu {
       transition-duration: $menu-animation-duration;
-      transition-property: transform, -webkit-transform;
+      transition-property:
+        transform,
+        -webkit-transform;
     }
   }
 }
@@ -477,7 +512,11 @@ html:not(.layout-footer-fixed) .content-wrapper {
   .layout-transitioning {
     &.layout-menu-offcanvas .layout-menu {
       transition-duration: $menu-animation-duration;
-      transition-property: margin-left, margin-right, transform, -webkit-transform;
+      transition-property:
+        margin-left,
+        margin-right,
+        transform,
+        -webkit-transform;
     }
 
     &.layout-menu-fixed,
@@ -497,7 +536,9 @@ html:not(.layout-footer-fixed) .content-wrapper {
     &.layout-menu-fixed-offcanvas {
       .layout-menu {
         transition-duration: $menu-animation-duration;
-        transition-property: transform, -webkit-transform;
+        transition-property:
+          transform,
+          -webkit-transform;
       }
     }
 

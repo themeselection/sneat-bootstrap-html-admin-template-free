@@ -5,7 +5,7 @@
   $colors: get-navbar-prop($bg, $active-color, $color, $border);
 
   #{$parent} {
-    background-color: map-get($colors, bg) !important;
+    background-color: rgba(map-get($colors, bg), 0.88) !important;
     color: map-get($colors, color);
 
     .navbar-brand,

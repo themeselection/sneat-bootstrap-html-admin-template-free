@@ -38,9 +38,6 @@
     tint-color($border, $btn-active-border-tint-amount)
   );
   $active-color: color-contrast($active-background);
-  $disabled-background: $background;
-  $disabled-border: $border;
-  $disabled-color: color-contrast($disabled-background);
 
   #{$parent} {
     color: $color;
@@ -53,7 +50,6 @@
       color: $hover-color !important;
       @include gradient-bg($hover-background !important);
       border-color: $hover-border !important;
-      transform: $btn-hover-transform !important;
     }
 
     .btn-check:focus + &,
@@ -62,8 +58,6 @@
       color: $hover-color;
       @include gradient-bg($hover-background);
       border-color: $hover-border;
-      transform: $btn-focus-transform;
-      box-shadow: none;
     }
 
     .btn-check:checked + &,
@@ -77,33 +71,28 @@
       // Remove CSS gradients if they're enabled
       background-image: if($enable-gradients, none !important, null);
       border-color: $active-border !important;
-
-      &:focus {
-        box-shadow: none;
-      }
     }
 
     &.disabled,
     &:disabled {
-      color: $disabled-color !important;
-      background-color: $disabled-background !important;
+      color: $color !important;
+      background-color: $background !important;
       // Remove CSS gradients if they're enabled
       background-image: if($enable-gradients, none !important, null);
-      border-color: $disabled-border !important;
-      box-shadow: none !important;
+      border-color: $border !important;
     }
   }
 
   // Button groups
-  // .btn-group #{$parent},
-  // .input-group #{$parent} {
-  //   border-right: $input-btn-border-width solid $active-background;
-  //   border-left: $input-btn-border-width solid $active-background;
-  // }
-  // .btn-group-vertical #{$parent} {
-  //   border-top-color: $active-background;
-  //   border-bottom-color: $active-background;
-  // }
+  .btn-group #{$parent},
+  .input-group #{$parent} {
+    border-right: $input-btn-border-width solid $active-background;
+    border-left: $input-btn-border-width solid $active-background;
+  }
+  .btn-group-vertical #{$parent} {
+    border-top-color: $active-background;
+    border-bottom-color: $active-background;
+  }
 }
 
 // Outline
@@ -139,7 +128,6 @@
       background-color: $hover-background !important;
       border-color: $hover-background !important;
       box-shadow: 0 0.125rem 0.25rem 0 rgba($background, 0.4) !important;
-      transform: $btn-hover-transform !important;
     }
 
     .btn-check:focus + &,
@@ -147,8 +135,6 @@
       color: $color-hover;
       background-color: $hover-background;
       border-color: $hover-background;
-      box-shadow: none;
-      transform: $btn-focus-transform;
     }
 
     .btn-check:checked + &,
@@ -159,16 +145,12 @@
       color: $color-hover !important;
       background-color: $active-background !important;
       border-color: $active-background !important;
-      &:focus {
-        box-shadow: none;
-      }
     }
 
     &.disabled,
     &:disabled {
-      box-shadow: none !important;
       color: $color !important;
-      background-color: transparent !important;
+      border-color: $color !important;
     }
   }
 
@@ -185,6 +167,6 @@
   .show > #{$parent}.dropdown-toggle .badge {
     background: $color-hover;
     border-color: $color-hover;
-    color: if(alpha($color) ==1, $color, color-contrast($color-hover));
+    color: $color;
   }
 }

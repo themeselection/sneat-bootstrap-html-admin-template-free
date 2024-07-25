@@ -3,7 +3,7 @@
 */
 @use '../../scss/_bootstrap-extended/include' as light;
 @import '../../scss/_custom-variables/libs';
-@import '../../node_modules/apexcharts-clevision/dist/apexcharts';
+@import 'apexcharts-clevision/dist/apexcharts';
 
 // Light style
 @if $enable-light-style {
@@ -12,7 +12,7 @@
       .apexcharts-tooltip {
         background: light.$card-bg;
         border-color: light.$border-color;
-        box-shadow: light.$popover-box-shadow;
+        box-shadow: light.$box-shadow;
         .apexcharts-tooltip-title {
           background: light.$card-bg;
           border-color: light.$border-color;
@@ -73,9 +73,6 @@
       .apexcharts-tooltip-text {
         font-family: light.$font-family-base !important;
         filter: none;
-      }
-      .apexcharts-marker {
-        filter: drop-shadow(0 2px 4px #a1acb866);
       }
     }
   }

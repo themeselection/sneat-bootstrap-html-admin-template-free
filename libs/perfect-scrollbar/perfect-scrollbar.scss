@@ -1,6 +1,6 @@
 @use '../../scss/_bootstrap-extended/include' as light;
 @import '../../scss/_custom-variables/libs';
-@import '../../node_modules/perfect-scrollbar/css/perfect-scrollbar';
+@import 'perfect-scrollbar/css/perfect-scrollbar';
 
 $ps-width: 0.25rem !default;
 $ps-hover-width: 0.375rem !default;
@@ -15,6 +15,7 @@ $ps-hover-width: 0.375rem !default;
 
 .ps__rail-y {
   width: $ps-width;
+  z-index: 3;
 }
 
 .ps__rail-x,

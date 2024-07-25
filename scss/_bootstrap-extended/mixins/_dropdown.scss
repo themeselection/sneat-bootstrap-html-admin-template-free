@@ -2,10 +2,12 @@
 // *******************************************************************************
 
 @mixin template-dropdown-variant($parent, $background, $color: null) {
-  #{$parent} .dropdown-item:not(.disabled).active,
-  #{$parent} .dropdown-item:not(.disabled):active {
-    background-color: $background;
-    color: if($color, $color, color-contrast($background)) !important;
+  #{$parent} .dropdown-item {
+    &:not(.disabled).active,
+    &:not(.disabled):active {
+      background-color: $background;
+      color: if($color, $color, color-contrast($background)) !important;
+    }
   }
 
   #{$parent}.dropdown-menu > li:not(.disabled) > a:not(.dropdown-item):active,

@@ -1,5 +1,5 @@
 name: Bug 🐞
-description: Report a bug 
+description: Report a bug
 labels: [support, bug]
 body:
   - type: markdown
@@ -27,11 +27,11 @@ body:
       value: |
         <!-- If technical bug
         NodeJS Version:
-        Package manager(npm|yarn|pnpm): 
+        Package manager(npm|yarn|pnpm):
         Browser name & version:
         System:
         -->
-        
+
         <!-- If design file bug
         Technology(figma|sketch):
         -->

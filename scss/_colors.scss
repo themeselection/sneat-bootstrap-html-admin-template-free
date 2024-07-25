@@ -29,11 +29,11 @@ $bootstrap-colors: () !default;
   }
 }
 
-@include template-navbar-style('.navbar.bg-white', #fff, $color: $text-muted, $active-color: $body-color);
-@include template-navbar-style('.navbar.bg-light', $gray-100, $color: $text-muted, $active-color: $body-color);
+@include template-navbar-style('.navbar.bg-white', #fff, $color: $body-color, $active-color: $headings-color);
+@include template-navbar-style('.navbar.bg-light', $gray-100, $color: $body-color, $active-color: $headings-color);
 
 // * Footer
 // *******************************************************************************
 
-@include template-footer-style('.footer.bg-white', #fff, $color: $text-muted, $active-color: $body-color);
-@include template-footer-style('.footer.bg-light', $gray-100, $color: $text-muted, $active-color: $body-color);
+@include template-footer-style('.footer.bg-white', #fff, $color: $headings-color, $active-color: $body-color);
+@include template-footer-style('.footer.bg-light', $gray-100, $color: $headings-color, $active-color: $body-color);

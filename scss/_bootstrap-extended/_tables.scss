@@ -12,11 +12,32 @@
   > :not(caption) > * > * {
     background-clip: padding-box;
   }
+  &:not(.table-borderless):not(.table-dark) > :not(caption) > *:not(.table-dark) > * {
+    border-top-width: 1px;
+  }
+  .dropdown-item {
+    display: flex;
+    gap: 0.25rem;
+  }
   tr {
     > td {
       .dropdown {
         position: static;
       }
+    }
+  }
+  caption {
+    padding: $table-cell-padding-y $table-cell-padding-x;
+  }
+  thead tr th {
+    padding-block: $table-head-padding-y;
+  }
+  &.table-borderless:not(.table-sm) {
+    > :not(thead) > * > * {
+      padding-block: $table-cell-padding-y + 0.0313rem;
+    }
+    > thead > * > * {
+      padding-block: $table-head-padding-y + 0.0313rem;
     }
   }
 }
@@ -35,15 +56,15 @@
   }
 }
 // Table heading style
-.table {
-  th {
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-  }
-  &:not(.table-dark) th {
-    color: $headings-color;
-  }
+.table th {
+  text-transform: uppercase;
+  font-size: $font-size-sm;
+  letter-spacing: 0.2px;
+  color: $table-th-color;
+}
+.table-dark th {
+  color: var(--#{$prefix}table-color);
+  border-top: 1px solid $table-border-color;
 }
 
 .table-border-bottom-0 {
@@ -69,12 +90,29 @@
     }
   }
 }
+// class for to remove table border top
+.table-border-top-0 {
+  tr:first-child {
+    td,
+    th {
+      border-top-width: 0 !important;
+    }
+  }
+}
 
 // .table {
 //   .btn-group {
 //     display: block;
 //   }
 // }
+// Dark Table icon button color
+.table.table-dark {
+  .btn {
+    i {
+      color: $card-bg;
+    }
+  }
+}
 
 // Flush spacing of left from first column ans right from last column
 .table.table-flush-spacing {
@@ -101,6 +139,6 @@
   .table:not(.table-dark) thead:not(.table-dark) th,
   .table:not(.table-dark) tfoot:not(.table-dark) th,
   .table:not(.table-dark) td {
-    border-color: $border-inner-color;
+    border-color: $border-color;
   }
 }

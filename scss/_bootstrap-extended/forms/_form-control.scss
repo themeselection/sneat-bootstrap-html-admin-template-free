@@ -1,15 +1,45 @@
 // Form control
 // *******************************************************************************
-// form input placeholder animation
 .form-control {
+  //? Form control (all size) padding calc due to border increase on focus
+  padding: calc($input-padding-y - $input-border-width) calc($input-padding-x - $input-border-width);
+  // form input placeholder animation
   &::placeholder,
   &:focus::placeholder {
-    transition: $input-placeholder-transition;
+    transition: all 0.2s ease;
   }
   // border color on hover state
   &:hover {
     &:not([disabled]):not([focus]) {
       border-color: $input-border-hover-color;
     }
+  }
+  &:focus {
+    border-width: $input-focus-border-width;
+    padding: calc($input-padding-y - $input-focus-border-width) calc($input-padding-x - $input-focus-border-width);
+  }
+  &.form-control-lg {
+    padding: calc($input-padding-y-lg - $input-border-width) calc($input-padding-x-lg - $input-border-width);
+    &:focus {
+      padding: calc($input-padding-y-lg - $input-focus-border-width)
+        calc($input-padding-x-lg - $input-focus-border-width);
+    }
+  }
+  &.form-control-sm {
+    padding: calc($input-padding-y-sm - $input-border-width) calc($input-padding-x-sm - $input-border-width);
+    &:focus {
+      padding: calc($input-padding-y-sm - $input-focus-border-width)
+        calc($input-padding-x-sm - $input-focus-border-width);
+    }
+  }
+}
+.input-group:has(button) .form-control {
+  padding: calc($input-padding-y - $input-border-width) calc($input-padding-x - $input-border-width) !important;
+  border-width: $input-border-width !important;
+}
+
+.form-control:not([readonly]) {
+  &:focus::placeholder {
+    transform: translateX(5px);
   }
 }

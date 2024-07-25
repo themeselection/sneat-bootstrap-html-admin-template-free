@@ -228,5 +228,8 @@ $clamp-numbers: (
     .ui-star > *:last-child {
       color: $ui-star-empty-color;
     }
+    .ui-bg-overlay {
+      background-color: light.$gray-900;
+    }
   }
 }

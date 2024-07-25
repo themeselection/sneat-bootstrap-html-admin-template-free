@@ -14,11 +14,12 @@
 
 // scss-docs-start gray-color-variables
 $white: #fff !default;
-$black: #435971 !default;
+$black: #22303e !default;
 $gray-25: rgba($black, 0.025) !default; // (C)
-$gray-50: rgba($black, 0.05) !default; // (C)
+$gray-60: rgba($black, 0.06) !default; // (C)
+$gray-80: rgba($black, 0.08) !default; // (C)
 $gray-100: rgba($black, 0.1) !default;
-$gray-200: rgba($black, 0.2) !default;
+$gray-200: rgba($black, 0.12) !default;
 $gray-300: rgba($black, 0.3) !default;
 $gray-400: rgba($black, 0.4) !default;
 $gray-500: rgba($black, 0.5) !default;
@@ -31,7 +32,8 @@ $gray-900: rgba($black, 0.9) !default;
 // scss-docs-start gray-colors-map
 $grays: (
   '25': $gray-25,
-  '50': $gray-50
+  '60': $gray-60,
+  '80': $gray-80
 ) !default;
 // scss-docs-end gray-colors-map
 
@@ -55,9 +57,9 @@ $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: #fcfdfd !default;
-$dark: #233446 !default;
-$gray: $gray-100 !default; // (C)
+$light: #dbdee0 !default;
+$dark: #2b2c40 !default;
+$gray: $gray-500 !default; // (C)
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -79,6 +81,9 @@ $color-scheme: 'light' !default; // (C)
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
 $min-contrast-ratio: 1.7 !default;
 
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (('<', '%3c'), ('>', '%3e'), ('#', '%23'), ('(', '%28'), (')', '%29')) !default;
+
 // * Options
 // *******************************************************************************
 
@@ -94,14 +99,35 @@ $prefix: $variable-prefix !default;
 // *******************************************************************************
 
 $spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  50: $spacer * 0.125,
+  1: $spacer * 0.25,
+  1_5: $spacer * 0.375,
+  2: $spacer * 0.5,
+  3: $spacer * 0.75,
+  4: $spacer,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  7: $spacer * 1.75,
+  8: $spacer * 2,
+  9: $spacer * 2.25,
+  10: $spacer * 2.5,
+  11: $spacer * 2.75,
+  12: $spacer * 3
+) !default;
 
 $sizes-px: (
+  px-18: 18px,
   px-20: 20px,
   px-30: 30px,
   px-40: 40px,
+  px-44: 44px,
   px-50: 50px,
+  px-52: 52px,
   px-75: 75px,
   px-100: 100px,
+  px-120: 120px,
   px-150: 150px,
   px-200: 200px,
   px-250: 250px,
@@ -122,7 +148,7 @@ $rgba-to-hex-bg-inverted: #000 !default; // (C)
 // *******************************************************************************
 
 $body-bg: #f5f5f9 !default;
-$body-color: rgba-to-hex($gray-800, $rgba-to-hex-bg) !default;
+$body-color: rgba-to-hex($gray-700, $rgba-to-hex-bg) !default;
 
 // * Links
 // *******************************************************************************
@@ -151,7 +177,7 @@ $container-max-widths: (
 $grid-gutter-width: 1.625rem !default;
 $container-padding-x: 1.625rem !default; // (C)
 $container-padding-x-sm: 1rem !default; // (C)
-$container-padding-y: 1.625rem !default; // (C)
+$container-padding-y: 1.5rem !default; // (C)
 
 // * Components
 // *******************************************************************************
@@ -159,7 +185,6 @@ $container-padding-y: 1.625rem !default; // (C)
 // scss-docs-start border-variables
 $border-width: 1px !default;
 $border-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default;
-$border-inner-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default; // (C)
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
@@ -168,19 +193,22 @@ $border-radius-xl: 0.625rem !default; // (C)
 $border-radius-lg: 0.5rem !default;
 $border-radius-sm: 0.25rem !default;
 $border-radius-xs: 0.125rem !default; // (C)
+$border-radius-pill: 50rem !default;
 
 $border-shade-amount: 25% !default; // (C)
 $border-tint-amount: 60% !default; // (C)
 // scss-docs-end border-radius-variables
 
 // scss-docs-start box-shadow-variables
-$box-shadow: 0 0.25rem 1rem rgba(rgba-to-hex($gray-500, $rgba-to-hex-bg), 0.45) !default;
-$box-shadow-sm: 0 0.125rem 0.25rem rgba(rgba-to-hex($gray-500, $rgba-to-hex-bg), 0.4) !default;
-$box-shadow-lg: 0 0.625rem 1.25rem rgba(rgba-to-hex($gray-500, $rgba-to-hex-bg), 0.5) !default;
+$box-shadow: 0 0.1875rem 0.5rem 0 rgba($black, 0.1) !default;
+$box-shadow-xs: 0 0.0625rem 0.3175rem 0 rgba($black, 0.06) !default;
+$box-shadow-sm: 0 0.125rem 0.375rem 0 rgba($black, 0.08) !default;
+$box-shadow-lg: 0 0.25rem 0.75rem 0 rgba($black, 0.14) !default;
+$box-shadow-xl: 0 0.3125rem 1.375rem 0 rgba($black, 0.18) !default;
 // scss-docs-end box-shadow-variables
 
 $component-active-color: $white !default;
-$component-active-bg: rgba($primary, 0.08) !default;
+$component-active-bg: $primary !default;
 
 $component-line-height: 1.54 !default; // (C)
 $component-focus-shadow-width: 2px !default; // (C)
@@ -197,7 +225,7 @@ $focus-ring-opacity: 0.75 !default;
 $focus-ring-color: rgba($gray-700, $focus-ring-opacity) !default;
 
 // scss-docs-start caret-variables
-$caret-width: 0.42em !default;
+$caret-width: 0.55em !default;
 $caret-vertical-align: middle !default;
 $caret-spacing: 0.5em !default;
 // scss-docs-end caret-variables
@@ -206,8 +234,18 @@ $caret-spacing: 0.5em !default;
 // *******************************************************************************
 
 // scss-docs-start font-variables
-$font-family-sans-serif: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
-  'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-sans-serif:
+  'Public Sans',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  sans-serif !default;
 $font-family-serif: Georgia, 'Times New Roman', serif !default; // (C)
 $font-family-monospace: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
 // stylelint-enable value-keyword-case
@@ -219,9 +257,9 @@ $font-family-code: var(--#{$variable-prefix}font-monospace) !default;
 $font-size-root: 16px !default;
 $font-size-base: 0.9375rem !default; // Assumes the browser default, typically `15px/16px`
 $font-size-xl: 1.25rem !default; // (C)
-$font-size-lg: 1rem !default;
-$font-size-sm: 0.75rem !default;
-$font-size-xs: $font-size-sm !default; // (C)
+$font-size-lg: 1.0625rem !default;
+$font-size-sm: 0.8125rem !default;
+$font-size-xs: 0.75rem !default; // (C)
 
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
@@ -229,20 +267,28 @@ $font-weight-normal: 400 !default;
 $font-weight-medium: 500 !default;
 $font-weight-semibold: 600 !default;
 $font-weight-bold: 700 !default;
+$font-weight-extrabold: 800 !default;
 $font-weight-bolder: bolder !default;
 
-$line-height-base: 1.53 !default;
-$line-height-xl: 1.5 !default; // (C)
-$line-height-lg: 1.5 !default;
-$line-height-sm: 1.5 !default;
-$line-height-xs: 1.5 !default; // (C)
+$line-height-base: 1.375 !default;
+$line-height-xl: 1.75 !default; // (C)
+$line-height-lg: 1.625 !default;
+$line-height-sm: 1.125 !default;
+$line-height-xs: 1 !default; // (C)
 
-$h1-font-size: 2.375rem !default;
-$h2-font-size: 2rem !default;
-$h3-font-size: 1.625rem !default;
-$h4-font-size: 1.375rem !default;
+$h1-font-size: 2.875rem !default;
+$h2-font-size: 2.375rem !default;
+$h3-font-size: 1.75rem !default;
+$h4-font-size: 1.5rem !default;
 $h5-font-size: 1.125rem !default;
 $h6-font-size: $font-size-base !default;
+
+$h1-line-height: 4.25rem !default;
+$h2-line-height: 3.5rem !default;
+$h3-line-height: 2.625rem !default;
+$h4-line-height: 2.375rem !default;
+$h5-line-height: 1.75rem !default;
+$h6-line-height: 1.375rem !default;
 // scss-docs-end font-variables
 
 // scss-docs-start headings-variables
@@ -273,12 +319,12 @@ $lead-font-weight: 400 !default;
 
 // scss-docs-start type-variables
 $tiny-font-size: 70% !default; // (C)
-$small-font-size: 85% !default;
+$small-font-size: 0.8125rem !default;
 $big-font-size: 112% !default; // (C)
 $large-font-size: 150% !default; // (C)
 $xlarge-font-size: 170% !default; // (C)
 
-$text-muted: rgba-to-hex($gray-500, $rgba-to-hex-bg) !default;
+$text-muted: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default;
 $text-muted-hover: rgba-to-hex($gray-600, $rgba-to-hex-bg) !default; // (C)
 
 $text-light: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default; // (C)
@@ -319,29 +365,33 @@ $zindex-levels: (
 // *******************************************************************************
 
 // scss-docs-start table-variables
-$table-cell-padding-y: 0.625rem !default;
+$table-head-padding-y: 1.161rem !default; // (C)
+$table-head-padding-y-sm: 1.114rem !default; // (C)
+$table-cell-padding-y: 0.782rem !default;
 $table-cell-padding-x: 1.25rem !default;
-$table-cell-padding-y-sm: 0.3125rem !default;
-$table-cell-padding-x-sm: 0.625rem !default;
+$table-cell-padding-y-sm: 0.594rem !default;
+$table-cell-padding-x-sm: $table-cell-padding-x !default;
 
 $table-cell-vertical-align: middle !default;
 
+$table-th-color: $headings-color !default; // (C)
 $table-color: var(--#{$prefix}body-color) !default;
 $table-bg: transparent !default;
 
 $table-th-font-weight: $font-weight-medium !default;
 
-$table-striped-bg-factor: 0.03 !default;
+$table-striped-bg-factor: 0.06 !default;
 $table-striped-bg: rgba-to-hex(rgba($black, $table-striped-bg-factor), $rgba-to-hex-bg) !default;
 
-$table-active-bg-factor: 0.1 !default;
-$table-active-bg: rgba($black, $table-active-bg-factor) !default;
+$table-active-color: $body-color !default;
+$table-active-bg-factor: 0.08 !default;
+$table-active-bg: rgba($primary, $table-active-bg-factor) !default;
 
 $table-hover-bg-factor: 0.06 !default;
 $table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
 
-$table-border-factor: 0.1 !default;
-$table-border-color: $border-color !default;
+$table-border-factor: 0.12 !default;
+$table-border-color: rgba-to-hex(rgba($black, $table-border-factor), $rgba-to-hex-bg) !default;
 
 $table-group-separator-color: $table-border-color !default;
 
@@ -350,7 +400,7 @@ $table-caption-color: $text-muted !default;
 // * Buttons + Forms
 // *******************************************************************************
 
-$input-btn-padding-y: 0.4375rem !default;
+$input-btn-padding-y: 0.4812rem !default;
 $input-btn-padding-x: 1.25rem !default;
 $input-btn-font-size: $font-size-base !default;
 $input-btn-line-height: $line-height-base !default;
@@ -366,15 +416,15 @@ $input-btn-padding-x-xs: 0.5rem !default; // (C)
 $input-btn-font-size-xs: $font-size-xs !default; // (C)
 $input-btn-line-height-xs: $line-height-xs !default; // (C)
 
-$input-btn-padding-y-sm: 0.25rem !default;
-$input-btn-padding-x-sm: 0.6875rem !default;
+$input-btn-padding-y-sm: 0.317rem !default;
+$input-btn-padding-x-sm: 0.75rem !default;
 $input-btn-font-size-sm: $font-size-sm !default;
-$input-btn-line-height-sm: $line-height-sm !default;
+$input-btn-line-height-sm: $line-height-base !default;
 
-$input-btn-padding-y-lg: 0.75rem !default;
+$input-btn-padding-y-lg: 0.708rem !default;
 $input-btn-padding-x-lg: 1.5rem !default;
 $input-btn-font-size-lg: $font-size-lg !default;
-$input-btn-line-height-lg: $line-height-lg !default;
+$input-btn-line-height-lg: $line-height-base !default;
 
 $input-btn-padding-y-xl: 0.875rem !default; // (C)
 $input-btn-padding-x-xl: 2.125rem !default; // (C)
@@ -384,21 +434,23 @@ $input-btn-line-height-xl: $line-height-xl !default; // (C)
 // * Buttons
 // *******************************************************************************
 
-$btn-padding-y-xs: $input-btn-padding-y-xs !default; // (C)
-$btn-padding-x-xs: $input-btn-padding-x-xs !default; // (C)
-$btn-font-size-xs: $input-btn-font-size-xs !default; // (C)
+$btn-padding-y-xs: 0.196rem !default; // (C)
+$btn-padding-x-xs: 0.625rem !default; // (C)
+$btn-font-size-xs: 0.625rem !default; // (C)
 
-$btn-padding-y-xl: $input-btn-padding-y-xl !default; // (C)
-$btn-padding-x-xl: $input-btn-padding-x-xl !default; // (C)
-$btn-font-size-xl: $input-btn-font-size-xl !default; // (C)
+$btn-padding-y-xl: 0.852rem !default; // (C)
+$btn-padding-x-xl: 1.5rem !default; // (C)
+$btn-font-size-xl: 1.125rem !default; // (C)
 
-$btn-line-height-xs: $input-btn-line-height-xs !default; // (C)
-$btn-line-height-sm: $line-height-sm; //(C)
-$btn-line-height-lg: $line-height-lg; //(C)
-$btn-line-height-xl: $input-btn-line-height-xl !default; // (C)
+$btn-line-height-xs: $line-height-base !default; // (C)
+$btn-line-height-sm: $input-btn-line-height-sm !default; // (C)
+$btn-line-height-lg: $input-btn-line-height-lg !default; // (C)
+$btn-line-height-xl: $line-height-base !default; // (C)
 
+$btn-font-weight: $font-weight-medium !default;
 $btn-box-shadow: none !default;
 $btn-focus-box-shadow: none !default;
+$btn-disabled-opacity: 0.45 !default;
 $btn-active-box-shadow: none !default;
 
 $btn-border-radius-xs: $border-radius-xs !default; // (C)
@@ -409,63 +461,64 @@ $btn-transition: all 0.2s ease-in-out !default;
 $btn-label-bg-shade-amount: 84% !default; // (C)
 $btn-label-bg-tint-amount: 84% !default; // (C)
 
-$btn-label-disabled-bg-shade-amount: 84% !default; // (C)
-$btn-label-disabled-bg-tint-amount: 84% !default; // (C)
-
 $btn-hover-bg-shade-amount: 10% !default;
-$btn-hover-bg-tint-amount: 10% !default;
+$btn-hover-bg-tint-amount: 25% !default;
 $btn-hover-border-shade-amount: 10% !default;
 $btn-hover-border-tint-amount: 10% !default;
 $btn-hover-transform: translateY(-1px) !default; // (C)
 
 $btn-focus-transform: translateY(0) !default; // (C)
 
-$btn-disabled-opacity: 0.65 !default;
-
-$btn-active-bg-shade-amount: 15% !default;
-$btn-active-bg-tint-amount: 15% !default;
-$btn-active-border-shade-amount: 15% !default;
-$btn-active-border-tint-amount: 15% !default;
+$btn-active-bg-shade-amount: 10% !default;
+$btn-active-bg-tint-amount: 10% !default;
+$btn-active-border-shade-amount: 10% !default;
+$btn-active-border-tint-amount: 10% !default;
 
 // * Forms
 // *******************************************************************************
 
 // scss-docs-start form-text-variables
 $form-text-margin-top: 0.3rem !default;
-$form-text-font-size: $small-font-size !default;
-$form-text-color: $text-light !default;
+$form-text-font-size: $input-btn-font-size-sm !default;
+$form-text-color: $body-color !default;
 // scss-docs-end form-text-variables
 
 // scss-docs-start form-label-variables
-$form-label-font-size: 0.75rem !default;
-$form-label-font-weight: 500 !default;
+$form-label-margin-bottom: 0.25rem !default;
+$form-label-font-size: $input-btn-font-size-sm !default;
 $form-label-color: $headings-color !default;
 $form-label-letter-spacing: inherit !default; //(C)
-$form-label-text-transform: uppercase !default; //(C)
+$form-label-text-transform: inherit !default; //(C)
 // scss-docs-end form-label-variables
 
 // scss-docs-start form-input-variables
-$input-padding-x: 0.875rem !default;
-$input-line-height: $input-btn-line-height !default;
+$input-padding-y: 0.543rem !default;
+$input-padding-x: 0.9375rem !default;
+$input-line-height: $line-height-base !default;
+$input-font-size: $input-btn-font-size !default;
 
-$input-padding-x-sm: 0.625rem !default;
+$input-padding-y-sm: 0.3165rem !default;
+$input-padding-x-sm: 0.8125rem !default;
 
-$input-padding-x-lg: 1.25rem !default;
+$input-padding-y-lg: 0.7075rem !default;
+$input-padding-x-lg: 1.3125rem !default;
+$input-font-size-lg: 1.0625rem !default;
 
-$input-bg: $white !default;
-$input-disabled-bg: rgba-to-hex($gray-100, $rgba-to-hex-bg) !default;
+$input-bg: transparent !default;
+$input-disabled-color: $text-muted !default;
+$input-disabled-bg: $gray-60 !default;
+$input-disabled-border-color: rgba-to-hex(rgba($black, 0.24), $rgba-to-hex-bg) !default;
 
-$input-color: $body-color !default;
-$input-border-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default;
-$input-border-hover-color: rgba-to-hex($gray-300, $rgba-to-hex-bg) !default; // (C)
+$input-color: $headings-color !default;
+$input-border-color: rgba-to-hex(rgba($black, 0.22), $rgba-to-hex-bg) !default;
+$input-border-hover-color: rgba-to-hex($gray-600, $rgba-to-hex-bg) !default; // (C)
 
-$input-hover-border-color: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default; // (C)
+$input-focus-border-width: 2px !default; //(C)
+$input-focus-border-color: $component-active-bg !default;
+$input-focus-box-shadow: 0 0.125rem 0.25rem 0 rgba($component-active-bg, 0.4) !default;
 
-$input-focus-border-color-scale: 50% !default; //(C)
-$input-focus-border-color: tint-color($component-active-bg, $input-focus-border-color-scale) !default;
-
-$input-placeholder-transition: all 0.25s ease;
-$input-placeholder-color: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default;
+$input-placeholder-color: $text-muted !default;
+$input-plaintext-color: $headings-color !default;
 
 $input-height-inner: px-to-rem(
   floor(rem-to-px(($input-btn-font-size * $input-btn-line-height) + ($input-btn-padding-y * 2)))
@@ -481,70 +534,80 @@ $input-height-inner-lg: px-to-rem(
 // scss-docs-start form-check-variables
 $form-check-input-width: 1.2em !default;
 $form-datatables-check-input-size: 18px !default; // (C) For datatables with checkbox- update according to $form-check-input-width
-
-$form-check-input-border: 1px solid $input-border-color !default;
-$form-check-input-focus-box-shadow: $input-btn-focus-box-shadow !default;
+$form-check-min-height: $font-size-base * $line-height-base * 1.067 !default;
+$form-check-padding-start: $form-check-input-width + 0.6em !default;
+$form-check-margin-bottom: 0.5rem !default;
+$form-check-input-border: $input-focus-border-width solid $text-muted !default;
+$form-check-label-color: $headings-color !default;
+$form-check-input-focus-box-shadow: none !default;
 
 $form-check-label-cursor: pointer !default;
-$form-check-label-disabled-color: $text-muted !default; // (C)R
 
+$form-check-input-border-radius: 0.267em !default;
+$form-check-input-focus-border: $body-color !default;
 $form-check-input-checked-color: $component-active-color !default;
-$form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 10l3 3l6-6'/></svg>") !default;
-$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='1.5' fill='#{$form-check-input-checked-color}'/></svg>") !default;
+$form-check-input-checked-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='17' viewBox='0 0 15 14' fill='none'%3E%3Cpath d='M3.41667 7L6.33333 9.91667L12.1667 4.08333' stroke='#{$form-check-input-checked-color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !default;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='1.6' fill='#{$form-check-input-checked-color}'  /%3e%3c/svg%3e") !default;
 
 $form-check-input-indeterminate-color: $component-active-color !default;
-$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 10h8'/></svg>") !default;
+$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'><path d='M2.5 6H9.5' stroke='#{$form-check-input-indeterminate-color}' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/></svg>") !default;
 
-$form-check-input-disabled-bg: $input-disabled-bg !default; //(C)
+$form-check-input-disabled-opacity: 0.45 !default;
+$form-check-input-disabled-bg: rgba-to-hex($gray-300, $rgba-to-hex-bg) !default; // (C)
+$form-check-label-disabled-color: $text-muted !default; // (C)
 // scss-docs-end form-check-variables
 
 // scss-docs-start form-switch-variables
-$form-switch-color: $gray-300 !default;
+$form-switch-color: $component-active-color !default;
 $form-switch-width: 2em !default;
-$form-switch-padding-start: $form-switch-width + 0.5em !default;
+$form-switch-padding-start: $form-switch-width + 0.667em !default;
+$form-switch-focus-color: $component-active-color;
+$form-switch-bg-image: url("data:image/svg+xml,%3csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg filter='url(%23a)'%3e%3ccircle cx='12' cy='11' r='8.5' fill='#{$form-switch-color}'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='a' x='0' y='0' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeColorMatrix in='SourceAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3e%3cfeOffset dy='2'/%3e%3cfeGaussianBlur stdDeviation='2'/%3e%3cfeColorMatrix values='0 0 0 0 0.180392 0 0 0 0 0.14902 0 0 0 0 0.239216 0 0 0 0.16 0'/%3e%3cfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_6488_3264'/%3e%3cfeBlend in='SourceGraphic' in2='effect1_dropShadow_6488_3264' result='shape'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e") !default;
 
-$form-switch-checked-bg-position-rtl: left center !default; //(C)
+$form-switch-focus-bg-image: url("data:image/svg+xml,%3csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg filter='url(%23a)'%3e%3ccircle cx='12' cy='11' r='8.5' fill='#{$form-switch-color}'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='a' x='0' y='0' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeColorMatrix in='SourceAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3e%3cfeOffset dy='2'/%3e%3cfeGaussianBlur stdDeviation='2'/%3e%3cfeColorMatrix values='0 0 0 0 0.180392 0 0 0 0 0.14902 0 0 0 0 0.239216 0 0 0 0.16 0'/%3e%3cfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_6488_3264'/%3e%3cfeBlend in='SourceGraphic' in2='effect1_dropShadow_6488_3264' result='shape'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e") !default;
+$form-switch-checked-bg-image: url("data:image/svg+xml,%3csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg filter='url(%23a)'%3e%3ccircle cx='12' cy='11' r='8.5' fill='#{$form-switch-color}'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='a' x='0' y='0' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeColorMatrix in='SourceAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3e%3cfeOffset dy='2'/%3e%3cfeGaussianBlur stdDeviation='2'/%3e%3cfeColorMatrix values='0 0 0 0 0.180392 0 0 0 0 0.14902 0 0 0 0 0.239216 0 0 0 0.16 0'/%3e%3cfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_6488_3264'/%3e%3cfeBlend in='SourceGraphic' in2='effect1_dropShadow_6488_3264' result='shape'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e") !default;
+$form-switch-checked-bg-position: 95% center !default;
+$form-switch-checked-bg-position-rtl: 4% center !default; // (C)
+$form-switch-bg: rgba-to-hex($gray-100, $rgba-to-hex-bg) !default; // (C)
+$form-switch-box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.16) inset !default; // (C)
 // scss-docs-end form-switch-variables
 
 //input-group-variables
-$input-group-addon-color: $input-color !default;
+$input-group-addon-color: $headings-color !default;
 $input-group-addon-bg: $input-bg !default;
-$input-group-addon-border-color: $input-border-color !default;
 // scss-docs-end input-group-variables
 
 // scss-docs-start form-select-variables
-$form-select-padding-y: $input-btn-padding-y !default;
+$form-select-padding-y: $input-padding-y !default;
 $form-select-padding-x: $input-padding-x !default;
-$form-select-indicator-padding: $form-select-padding-x + 1rem !default;
-$form-select-disabled-color: $body-color !default;
+$form-select-indicator-padding: $form-select-padding-x * 2.8 !default;
+$form-select-disabled-color: $text-muted !default;
 $form-select-disabled-bg: $input-disabled-bg !default;
-$form-select-bg-size: 17px 12px !default;
-$form-select-indicator-color: $gray-600 !default;
-$form-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
-$form-select-indicator-rtl: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default; // (C)
+$form-select-bg-size: 22px 24px !default;
+$form-select-indicator: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" fill="none"><path d="M10.9999 12.0743L15.5374 7.53676L16.8336 8.83292L10.9999 14.6666L5.16626 8.83292L6.46243 7.53676L10.9999 12.0743Z" fill="#{$black}" fill-opacity="0.9"/></svg>') !default;
+$form-select-disabled-indicator: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" fill="none"><path d="M10.9999 12.0743L15.5374 7.53676L16.8336 8.83292L10.9999 14.6666L5.16626 8.83292L6.46243 7.53676L10.9999 12.0743Z" fill="#{$text-muted}" fill-opacity="0.9"/></svg>') !default; // (C)
+$form-select-indicator-rtl: escape-svg($form-select-indicator) !default; // (C)
 
-$form-select-focus-box-shadow: $input-btn-focus-box-shadow !default;
+$form-select-focus-box-shadow: $input-focus-box-shadow !default;
 
-$form-select-padding-y-sm: $input-btn-padding-y-sm !default;
+$form-select-padding-y-sm: $input-padding-y-sm !default;
 $form-select-padding-x-sm: $input-padding-x-sm !default;
 
-$form-select-padding-y-lg: $input-btn-padding-y-lg !default;
+$form-select-padding-y-lg: $input-padding-y-lg !default;
 $form-select-padding-x-lg: $input-padding-x-lg !default;
 // scss-docs-end form-select-variables
 
 // scss-docs-start form-range-variables
 $form-range-track-height: 0.375rem !default;
-$form-range-track-bg: rgba-to-hex($gray-100, $rgba-to-hex-bg) !default;
 $form-range-track-box-shadow: none !default;
-$form-range-track-disabled-bg: $gray-50 !default; // (C)
+$form-range-track-disabled-bg: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default; // (C)
 
-$form-range-thumb-width: 0.875rem !default;
+$form-range-thumb-width: 1.375rem !default;
 $form-range-thumb-height: $form-range-thumb-width !default;
-$form-range-thumb-bg: $white !default;
-$form-range-thumb-box-shadow: 0 0 6px 0 $gray-400 !default;
-$form-range-thumb-focus-box-shadow: 0 0 8px 0px $gray-400 !default;
-$form-range-thumb-active-bg: $form-range-thumb-bg !default;
-$form-range-thumb-disabled-bg: rgba-to-hex($gray-200, $rgba-to-hex-bg) !default;
+$form-range-thumb-box-shadow: 0 0.112rem 0.375rem 0 $gray-80 !default;
+$form-range-thumb-bg: $primary !default;
+$form-range-thumb-active-bg: $primary !default;
+$form-range-thumb-disabled-bg: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default;
 // scss-docs-end form-range-variables
 
 // scss-docs-start form-file-variables
@@ -554,7 +617,9 @@ $form-file-button-hover-bg: shade-color($form-file-button-bg, 5%) !default;
 
 // scss-docs-start form-floating-variables
 $form-floating-label-opacity: 0.75 !default;
-$form-floating-transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out !default;
+$form-floating-transition:
+  opacity 0.2s ease-in-out,
+  transform 0.2s ease-in-out !default;
 $form-floating-label-transform-rtl: scale(0.85) translateY(-0.5rem) translateX(-0.15rem) !default; // (C)
 // scss-docs-end form-floating-variables
 
@@ -572,13 +637,15 @@ $form-select-feedback-icon-padding-lg: $form-select-indicator-padding + $input-h
 // * Navs
 // *******************************************************************************
 
-$nav-spacer: 0.125rem !default; // (C)
+$nav-spacer: 0.25rem !default; // (C)
 
-$nav-link-padding-y: 0.5rem !default;
-$nav-link-padding-x: 1.25rem !default;
-$nav-link-color: $text-muted-hover !default;
-$nav-link-disabled-color: $text-lighter !default;
-$nav-link-line-height: $component-line-height !default; // (C)
+$nav-link-padding-y: 0.5435rem !default;
+$nav-link-padding-x: 1.375rem !default;
+$nav-link-font-size: $font-size-base !default;
+$nav-link-font-weight: $font-weight-medium !default;
+$nav-link-color: $headings-color !default;
+$nav-link-disabled-color: $text-muted !default;
+$nav-link-line-height: $line-height-base !default; // (C)
 
 $nav-link-padding-y-lg: 0.875rem !default; // (C)
 $nav-link-padding-x-lg: 1.3125rem !default; // (C)
@@ -588,14 +655,15 @@ $nav-link-padding-y-sm: 0.3125rem !default; // (C)
 $nav-link-padding-x-sm: 0.875rem !default; // (C)
 $nav-link-line-height-sm: $line-height-sm !default; // (C)
 
-$nav-tabs-link-hover-border-color: $gray-100 !default;
-$nav-tabs-link-active-color: $body-color !default;
+$nav-tabs-border-color: $border-color !default;
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-link-active-color: $component-active-bg !default;
 $nav-tabs-link-active-bg: $white !default;
-$nav-tabs-border-color: $nav-tabs-link-active-bg !default;
-$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
-$nav-tabs-btn-bg-factor: 0.16 !default; // (C)
-$nav-tabs-btn-color: $headings-color !default; // (C)
-$nav-tabs-btn-bg: rgba-to-hex($gray-100, $rgba-to-hex-bg) !default; // (C)
+$nav-tabs-link-active-border-color: $component-active-bg !default;
+
+$nav-pills-padding-y: $nav-link-padding-y !default; // (C)
+$nav-pills-padding-x: $nav-link-padding-x !default; // (C)
+$nav-pills-link-hover-bg: rgba($primary, 0.16) !default; // (C)
 
 $nav-pills-link-active-color: $white !default;
 $nav-pills-link-active-bg: transparent !default;
@@ -622,59 +690,67 @@ $navbar-light-toggler-border-color: rgba($black, 0.06) !default;
 
 // * Dropdowns
 // *******************************************************************************
-$dropdown-min-width: 12rem !default;
-$dropdown-padding-y: 0.3125rem !default;
-$dropdown-font-size: $font-size-base !default;
+$dropdown-min-width: 10rem !default;
+$dropdown-padding-y: 0.5rem !default;
 $dropdown-bg: $white !default;
-$dropdown-border-color: $floating-component-border-color !default;
-$dropdown-divider-bg: $border-color !default;
-$dropdown-box-shadow: $floating-component-shadow !default;
+$dropdown-border-color: $border-color !default;
+$dropdown-border-width: 0 !default;
+$dropdown-box-shadow: $box-shadow-lg !default;
 
 $dropdown-inner-border-radius: 0 !default;
 
-$dropdown-link-color: $body-color !default;
-$dropdown-link-hover-bg: rgba($black, 0.04) !default;
-$dropdown-link-line-height: $component-line-height !default; // (C)
+$dropdown-link-color: $headings-color !default;
+$dropdown-link-hover-bg: $gray-60 !default;
+$dropdown-link-line-height: $line-height-base !default; // (C)
 
-$dropdown-link-disabled-color: $text-lighter !default;
+$dropdown-link-active-color: $primary !default;
+$dropdown-link-active-bg: rgba($primary, 0.16) !default;
 
-$dropdown-item-padding-y: 0.532rem !default;
+$dropdown-item-padding-y: 0.543rem !default;
 $dropdown-item-padding-x: 1.25rem !default;
 
-$dropdown-header-color: $text-muted !default;
-
-$dropdown-header-padding: $dropdown-item-padding-y $dropdown-item-padding-x !default;
+$dropdown-link-disabled-color: $text-muted !default;
 
 // * Pagination
 // *******************************************************************************
 
-$pagination-padding-y: 0.625rem !default;
-$pagination-padding-x: 0.5125rem !default;
-$pagination-padding-y-sm: 0.375rem !default;
-$pagination-padding-x-sm: 0.25rem !default;
-$pagination-padding-y-lg: 0.9375rem !default;
-$pagination-padding-x-lg: 0.5rem !default;
+$pagination-padding-y: 0.4809rem !default;
+$pagination-padding-x: 0.5rem !default;
+$pagination-padding-y-sm: 0.3165rem !default;
+$pagination-padding-x-sm: 0.269rem !default;
+$pagination-padding-y-lg: 0.681rem !default;
+$pagination-padding-x-lg: 0.9826rem !default;
 
-$pagination-line-height: 1 !default; // (c)
+$pagination-font-size: $font-size-base !default;
 
-$pagination-color: $body-color !default;
-$pagination-bg: rgba-to-hex(rgba($black, 0.08), $rgba-to-hex-bg) !default;
-$pagination-border-width: 0px !default;
-$pagination-border-radius: $border-radius-sm !default;
-$pagination-margin-start: 0.1875rem !default;
-$pagination-border-color: $border-inner-color !default;
+$pagination-line-height: $line-height-base !default; // (c)
 
-$pagination-focus-box-shadow: none !default;
+$pagination-color: $headings-color !default;
+$pagination-bg: $gray-60 !default;
+$pagination-border-radius: 50% !default;
+$pagination-border-width: $border-width !default;
+$pagination-margin-start: 0.375rem !default;
+$pagination-border-color: rgba-to-hex(rgba($black, 0.22), $rgba-to-hex-bg) !default;
 
 $pagination-focus-color: $pagination-color !default;
-$pagination-focus-bg: rgba-to-hex(rgba($black, 0.16), $rgba-to-hex-bg) !default;
+$pagination-focus-bg: $gray-60 !default;
+$pagination-focus-box-shadow: none !default;
 
 $pagination-hover-color: $pagination-color !default;
-$pagination-hover-bg: rgba-to-hex(rgba($black, 0.16), $rgba-to-hex-bg) !default;
-$pagination-hover-border-color: $gray-300 !default;
+$pagination-hover-bg: $pagination-focus-bg !default;
+$pagination-hover-border-color: $pagination-border-color !default;
 
-$pagination-disabled-color: $text-muted !default;
-$pagination-disabled-bg: rgba-to-hex(rgba($black, 0.04), $rgba-to-hex-bg) !default;
+$pagination-active-color: $component-active-color !default;
+$pagination-active-bg: $primary !default;
+$pagination-active-border-color: $pagination-active-bg !default;
+
+$pagination-disabled-color: $pagination-color !default;
+$pagination-disabled-bg: $pagination-bg !default;
+$pagination-disabled-border-color: $pagination-border-color !default;
+$pagination-disabled-opacity: $btn-disabled-opacity !default; // (c)
+
+$pagination-border-radius-sm: $pagination-border-radius !default;
+$pagination-border-radius-lg: $pagination-border-radius-sm !default;
 
 // * Cards
 // *******************************************************************************
@@ -682,62 +758,67 @@ $pagination-disabled-bg: rgba-to-hex(rgba($black, 0.04), $rgba-to-hex-bg) !defau
 $card-title-color: $headings-color !default;
 $card-spacer-y: $spacer * 1.5 !default;
 $card-spacer-x: $spacer * 1.5 !default;
-$card-title-font-size: $h5-font-size !default; // (C)
-$card-title-spacer-y: $spacer * 0.875 !default;
+$card-title-spacer-y: $spacer * 0.5 !default;
+$card-subtitle-color: rgba-to-hex(rgba($black, 0.55), $rgba-to-hex-bg) !default;
 $card-spacer-x-sm: 1rem !default; // (C)
-$card-border-width: 0;
+$card-border-width: 0 !default;
 $card-border-color: $border-color !default;
-$card-border-radius: $border-radius-lg !default;
-$card-box-shadow: 0 2px 6px 0 rgba($black, 0.12) !default;
-$card-inner-border-color: $border-inner-color !default; // (C)
-$card-cap-padding-y: $spacer * 1.5 !default;
-
+$card-border-radius: 0.375rem !default;
+$card-inner-border-color: $border-color !default; // (C)
+$card-cap-padding-y: $card-spacer-y !default;
 $card-cap-bg: transparent !default;
 $card-bg: $white !default;
+$card-cap-color: $headings-color !default;
 $card-img-overlay-padding: 1.5rem !default;
+$card-box-shadow: $box-shadow !default;
+$card-group-margin: $grid-gutter-width !default;
+$card-inner-border-radius: $border-radius !default;
 
 // * Accordion
 // *******************************************************************************
 
-$accordion-padding-y: 0.79rem !default;
-$accordion-padding-x: 1.125rem !default;
+$accordion-padding-y: 0.793rem !default;
+$accordion-padding-x: 1.5rem !default;
+$accordion-body-padding-y: 1.25rem !default;
+$accordion-body-padding-x: 1.25rem !default;
 $accordion-color: $body-color !default;
-$accordion-bg: $white !default;
-$accordion-border-width: 0 !default;
+$accordion-bg: $card-bg !default;
 $accordion-border-color: $border-color !default;
 $accordion-border-radius: $border-radius !default;
+$accordion-inner-border-radius: $accordion-border-radius !default;
 
 $accordion-button-color: $headings-color !default;
 $accordion-button-active-bg: $accordion-bg !default;
 $accordion-button-active-color: $accordion-button-color !default;
 
-$accordion-icon-width: 0.75rem !default;
+$accordion-icon-width: 1.25rem !default;
 $accordion-icon-color: $accordion-button-color !default;
 $accordion-icon-active-color: $accordion-button-active-color !default;
 
-$accordion-icon-transform: rotate(90deg) !default;
+$accordion-icon-transform: rotate(180deg) !default;
 
-$accordion-button-icon: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='m1.532 12 6.182-6-6.182-6L0 1.487 4.65 6 0 10.513z'/%3E%3C/defs%3E%3Cg transform='translate(2.571)' fill='none' fill-rule='evenodd'%3E%3Cuse fill='%23435971' xlink:href='%23a'/%3E%3Cuse fill-opacity='.1' fill='#{$accordion-icon-color}' xlink:href='%23a'/%3E%3C/g%3E%3C/svg%3E%0A") !default;
-$accordion-button-active-icon: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='m1.532 12 6.182-6-6.182-6L0 1.487 4.65 6 0 10.513z'/%3E%3C/defs%3E%3Cg transform='translate(2.571)' fill='none' fill-rule='evenodd'%3E%3Cuse fill='%23435971' xlink:href='%23a'/%3E%3Cuse fill-opacity='.1' fill='#{$accordion-icon-active-color}' xlink:href='%23a'/%3E%3C/g%3E%3C/svg%3E%0A") !default;
+$accordion-button-icon: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg id='bx-chevron-down'%3e%3cpath id='Vector' d='M13.5775 7.74417L9.99997 11.3217L6.42247 7.74417L5.24414 8.9225L9.99997 13.6783L14.7558 8.9225L13.5775 7.74417Z' fill='#{$accordion-icon-active-color}' fill-opacity='0.9'/%3e%3c/g%3e%3c/svg%3e") !default;
+$accordion-button-active-icon: $accordion-button-icon !default;
 
 // * Tooltips
 // *******************************************************************************
 
-$tooltip-bg: $dark !default;
+$tooltip-bg: #22303e !default;
 $tooltip-color: $white !default;
 $tooltip-opacity: 1 !default;
-$tooltip-box-shadow: $box-shadow-sm !default; // (C)
-$tooltip-padding-y: 0.25rem !default;
-$tooltip-padding-x: 0.7rem !default;
-$tooltip-font-size: $font-size-base !default;
+$tooltip-padding-y: 0.379rem !default;
+$tooltip-padding-x: 0.75rem !default;
+$tooltip-font-size: $font-size-sm !default;
 $tooltip-border-radius: $border-radius-sm !default;
+$tooltip-arrow-height: 0.375rem !default;
+$tooltip-arrow-width: 0.75rem !default;
 
 // * Popovers
 // *******************************************************************************
 
 $popover-bg: $white !default;
 $popover-font-size: $font-size-base !default;
-$popover-box-shadow: $floating-component-shadow !default;
+$popover-box-shadow: $box-shadow-lg !default;
 $popover-border-width: 0px !default;
 $popover-header-bg: transparent !default;
 $popover-header-padding-y: 0 !default;
@@ -771,32 +852,40 @@ $toast-btn-close-size: 0.625em !default; // (C)
 // * Badges
 // *******************************************************************************
 
-$badge-font-size: 0.8125em !default;
+$badge-font-size: 0.8667em !default;
 $badge-font-weight: $font-weight-medium !default;
-$badge-padding-y: 0.52em !default;
-$badge-padding-x: 0.593em !default;
-$badge-border-radius: $border-radius-sm !default;
+$badge-padding-y: 0.4235em !default;
+$badge-padding-x: 0.77em !default;
+$badge-border-radius: 0.25rem !default;
+
+$badge-pill-padding-x: 0.583em !default;
+$badge-pill-border-radius: 10rem !default;
 
 $badge-height: 1.5rem !default; // (C)
 $badge-width: 1.5rem !default; // (C)
-$badge-line-height: 0.75 !default; // (C)
+$badge-center-font-size: 0.812rem !default; // (C)
 
 // * Modals
 // *******************************************************************************
-$modal-inner-padding: $spacer * 1.5 !default;
-$modal-dialog-margin: 1.5rem !default;
+$modal-inner-padding: 1.5rem !default;
+$modal-dialog-margin: $modal-inner-padding !default;
+$modal-footer-margin-between: 1rem !default;
 
 $modal-content-color: null !default;
 $modal-content-bg: $white !default;
+$modal-content-border-color: $border-color;
 $modal-content-border-width: 0px !default;
-$modal-content-box-shadow-xs: 0 2px 16px 0 rgba($black, 0.45) !default;
-$modal-content-box-shadow-sm-up: 0 2px 20px 0 rgba($black, 0.45) !default;
+$modal-content-border-radius: $border-radius-lg !default;
+$modal-content-box-shadow-xs: $box-shadow-lg !default;
+$modal-content-box-shadow-sm-up: $box-shadow-lg !default;
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: 0.5 !default;
 $modal-header-border-width: 0px !default;
 
-$modal-header-padding-y: 0.25rem !default;
-$modal-header-padding-x: $modal-inner-padding !default;
-$modal-header-padding: $modal-header-padding-x $modal-header-padding-x $modal-header-padding-y !default; // Keep this for backwards compatibility
-$modal-footer-padding: $modal-header-padding-y $modal-header-padding-x $modal-header-padding-x !default; // (C)
+$modal-header-padding-y: 1.5rem !default;
+$modal-header-padding-x: 0rem !default;
+$modal-header-padding: $modal-header-padding-y $modal-inner-padding $modal-header-padding-x !default;
+$modal-footer-padding: $modal-header-padding-x $modal-inner-padding $modal-header-padding-y !default; // (C)
 
 $modal-lg: 50rem !default;
 $modal-md: 35rem !default;
@@ -808,49 +897,59 @@ $modal-show-transform: translateY(0) scale(1) !default;
 $modal-transition-duration: 0.15s !default; // (C)
 $modal-transition: transform $modal-transition-duration ease-out !default;
 
-$modal-simple-padding: 3rem !default; // (C)
+$modal-simple-padding: 2.5rem !default; // (C)
 $modal-simple-close-position: 1rem !default; // (C)
 
 // * Alerts
 // *******************************************************************************
 
-$alert-padding-y: $spacer * 0.9375 !default;
-$alert-padding-x: $spacer * 0.9375 !default;
-$alert-border-width: 0 !default;
-$alert-bg-scale: -84% !default;
-$alert-border-scale: -70% !default;
-$alert-color-scale: 0% !default;
+$alert-padding-y: 0.75rem !default;
+$alert-padding-x: 1rem !default;
+$alert-bg-scale: 84% !default;
+$alert-bg-tint-scale: 84% !default; // (c)
+$alert-border-scale: -84% !default;
+$alert-color-scale: 40% !default;
+$alert-icon-size: 1.75rem !default; // (c)
+$alert-icon-shadow-scale: 20% !default; // (c)
 
 // * Progress bars
 // *******************************************************************************
 
-$progress-height: 0.75rem !default;
-$progress-font-size: 0.625rem !default;
-$progress-bg: $gray-100 !default;
-$progress-border-radius: 10rem !default;
+$progress-height: 0.375rem !default;
+$progress-font-size: 0.8125rem !default;
+$progress-bg: $gray-80 !default;
+$progress-border-radius: $border-radius-pill !default;
 $progress-bar-color: $white !default;
 
 // List group
 // *******************************************************************************
 
 // scss-docs-start list-group-variables
-$list-group-color: $body-color !default;
+$list-group-color: $headings-color !default;
 $list-group-bg: transparent !default;
 $list-group-border-color: $border-color !default;
-$list-group-item-padding-y: 0.58rem !default;
-$list-group-item-padding-x: 0.9375rem !default;
+$list-group-border-radius: $border-radius !default;
+
+$list-group-item-padding-y: 0.5rem !default;
+$list-group-item-padding-x: 1.25rem !default;
+
+$list-group-item-bg-scale: -84% !default;
 $list-group-item-color-scale: 0% !default;
-$list-group-border-radius: $border-radius-lg !default;
-$list-group-item-bg-hover-scale: 5% !default; //  (c)
+$list-group-item-bg-hover-scale: 6% !default; //  (c)
 
-$list-group-hover-bg: rgba($black, 0.06) !default;
-$list-group-active-color: $white !default;
+$list-group-hover-bg: $gray-60 !default;
+$list-group-active-color: $headings-color !default;
+$list-group-active-bg: rgba($primary, 0.16) !default;
+$list-group-active-border-color: $list-group-border-color !default;
 
-$list-group-disabled-color: $text-lighter !default;
+$list-group-disabled-color: $text-muted !default;
+$list-group-disabled-bg: $list-group-bg !default;
 
-$list-group-action-color: $text-muted-hover !default;
-$list-group-action-hover-color: $body-color !default;
-$list-group-action-active-bg: $gray-50 !default;
+$list-group-action-color: $list-group-active-color !default;
+$list-group-action-hover-color: $list-group-action-color !default;
+
+$list-group-action-active-color: $list-group-active-color !default;
+$list-group-action-active-bg: $list-group-hover-bg !default;
 // scss-docs-end list-group-variables
 
 // * Image thumbnails
@@ -874,8 +973,8 @@ $breadcrumb-padding-x: 0 !default;
 $breadcrumb-item-padding-x: 0.5rem !default;
 $breadcrumb-margin-bottom: 1rem !default;
 $breadcrumb-bg: transparent !default;
-$breadcrumb-divider-color: $text-muted !default;
-$breadcrumb-active-color: $body-color !default;
+$breadcrumb-divider-color: $body-color !default;
+$breadcrumb-active-color: $headings-color !default;
 $breadcrumb-divider: '/' !default;
 $breadcrumb-divider-flipped: '\\' !default;
 $breadcrumb-color: $body-color !default; // (C)
@@ -919,6 +1018,7 @@ $close-font-weight: 300 !default; // (C)
 $offcanvas-transition-duration: 0.25s !default;
 $offcanvas-bg-color: $modal-content-bg !default;
 $offcanvas-color: $modal-content-color !default;
+$offcanvas-btn-close-color: $body-color !default; // (C)
 // scss-docs-end offcanvas-variables
 
 // Utilities
