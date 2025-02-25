@@ -1,152 +1,166 @@
-// Nav
-// *******************************************************************************
+/* Nav
+******************************************************************************* */
 
-.nav .nav-item,
-.nav .nav-link,
-.tab-pane,
-.tab-pane .card-body {
-  outline: none !important;
-}
-
-// To fix height issue of nav pills
 .nav {
+  --#{$prefix}nav-pills-box-shadow: #{$nav-pills-box-shadow};
   flex-wrap: inherit;
-  &.nav-pills:not(.nav-align-right):not(.nav-align-left) {
-    flex-wrap: wrap;
-  }
+  padding-inline-start: 0;
   .nav-item {
     white-space: nowrap;
   }
-  .nav-tabs {
-    background-color: $card-bg;
+  &:not(.nav-pills){
+    .nav-link {
+      &:hover,
+      &:focus {
+        color: $nav-link-hover-color;
+      }
+    }
+  }
+
+  &.nav-sm,
+  .nav-sm > & {
+    --#{$prefix}nav-link-padding-y: #{$nav-link-padding-y-sm};
+    --#{$prefix}nav-link-padding-x: #{$nav-link-padding-x-sm};
+    --#{$prefix}nav-link-font-size: #{$font-size-sm};
+    --#{$prefix}nav-link-line-height: #{$nav-link-line-height-sm};
+  }
+
+  &.nav-lg,
+  .nav-lg > & {
+    --#{$prefix}nav-link-padding-y: #{$nav-link-padding-y-lg};
+    --#{$prefix}nav-link-padding-x: #{$nav-link-padding-x-lg};
+    --#{$prefix}nav-link-font-size: #{$font-size-lg};
+    --#{$prefix}nav-link-line-height: #{$nav-link-line-height-lg};
   }
 }
 
-//nav tabs shadow
+/* nav tabs shadow */
 .nav-tabs-shadow {
-  box-shadow: $card-box-shadow;
+  border: 1px solid var(--#{$prefix}nav-border-color);
+  box-shadow: var(--#{$prefix}nav-box-shadow);
+  .card & {
+    box-shadow: none;
+  }
 }
-// Tab and pills style
+
+/* Tab and pills style */
 .nav-tabs,
 .nav-pills {
-  &:not(.flex-column),
-  &.flex-column.flex-md-row {
-    row-gap: 8px;
-  }
-  @include media-breakpoint-down(md) {
-    &.flex-column {
-      row-gap: 4px;
-    }
-  }
   .nav-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
-    &.active {
-      background-color: transparent;
-    }
   }
 
   &:not(.nav-fill):not(.nav-justified) .nav-link {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
 .tab-content:not(.doc-example-content) {
+  z-index: 1;
   padding: $card-spacer-y;
   .tab-pane {
     opacity: 0;
-    transition: all linear 0.1s;
     transform: translateX(-30px);
+    @include transition(all linear .1s);
     &.show {
       opacity: 1;
       transform: unset !important;
-      transition: all ease-out 0.2s 0.1s;
+      @include transition(all ease-out .2s .1s);
     }
   }
 }
 
-// For scrollable navs/tabs/pills
+/* For scrollable navs/tabs/pills */
 .nav-scrollable {
   display: -webkit-inline-box;
   display: -moz-inline-box;
-  width: 100%;
-  overflow-y: auto;
+  overflow: auto;
   flex-wrap: nowrap;
+  inline-size: 100%;
 }
 
-// Tab link
-.nav-tabs {
+.nav-tabs{
   position: relative;
   .tab-slider {
-    height: 2px;
     position: absolute;
+    block-size: 2px;
     .nav-align-left &,
     .nav-align-right & {
-      width: 2px !important;
+      inline-size: 2px !important;
     }
   }
+
+  /* Tab link */
   .nav-link {
+    @include border-radius(0);
     background-clip: padding-box;
-    border-radius: 0;
+  }
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    &,
+    &:hover,
+    &:focus {
+      box-shadow: 0 -2px 0 $nav-tabs-link-active-border-color inset;
+      .nav-align-top & {
+        box-shadow: 0 -2px 0 $nav-tabs-link-active-border-color inset;
+      }
+      .nav-align-bottom & {
+        box-shadow: 0 2px 0 $nav-tabs-link-active-border-color inset;
+      }
+      .nav-align-left & {
+        box-shadow: -2px 0 0 $nav-tabs-link-active-border-color inset;
+      }
+      .nav-align-right & {
+        box-shadow: 2px 0 0 $nav-tabs-link-active-border-color inset;
+      }
+    }
   }
 }
+
 .nav-pills {
   .nav-link {
-    padding: $nav-pills-padding-y $nav-pills-padding-x;
+    padding-block: $nav-pills-padding-y;
+    padding-inline: $nav-pills-padding-x;
+    &.active {
+      box-shadow: var(--#{$prefix}nav-pills-box-shadow);
+    }
   }
   & .nav-item .nav-link:not(.active):hover {
-    border-bottom: none;
-    padding-bottom: $nav-link-padding-y;
     background-color: $nav-pills-link-hover-bg;
+    border-block-end: none;
+    padding-block-end: $nav-link-padding-y;
   }
   ~ .tab-content {
-    box-shadow: $box-shadow;
+    border: 1px solid var(--#{$prefix}nav-border-color);
+    box-shadow: var(--#{$prefix}nav-box-shadow);
   }
 }
 
-// Sizing
-// *******************************************************************************
-
-.nav-sm {
-  @include template-nav-size($nav-link-padding-y-sm, $nav-link-padding-x-sm, $font-size-sm, $nav-link-line-height-sm);
-}
-.nav-lg {
-  @include template-nav-size($nav-link-padding-y-lg, $nav-link-padding-x-lg, $font-size-lg, $nav-link-line-height-lg);
-}
-
-// Top, Right, Bottom & Left Tabbed panels
-// *******************************************************************************
+/* Top, Right, Bottom & Left Tabbed panels */
 
 .nav-align-top,
 .nav-align-right,
 .nav-align-bottom,
 .nav-align-left {
+  > .tab-content {
+    background: $nav-tabs-bg;
+  }
   .nav-tabs {
-    background: $nav-tabs-link-active-bg;
+    background: $nav-tabs-bg;
   }
   display: flex;
 
   > .nav,
   > div > .nav {
-    z-index: 1;
     position: relative;
-  }
-  &:has(.nav-tabs) {
-    border-radius: $border-radius !important;
+    z-index: 1;
   }
 
-  .row-bordered > [class^='col-'],
-  .row-bordered > [class*=' col-'],
-  .row-bordered > [class^='col '],
-  .row-bordered > [class*=' col '],
-  .row-bordered > [class$=' col'],
-  .row-bordered > [class='col'] {
-    &::before,
-    &::after {
-      border-color: $card-inner-border-color;
-    }
+  &:has(.nav-tabs) {
+    @include border-radius($border-radius !important);
   }
 }
 
@@ -156,14 +170,15 @@
 
   > .nav,
   > div > .nav {
-    flex-grow: 0;
     flex-direction: column;
-    border-bottom-width: 0;
+    flex-grow: 0;
+    border-block-end-width: 0;
   }
 
   > .nav.nav-pills .nav-item:not(:last-child),
   > div > .nav.nav-pills .nav-item:not(:last-child) {
-    margin: 0 0 $nav-spacer 0 !important;
+    margin-block: 0 $nav-spacer !important;
+    margin-inline: 0 !important;
   }
 
   > .tab-content {
@@ -171,30 +186,30 @@
     .tab-pane {
       transform: translateY(-30px);
       &.show {
-        transform: translateY(0px);
+        transform: translateY(0);
       }
     }
   }
 }
 
-// Top tabs
+/* Top tabs */
 .nav-align-top {
   .tab-content {
     @include border-bottom-radius($border-radius);
   }
   flex-direction: column;
   .nav-tabs {
-    border-bottom: $border-width solid $border-color;
+    border-block-end: $border-width solid var(--#{$prefix}nav-tabs-border-color);
     @include border-top-radius($border-radius);
     & .nav-link:not(.active):hover {
-      border-bottom: 2px solid $nav-pills-link-hover-bg !important;
-      padding-bottom: calc($nav-link-padding-y - 0.125rem);
+      border-block-end: 2px solid $nav-pills-link-hover-bg !important;
+      padding-block-end: calc($nav-link-padding-y - .125rem);
     }
     &.nav-lg .nav-link:not(.active):hover {
-      padding-bottom: calc($nav-link-padding-y-lg - 0.125rem);
+      padding-block-end: calc($nav-link-padding-y-lg - .125rem);
     }
     &.nav-sm .nav-link:not(.active):hover {
-      padding-bottom: calc($nav-link-padding-y-sm - 0.125rem);
+      padding-block-end: calc($nav-link-padding-y-sm - .1125rem);
     }
   }
   .nav-pills ~ .tab-content {
@@ -202,56 +217,67 @@
   }
 }
 .nav-align-top,
-.nav-align-bottom {
+.nav-align-bottom,
+.card {
   > .tab-content {
     .tab-pane {
       transform: translateX(-30px);
       &.show {
-        transform: translateX(0px) !important;
+        transform: translateX(0) !important;
       }
     }
   }
   > .nav.nav-pills .nav-item:not(:last-child) {
-    margin-right: $nav-spacer;
+    margin-inline-end: $nav-spacer;
   }
 }
+
+/* Right tabs */
 .nav-align-right {
   .tab-content {
-    @include border-start-radius($border-radius);
+    border-end-start-radius: $border-radius;
+    border-start-start-radius: $border-radius;
   }
   flex-direction: row-reverse;
   .nav-tabs {
-    border-left: $border-width solid $border-color;
-    @include border-end-radius($border-radius);
     position: relative;
+    border-end-end-radius: $border-radius;
+    border-inline-start: $border-width solid var(--#{$prefix}nav-tabs-border-color);
+    border-start-end-radius: $border-radius;
     .tab-slider {
-      left: 0;
+      inset-inline-start: 0;
     }
     ~ .tab-content {
       .card & {
-       border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
+        border-inline-end: $nav-tabs-border-width solid var(--#{$prefix}nav-tabs-border-color);
       }
     }
     & .nav-link:not(.active):hover {
-      border-left: 2px solid $nav-pills-link-hover-bg !important;
-      padding-left: calc($nav-link-padding-x - 0.125rem);
+      border-inline-start: 2px solid $nav-pills-link-hover-bg !important;
+      padding-inline-start: calc($nav-link-padding-x - .125rem);
+    }
+    &.nav-lg .nav-link:not(.active):hover {
+      padding-inline-start: calc($nav-link-padding-x-lg - .125rem);
+    }
+    &.nav-sm .nav-link:not(.active):hover {
+      padding-inline-start: calc($nav-link-padding-x-sm - .125rem);
     }
   }
 
   > .nav .nav-item,
   > div > .nav .nav-item {
-    margin-left: 0;
+    margin-inline: 0;
   }
   .nav-link {
-    text-align: right;
     justify-content: end;
+    text-align: end;
   }
   .nav-pills ~ .tab-content {
-    @include border-end-radius($border-radius);
+    @include border-radius($border-radius);
   }
 }
 
-// Bottom tabs
+/* Bottom tabs */
 .nav-align-bottom {
   .tab-content {
     @include border-top-radius($border-radius);
@@ -260,24 +286,29 @@
 
   > .nav .nav-item,
   > div > .nav .nav-item {
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-block: 0;
   }
 
   > .nav,
   > div > .nav {
-    border-bottom-width: 0;
-    border-top: $nav-tabs-border-width solid $nav-tabs-border-color;
+    border-block-end-width: 0;
+    border-block-start: $nav-tabs-border-width solid var(--#{$prefix}nav-tabs-border-color);
   }
   .nav-tabs {
-    border-top: $border-width solid $border-color;
+    border-block-start: $border-width solid var(--#{$prefix}nav-tabs-border-color);
     @include border-bottom-radius($border-radius);
     .tab-slider {
-      bottom: inherit !important;
+      inset-block-end: inherit !important;
     }
     & .nav-link:not(.active):hover {
-      border-top: 2px solid $nav-pills-link-hover-bg !important;
-      padding-top: calc($nav-link-padding-y - 0.125rem);
+      border-block-start: 2px solid $nav-pills-link-hover-bg !important;
+      padding-block-start: calc($nav-link-padding-y - .125rem);
+    }
+    &.nav-lg .nav-link:not(.active):hover {
+      padding-block-start: calc($nav-link-padding-y-lg - .125rem);
+    }
+    &.nav-sm .nav-link:not(.active):hover {
+      padding-block-start: calc($nav-link-padding-y-sm - .1125rem);
     }
   }
   .nav-pills ~ .tab-content {
@@ -285,7 +316,7 @@
   }
 }
 
-// Left tabs
+/* Left tabs */
 .nav-align-left {
   .tab-content {
     @include border-end-radius($border-radius);
@@ -294,22 +325,28 @@
     position: relative;
     ~ .tab-content {
       .card & {
-        border-left: $nav-tabs-border-width solid $nav-tabs-border-color;
+        border-inline-start: $nav-tabs-border-width solid var(--#{$prefix}nav-tabs-border-color);
       }
     }
-      border-right: $border-width solid $border-color;
-      & .nav-link:not(.active):hover {
-        border-right: 2px solid $nav-pills-link-hover-bg !important;
-        padding-right: calc($nav-link-padding-x - 0.125rem);
+    border-inline-end: $border-width solid var(--#{$prefix}nav-tabs-border-color);
+    & .nav-link:not(.active):hover {
+      border-inline-end: 2px solid $nav-pills-link-hover-bg !important;
+      padding-inline-end: calc($nav-link-padding-x - .125rem);
+    }
+    &.nav-lg .nav-link:not(.active):hover {
+      padding-inline-end: calc($nav-link-padding-x-lg - .125rem);
+    }
+    &.nav-sm .nav-link:not(.active):hover {
+      padding-inline-end: calc($nav-link-padding-x-sm - .125rem);
     }
   }
   > .nav .nav-item,
   > div > .nav .nav-item {
-    margin-right: 0;
+    margin-inline: 0;
   }
   .nav-link {
-    text-align: left;
     justify-content: start;
+    text-align: start;
   }
   .nav-pills ~ .tab-content {
     @include border-start-radius($border-radius !important);
@@ -317,20 +354,4 @@
   &:has(.nav-tabs) {
     overflow: hidden;
   }
-}
-
-// Tab content
-.nav-align-top > .tab-content,
-.nav-align-right > .tab-content,
-.nav-align-bottom > .tab-content,
-.nav-align-left > .tab-content {
-  flex-shrink: 1;
-  background-clip: padding-box;
-  background: $nav-tabs-link-active-bg;
-  .card & {
-    background: transparent;
-  }
-}
-.card .tab-content {
-  box-shadow: none !important;
 }

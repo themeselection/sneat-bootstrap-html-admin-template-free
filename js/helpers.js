@@ -1,6 +1,8 @@
 // Constants
 const TRANS_EVENTS = ['transitionend', 'webkitTransitionEnd', 'oTransitionEnd']
 const TRANS_PROPERTIES = ['transition', 'MozTransition', 'webkitTransition', 'WebkitTransition', 'OTransition']
+
+// Inline styles used for full navbar layout & sticky layout
 const INLINE_STYLES = `
 .layout-menu-fixed .layout-navbar-full .layout-menu,
 .layout-page {
@@ -18,6 +20,8 @@ function requiredParam(name) {
 const Helpers = {
   // Root Element
   ROOT_EL: typeof window !== 'undefined' ? document.documentElement : null,
+
+  prefix: getComputedStyle(document.documentElement).getPropertyValue('--prefix').trim(),
 
   // Large screens breakpoint
   LAYOUT_BREAKPOINT: 1200,
@@ -39,7 +43,7 @@ const Helpers = {
   _listeners: [],
   _initialized: false,
   _autoUpdate: false,
-  _lastWindowHeight: 0,
+  // _lastWindowHeight: 0,
 
   // *******************************************************************************
   // * Utilities
@@ -327,7 +331,7 @@ const Helpers = {
   },
 
   // ---
-  // Add layout sivenav toggle animationEnd event
+  // Add layout sidenav toggle animationEnd event
   _bindLayoutAnimationEndEvent(modifier, cb) {
     const menu = this.getMenu()
     const duration = menu ? this._getAnimationDuration(menu) + 50 : 0
@@ -356,7 +360,7 @@ const Helpers = {
   },
 
   // ---
-  // Remove layout sivenav toggle animationEnd event
+  // Remove layout sidenav toggle animationEnd event
   _unbindLayoutAnimationEndEvent() {
     const menu = this.getMenu()
 
@@ -599,13 +603,6 @@ const Helpers = {
   // *******************************************************************************
   // * Tests
 
-  isRtl() {
-    return (
-      document.querySelector('body').getAttribute('dir') === 'rtl' ||
-      document.querySelector('html').getAttribute('dir') === 'rtl'
-    )
-  },
-
   isMobileDevice() {
     return typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1
   },
@@ -828,6 +825,14 @@ const Helpers = {
         })
       })
     })
+  },
+
+  // get css variables for theme colors
+  getCssVar(color, isChartJs = false) {
+    if (isChartJs === true) {
+      return getComputedStyle(document.documentElement).getPropertyValue(`--${window.Helpers.prefix}${color}`).trim()
+    }
+    return `var(--${window.Helpers.prefix}${color})`
   }
 }
 

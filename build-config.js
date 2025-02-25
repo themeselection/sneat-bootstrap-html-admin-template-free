@@ -11,7 +11,8 @@ module.exports = {
       'tasks',
       'node_modules',
       '_temp',
-      'node-script'
+      'node-script',
+      'fonts'
     ],
 
     // Base Path to Serve from using Browser Sync, Currently set to root of the project
@@ -60,7 +61,6 @@ module.exports = {
 
     // Use this option with caution because it will remove entire output directory.
     // Will affect only `build:prod` command
-    cleanDist: true,
-    fastDev: false
+    cleanDist: true
   }
 };

@@ -1,9 +1,0 @@
-$enable-light-style: true;
-
-@mixin app-ltr($has-child: true) {
-  @content;
-}
-
-@mixin app-ltr-style() {
-  @content;
-}

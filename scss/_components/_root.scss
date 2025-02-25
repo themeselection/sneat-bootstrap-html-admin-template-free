@@ -1,0 +1,25 @@
+:root {
+  /* Menu */
+  --#{$prefix}menu-bg: #{$menu-bg};
+  --#{$prefix}menu-bg-rgb: #{$menu-bg-rgb};
+  --#{$prefix}menu-color: #{$menu-color};
+  --#{$prefix}menu-color-rgb: #{$menu-color-rgb};
+  --#{$prefix}menu-hover-bg: #{$menu-hover-bg};
+  --#{$prefix}menu-hover-color: #{$menu-hover-color};
+  --#{$prefix}menu-sub-active-bg: var(--#{$prefix}primary-bg-subtle);
+  --#{$prefix}menu-sub-active-color: var(--#{$prefix}primary);
+  --#{$prefix}menu-active-color: #{$menu-active-color};
+  --#{$prefix}menu-active-bg: #{$menu-active-bg};
+  --#{$prefix}menu-active-toggle-bg: #{$menu-active-toggle-bg};
+  --#{$prefix}menu-horizontal-active-bg: var(--#{$prefix}menu-bg);
+  --#{$prefix}menu-box-shadow: #{$menu-box-shadow};
+  --#{$prefix}menu-divider-color: #{var(--#{$prefix}white)};
+  --#{$prefix}menu-width: #{$menu-width};
+  --#{$prefix}menu-collapsed-width: #{$menu-collapsed-width};
+  --#{$prefix}menu-item-spacer: #{$menu-item-spacer};
+  --#{$prefix}menu-vertical-link-padding-y: #{$menu-vertical-link-padding-y};
+  --#{$prefix}menu-vertical-link-padding-x: #{$menu-vertical-link-padding-x};
+  --#{$prefix}menu-vertical-menu-link-padding-y: #{$menu-vertical-menu-link-padding-y};
+  --#{$prefix}menu-vertical-menu-level-spacer: #{$menu-vertical-menu-level-spacer};
+  --#{$prefix}menu-horizontal-menu-box-shadow: #{$menu-horizontal-menu-box-shadow};
+}

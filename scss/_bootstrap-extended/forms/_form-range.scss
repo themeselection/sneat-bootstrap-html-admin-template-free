@@ -1,39 +1,41 @@
-// Range select
-// *******************************************************************************
+/* Range select
+******************************************************************************* */
 
 .form-range {
   // Chrome specific
   &::-webkit-slider-thumb {
     box-shadow: $form-range-thumb-box-shadow;
+    transform-origin: center;
+    @include transition(transform .2s, box-shadow .2s ease);
 
     &:hover {
-      box-shadow: 0 0 0 8px rgba($primary, 0.16);
+      box-shadow: 0 0 0 .5rem rgba(var(--#{$prefix}primary-rgb), .16);
     }
     &:active,
     &:focus {
-      box-shadow: 0 0 0 13px rgba($primary, 0.16);
-      border-color: $primary;
+      box-shadow: 0 0 0 .8125rem rgba(var(--#{$prefix}primary-rgb), .16);
     }
   }
   &::-webkit-slider-runnable-track {
-    background-color: $primary;
+    background-color: var(--#{$prefix}primary);
   }
 
   // Mozilla specific
   &::-moz-range-thumb {
     box-shadow: $form-range-thumb-box-shadow;
+    transform-origin: center;
+    @include transition(transform .2s, box-shadow .2s ease);
     &:hover {
-      box-shadow: 0 0 0 8px rgba($primary, 0.16);
+      box-shadow: 0 0 0 .5rem rgba(var(--#{$prefix}primary-rgb), .16);
     }
     &:active,
     &:focus {
-      box-shadow: 0 0 0 13px rgba($primary, 0.16);
-      border-color: $primary;
+      box-shadow: 0 0 0 .8125rem rgba(var(--#{$prefix}primary-rgb), .16);
     }
   }
 
   &::-moz-range-track {
-    background-color: $primary;
+    background-color: var(--#{$prefix}primary);
   }
   &:disabled {
     &::-webkit-slider-runnable-track {
@@ -42,6 +44,16 @@
 
     &::-moz-range-track {
       background-color: $form-range-track-disabled-bg;
+    }
+
+    &::-webkit-slider-thumb {
+      border-color: $form-range-track-disabled-border-color;
+      box-shadow: none;
+    }
+
+    &::-moz-range-thumb {
+      border-color: $form-range-track-disabled-border-color;
+      box-shadow: none;
     }
   }
 }

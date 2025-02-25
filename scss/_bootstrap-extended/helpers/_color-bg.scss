@@ -1,0 +1,12 @@
+$color-classes: $theme-colors !default;
+
+@each $color, $value in $color-classes {
+  .bg-label-#{$color} {
+    background-color: color-mix(in sRGB, var(--#{$prefix}paper-bg) var(--#{$prefix}bg-label-tint-amount), var(--#{$prefix}#{$color})) if($enable-important-utilities, !important, null);
+    @if $color == "light" {
+      color: RGBA(color-contrast($value), var(--#{$prefix}bg-label-tint-amount)) if($enable-important-utilities, !important, null);
+    } @else {
+      color: var(--#{$prefix}#{$color}) if($enable-important-utilities, !important, null);
+    }
+  }
+}

@@ -74,16 +74,6 @@
   margin-top: 0 !important;
 }
 
-.rtl-only {
-  display: none !important;
-  text-align: left !important;
-  direction: ltr !important;
-}
-
-[dir='rtl'] .rtl-only {
-  display: block !important;
-}
-
 /* Dropdown buttons going out of small screens */
 @media (max-width: 576px) {
   #dropdown-variation-demo .btn-group .text-truncate {

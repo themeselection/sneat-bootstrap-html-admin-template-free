@@ -1,12 +1,23 @@
-// Floating Labels
-// *******************************************************************************
+/* Floating Labels
+******************************************************************************* */
 
 // Display placeholder on focus
 .form-floating {
+  > label {
+    inset-inline-start: 0;
+  }
   > .form-control:focus,
   > .form-control:not(:placeholder-shown) {
     &::placeholder {
       color: $input-placeholder-color;
+    }
+  }
+  > .form-control:focus,
+  > .form-control:focus:not(:placeholder-shown),
+  > .form-select:focus,
+  > .form-select:focus:not(:placeholder-shown) {
+    ~ label {
+      color: $component-active-bg;
     }
   }
 }

@@ -1,14 +1,15 @@
-// Tooltips
-// *******************************************************************************
+/* Tooltips
+******************************************************************************* */
 
-// Open modal tooltip z-index
+
+/* Open modal tooltip z-index */
 .modal-open .tooltip {
   z-index: $zindex-modal + 2;
 }
 
 .tooltip-inner {
-  font-weight: $font-weight-medium;
   display: flex;
   align-items: center;
+  font-weight: $font-weight-medium;
   gap: 3px;
 }

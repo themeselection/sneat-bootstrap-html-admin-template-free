@@ -1,41 +1,56 @@
-// Footer
-// *******************************************************************************
+/* Footer
+******************************************************************************* */
 
-.footer-link {
-  display: inline-block;
-}
-.content-footer .footer-container {
-  block-size: 54px;
-}
-// Light footer
-.footer-light {
-  color: $navbar-light-color;
+.footer {
+  --#{$prefix}footer-color: #{$footer-color};
+  --#{$prefix}footer-bg: #{$footer-bg};
+  --#{$prefix}footer-border-width: #{$footer-border-width};
+  --#{$prefix}footer-border-color: #{$footer-border-color};
+  --#{$prefix}footer-link-color: #{$footer-link-color};
+  --#{$prefix}footer-link-hover-color: #{$footer-link-hover-color};
+  --#{$prefix}footer-link-disabled-color: #{$footer-link-disabled-color};
+  --#{$prefix}footer-link-active-color: #{$footer-link-active-color};
+  --#{$prefix}footer-brand-color: #{$footer-brand-color};
+  --#{$prefix}footer-brand-hover-color: #{$footer-brand-hover-color};
+  --#{$prefix}footer-box-shadow: #{$footer-box-shadow};
 
-  .footer-text {
-    color: $navbar-light-active-color;
+  color: var(--#{$prefix}footer-color);
+
+  .footer-brand{
+    color: var(--#{$prefix}footer-brand-color);
+    &:hover,
+    &:focus {
+      color: var(--#{$prefix}footer-brand-hover-color);
+    }
+  }
+
+  &.content-footer .footer-container {
+    block-size: 54px;
   }
 
   .footer-link {
-    color: $navbar-light-color;
-
+    display: inline-block;
+    color: var(--#{$prefix}footer-link-color);
     &:hover,
     &:focus {
-      color: $navbar-light-hover-color;
+      color: var(--#{$prefix}footer-link-hover-color);
     }
-
     &.disabled {
-      color: $navbar-light-disabled-color !important;
+      color: var(--#{$prefix}footer-link-disabled-color) !important;
+    }
+    &:active,
+    &.active {
+      color: var(--#{$prefix}footer-link-active-color);
     }
   }
-
-  .show > .footer-link,
-  .active > .footer-link,
-  .footer-link.show,
-  .footer-link.active {
-    color: $navbar-light-active-color;
+  &.bg-footer-theme {
+    --#{$prefix}footer-brand-color: var(--#{$prefix}body-color);
   }
-
-  hr {
-    border-color: $menu-light-border-color;
+  &.bg-light {
+    --#{$prefix}footer-brand-hover-color: color-mix(in sRGB, var(--#{$prefix}paper-bg) 40%, var(--#{$prefix}light-contrast));
+    --#{$prefix}footer-link-hover-color: var(--#{$prefix}light-contrast);
+    --#{$prefix}footer-color: var(--#{$prefix}body-color);
+    --#{$prefix}footer-link-color: var(--#{$prefix}body-color);
+    --#{$prefix}footer-brand-color: var(--#{$prefix}heading-color);
   }
 }

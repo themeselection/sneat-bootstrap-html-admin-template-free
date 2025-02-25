@@ -1,47 +1,58 @@
-// Select
-// *******************************************************************************
+/* Select
+******************************************************************************* */
 
 .form-select {
+  --#{$prefix}form-select-border-color: #{$form-select-border-color};
+  border-color: var(--#{$prefix}form-select-border-color);
   background-clip: padding-box;
-  padding: calc($form-select-padding-y - $input-border-width) calc($form-select-padding-x - $input-border-width);
-  padding-inline-end: calc($form-select-padding-x * 3 - $input-border-width);
+  padding-block: calc($form-select-padding-y - $input-border-width);
+  padding-inline-end: calc($form-select-indicator-padding - $input-border-width);
+  padding-inline-start: calc($form-select-padding-x - $input-border-width);
+  optgroup,
+  option {
+    background-color: var(--#{$prefix}paper-bg);
+  }
+  &[multiple],
+  &[size]:not([size="1"]) {
+    padding-inline-end: $form-select-padding-x;
+  }
   &:hover {
-    &:not([disabled]):not([focus]) {
-      border-color: $input-border-hover-color;
+    &:not(:focus):not(:disabled) {
+      border-color: $input-hover-border-color;
     }
   }
   &:disabled {
     background-image: escape-svg($form-select-disabled-indicator);
   }
-  &:focus {
+  &:focus,
+  &:focus-within {
     border-width: $input-focus-border-width;
-    padding: calc($form-select-padding-y - $input-focus-border-width)
-      calc($form-select-padding-x * 3 - $input-focus-border-width)
-      calc($form-select-padding-y - $input-focus-border-width) calc($form-select-padding-x - $input-focus-border-width);
     background-position: right calc($form-select-padding-x - 1px) center;
+    padding-block: calc($form-select-padding-y - $input-focus-border-width);
+    padding-inline-end: calc($form-select-indicator-padding - $input-focus-border-width);
+    padding-inline-start: calc($form-select-padding-x - $input-focus-border-width);
   }
   &.form-select-lg {
-    min-height: $input-height-lg;
     background-size: 24px 24px;
-    padding: calc($form-select-padding-y-lg - $input-border-width) calc($form-select-padding-x-lg - $input-border-width);
-    padding-inline-end: calc($form-select-padding-x-lg * 3 - $input-border-width);
+    min-block-size: $input-height-lg;
+    padding-block: calc($form-select-padding-y-lg - $input-border-width);
+    padding-inline-start: calc($form-select-padding-x-lg - $input-border-width);
     &:focus {
-      padding: calc($form-select-padding-y-lg - $input-focus-border-width)
-        calc($form-select-padding-x-lg * 3 - $input-focus-border-width)
-        calc($form-select-padding-y-lg - $input-focus-border-width)
-        calc($form-select-padding-x-lg - $input-focus-border-width);
+      padding-block: calc($form-select-padding-y-lg - $input-focus-border-width);
+      padding-inline-start: calc($form-select-padding-x-lg - $input-focus-border-width);
     }
   }
   &.form-select-sm {
-    min-height: $input-height-sm;
     background-size: 20px 20px;
-    padding: calc($form-select-padding-y-sm - $input-border-width) calc($form-select-padding-x-sm - $input-border-width);
-    padding-inline-end: calc($form-select-padding-x-sm * 3 - $input-border-width);
+    min-block-size: $input-height-sm;
+    padding-block: calc($form-select-padding-y-sm - $input-border-width);
+    padding-inline-start: calc($form-select-padding-x-sm - $input-border-width);
     &:focus {
-      padding: calc($form-select-padding-y-sm - $input-focus-border-width)
-        calc($form-select-padding-x-sm * 3 - $input-focus-border-width)
-        calc($form-select-padding-y-sm - $input-focus-border-width)
-        calc($form-select-padding-x-sm - $input-focus-border-width);
+      padding-block: calc($form-select-padding-y-sm - $input-focus-border-width);
+      padding-inline-start: calc($form-select-padding-x-sm - $input-focus-border-width);
     }
+  }
+  &[multiple]:focus {
+    padding-inline-end: .875rem !important;
   }
 }

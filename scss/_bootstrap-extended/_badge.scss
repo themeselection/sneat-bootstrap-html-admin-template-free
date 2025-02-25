@@ -1,13 +1,26 @@
 // Badges
+// ? Bootstrap use bg-label-variant and bg color for solid and label style, hence we have not created mixin for that.
 // *******************************************************************************
 
-// Badge Center Style
+.badge {
+  --#{$prefix}badge-border-width: #{$badge-border-width};
+  --#{$prefix}badge-border-color: var(--#{$prefix}primary);
+  --#{$prefix}badge-bg-color: #{$badge-bg-color};
+  border: var(--#{$prefix}badge-border-width) var(--#{$prefix}border-style) var(--#{$prefix}badge-border-color);
+  background-color: var(--#{$prefix}badge-bg-color);
+}
+
+/* Badge Center Style */
 
 .badge-center {
-  padding: 3px;
-  line-height: 1.375;
-  @include badge-size($badge-height, $badge-width, $badge-center-font-size);
-  i {
-    font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  block-size: #{$badge-height};
+  inline-size: #{$badge-width};
+  --#{$prefix}badge-font-size: #{$badge-center-font-size};
+  .icon-base {
+    @include icon-base(.875rem);
   }
 }

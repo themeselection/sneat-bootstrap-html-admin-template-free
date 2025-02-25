@@ -89,6 +89,22 @@ const webpackConfig = {
       }
     ]
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+        terserOptions: {
+          format: {
+            comments: false
+          },
+          compress: {
+            drop_console: true
+          }
+        }
+      })
+    ]
+  },
   plugins: [],
 
   externals: {
@@ -98,9 +114,9 @@ const webpackConfig = {
     velocity: 'Velocity',
     hammer: 'Hammer',
     pace: '"pace-progress"',
-    chartist: 'Chartist',
+    'cross-fetch': 'fetch',
+    // chartist: 'Chartist',
     'popper.js': 'Popper',
-
     // blueimp-gallery plugin
     './blueimp-helper': 'jQuery',
     './blueimp-gallery': 'blueimpGallery',
@@ -121,10 +137,15 @@ if (conf.sourcemaps) {
 if (process.env.NODE_ENV !== 'production' && conf.minify) {
   webpackConfig.plugins.push(
     new TerserPlugin({
-      optimization: {
-        minimize: true
+      extractComments: false,
+      terserOptions: {
+        format: {
+          comments: false
+        },
+        compress: {
+          drop_console: true
+        }
       },
-      sourceMap: conf.sourcemaps,
       parallel: true
     })
   );

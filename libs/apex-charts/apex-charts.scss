@@ -1,88 +1,100 @@
 /**
 * Apex Charts
 */
-@use '../../scss/_bootstrap-extended/include' as light;
-@import '../../scss/_custom-variables/libs';
-@import 'apexcharts-clevision/dist/apexcharts';
+@import "../../scss/_bootstrap-extended/include";
+@import "apexcharts/dist/apexcharts";
 
-// Light style
-@if $enable-light-style {
-  .light-style {
-    .apexcharts-canvas {
-      .apexcharts-tooltip {
-        background: light.$card-bg;
-        border-color: light.$border-color;
-        box-shadow: light.$box-shadow;
-        .apexcharts-tooltip-title {
-          background: light.$card-bg;
-          border-color: light.$border-color;
-          font-family: light.$font-family-base !important;
-        }
-        &.apexcharts-theme-light {
-          color: light.$headings-color;
-        }
-        &.apexcharts-theme-dark {
-          color: light.$white;
-        }
-        .apexcharts-tooltip-title {
-          font-weight: light.$headings-font-weight;
-        }
+.apexcharts-canvas {
+  .apexcharts-tooltip {
+    box-shadow: var(--#{$prefix}box-shadow);
+    &.apexcharts-theme-light {
+      border-color: var(--#{$prefix}border-color);
+      background: var(--#{$prefix}paper-bg);
+      color: var(--#{$prefix}heading-color);
+
+      .apexcharts-tooltip-title {
+        background: var(--#{$prefix}paper-bg);
+        border-block-end-color: var(--#{$prefix}border-color);
+        font-family: $font-family-base !important;
+        font-weight: $headings-font-weight;
       }
-      .apexcharts-xaxistooltip,
-      .apexcharts-yaxistooltip {
-        background: light.$body-bg;
-        border-color: light.$border-color;
-        color: light.$headings-color;
-        &.apexcharts-xaxistooltip-bottom,
-        &.apexcharts-yaxistooltip-bottom {
-          &:after {
-            border-bottom-color: light.$body-bg;
-          }
-          &:before {
-            border-bottom-color: light.$border-color;
-          }
-        }
-        &.apexcharts-xaxistooltip-left,
-        &.apexcharts-yaxistooltip-left {
-          &:after {
-            border-left-color: light.$body-bg;
-          }
-          &:before {
-            border-left-color: light.$border-color;
-          }
-        }
-        &.apexcharts-xaxistooltip-right,
-        &.apexcharts-yaxistooltip-right {
-          &:after {
-            border-right-color: light.$body-bg;
-          }
-          &:before {
-            border-right-color: light.$border-color;
-          }
-        }
-        &.apexcharts-xaxistooltip-top,
-        &.apexcharts-yaxistooltip-top {
-          &:after {
-            border-top-color: light.$body-bg;
-          }
-          &:before {
-            border-top-color: light.$border-color;
-          }
-        }
+    }
+    &.apexcharts-theme-dark {
+      background: transparent;
+    }
+  }
+
+  .apexcharts-xaxistooltip,
+  .apexcharts-yaxistooltip {
+    border-color: var(--#{$prefix}border-color);
+    background: var(--#{$prefix}paper-bg);
+    color: var(--#{$prefix}heading-color);
+
+    &.apexcharts-xaxistooltip-bottom,
+    &.apexcharts-yaxistooltip-bottom {
+      &::after {
+        border-block-end-color: var(--#{$prefix}paper-bg);
       }
-      .apexcharts-tooltip-text {
-        font-family: light.$font-family-base !important;
-        filter: none;
+      &::before {
+        border-block-end-color: var(--#{$prefix}border-color);
+      }
+    }
+
+    &.apexcharts-xaxistooltip-left,
+    &.apexcharts-yaxistooltip-left {
+      &::after {
+        border-inline-start-color: var(--#{$prefix}paper-bg);
+      }
+      &::before {
+        border-inline-start-color: var(--#{$prefix}border-color);
+      }
+    }
+
+    &.apexcharts-xaxistooltip-right,
+    &.apexcharts-yaxistooltip-right {
+      &::after {
+        border-inline-end-color: var(--#{$prefix}paper-bg);
+      }
+      &::before {
+        border-inline-end-color: var(--#{$prefix}border-color);
+      }
+    }
+
+    &.apexcharts-xaxistooltip-top,
+    &.apexcharts-yaxistooltip-top {
+      &::after {
+        border-block-start-color: var(--#{$prefix}paper-bg);
+      }
+      &::before {
+        border-block-start-color: var(--#{$prefix}border-color);
       }
     }
   }
+
+  .apexcharts-tooltip-text {
+    font-family: $font-family-base !important;
+  }
+  .apexcharts-legend-marker,
+  .apexcharts-tooltip-marker {
+    margin-inline: 0 .5rem;
+  }
 }
-// bar charts with radius hover fix
-#orderStatisticsChart,
-#totalRevenueChart,
-#expensesBarChart {
-  .apexcharts-xcrosshairs.apexcharts-active,
-  .apexcharts-ycrosshairs.apexcharts-active {
-    opacity: 0;
+
+
+/* total-revenue card styles */
+
+@media (min-width: 1400px) and (max-width: 1550px) {
+  .total-revenue {
+    inline-size: 100% !important;
+  }
+  .profile-report {
+    inline-size: 100% !important;
+    .payments,
+    .transactions {
+      inline-size: 25% !important;
+    }
+    .profile-report {
+      inline-size: 50% !important;
+    }
   }
 }

@@ -116,97 +116,70 @@
 .ps {
   position: relative;
 }
-
-.ps__rail-x {
-  height: 0.25rem;
+.ps .ps__rail-x {
+  block-size: 0.25rem;
 }
-
-.ps__rail-y {
-  width: 0.25rem;
+.ps .ps__rail-y {
   z-index: 3;
+  inline-size: 0.25rem;
+}
+.ps .ps__rail-x,
+.ps .ps__rail-y,
+.ps .ps__thumb-x,
+.ps .ps__thumb-y {
+  border-radius: 50rem;
+}
+.ps .ps__rail-x:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-x:hover > .ps__thumb-x,
+.ps .ps__rail-x:focus > .ps__thumb-x,
+.ps .ps__rail-x.ps--clicking > .ps__thumb-x {
+  block-size: 0.375rem;
+}
+.ps .ps__rail-y:hover,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-y.ps--clicking,
+.ps .ps__rail-y:hover > .ps__thumb-y,
+.ps .ps__rail-y:focus > .ps__thumb-y,
+.ps .ps__rail-y.ps--clicking > .ps__thumb-y {
+  inline-size: 0.375rem;
+}
+.ps .ps__thumb-x {
+  block-size: 0.25rem;
+  inset-block-end: 0;
+}
+.ps .ps__thumb-y {
+  inline-size: 0.25rem;
+  inset-inline-end: 0;
+}
+.ps .ps__thumb-x,
+.ps .ps__thumb-y {
+  background-color: var(--bs-gray-400);
+}
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: var(--bs-gray-200);
+}
+.ps .ps__rail-x:hover > .ps__thumb-x,
+.ps .ps__rail-y:hover > .ps__thumb-y,
+.ps .ps__rail-x:focus > .ps__thumb-x,
+.ps .ps__rail-y:focus > .ps__thumb-y,
+.ps .ps__rail-x.ps--clicking > .ps__thumb-x,
+.ps .ps__rail-y.ps--clicking > .ps__thumb-y {
+  background-color: var(--bs-gray-700);
 }
 
-.ps__rail-x,
-.ps__rail-y,
-.ps__thumb-x,
-.ps__thumb-y {
-  border-radius: 10rem;
-}
-
-.ps__rail-x:hover,
-.ps__rail-x:focus,
-.ps__rail-x.ps--clicking,
-.ps__rail-x:hover > .ps__thumb-x,
-.ps__rail-x:focus > .ps__thumb-x,
-.ps__rail-x.ps--clicking > .ps__thumb-x {
-  height: 0.375rem;
-}
-
-.ps__rail-y:hover,
-.ps__rail-y:focus,
-.ps__rail-y.ps--clicking,
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
-.ps__rail-y.ps--clicking > .ps__thumb-y {
-  width: 0.375rem;
-}
-
-.ps__thumb-x {
-  height: 0.25rem;
-  bottom: 0;
-}
-
-.ps__thumb-y {
-  width: 0.25rem;
-  right: 0;
-}
-
-.light-style .ps__thumb-x,
-.light-style .ps__thumb-y {
-  background-color: rgba(34, 48, 62, 0.4);
-}
-.light-style .ps__rail-x:hover,
-.light-style .ps__rail-y:hover,
-.light-style .ps__rail-x:focus,
-.light-style .ps__rail-y:focus,
-.light-style .ps__rail-x.ps--clicking,
-.light-style .ps__rail-y.ps--clicking {
-  background-color: rgba(34, 48, 62, 0.12);
-}
-.light-style .ps__rail-x:hover > .ps__thumb-x,
-.light-style .ps__rail-y:hover > .ps__thumb-y,
-.light-style .ps__rail-x:focus > .ps__thumb-x,
-.light-style .ps__rail-y:focus > .ps__thumb-y,
-.light-style .ps__rail-x.ps--clicking > .ps__thumb-x,
-.light-style .ps__rail-y.ps--clicking > .ps__thumb-y {
-  background-color: rgba(34, 48, 62, 0.7);
-}
-.light-style .ps-inverted .ps__rail-x:hover,
-.light-style .ps-inverted .ps__rail-y:hover,
-.light-style .ps-inverted .ps__rail-x:focus,
-.light-style .ps-inverted .ps__rail-y:focus,
-.light-style .ps-inverted .ps__rail-x.ps--clicking,
-.light-style .ps-inverted .ps__rail-y.ps--clicking {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.light-style .ps-inverted .ps__thumb-x,
-.light-style .ps-inverted .ps__thumb-y {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-.light-style .ps-inverted .ps__rail-x:hover > .ps__thumb-x,
-.light-style .ps-inverted .ps__rail-y:hover > .ps__thumb-y,
-.light-style .ps-inverted .ps__rail-x:focus > .ps__thumb-x,
-.light-style .ps-inverted .ps__rail-y:focus > .ps__thumb-y,
-.light-style .ps-inverted .ps__rail-x.ps--clicking > .ps__thumb-x,
-.light-style .ps-inverted .ps__rail-y.ps--clicking > .ps__thumb-y {
-  background-color: #fff;
-}
-
+/* Firefox width issue fixed */
 @supports (-moz-appearance: none) {
   #both-scrollbars-example {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    margin-block: 0;
+    margin-inline: auto;
+    max-inline-size: 1080px;
+    padding-inline: 0;
   }
 }

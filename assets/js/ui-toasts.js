@@ -4,7 +4,7 @@
 
 'use strict';
 
-(function () {
+document.addEventListener('DOMContentLoaded', function (e) {
   // Bootstrap toasts example
   // --------------------------------------------------------------------
   const toastPlacementExample = document.querySelector('.toast-placement-ex'),
@@ -36,4 +36,4 @@
       toastPlacement.show();
     };
   }
-})();
+});

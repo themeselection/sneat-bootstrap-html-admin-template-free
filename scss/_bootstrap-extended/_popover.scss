@@ -1,20 +1,68 @@
-// Popovers
-// *******************************************************************************
+/* Popovers
+******************************************************************************* */
 
 .modal-open .popover {
   z-index: $zindex-modal + 1;
 }
+.popover:not(.custom-popover) {
+  --#{$prefix}popover-header-bg: transparent;
+  .popover-header {
+    --#{$prefix}popover-border-width: 0;
+    padding-block-end: 0;
+  }
+  .popover-arrow::after {
+    --#{$prefix}popover-arrow-border: var(--#{$prefix}popover-bg);
+  }
+}
+.popover:has([class^="popover-"]):not(.custom-popover) {
+  --#{$prefix}popover-border-color: transparent;
+  --#{$prefix}popover-header-bg: transparent;
+  .popover-body {
+    background-color: transparent;
+  }
+}
+.popover:has([class^="popover-header-"]) {
+  --#{$prefix}popover-border-color: #{$popover-border-color};
+  --#{$prefix}popover-body-color: var(--#{$prefix}body-color);
+  --#{$prefix}popover-header-bg: var(--#{$prefix}primary);
+}
 
 .popover {
-  box-shadow: $popover-box-shadow;
+  box-shadow: var(--#{$prefix}popover-box-shadow);
 
   .popover-arrow {
     z-index: 1;
   }
+
+  &:not(.custom-popover).bs-popover-auto {
+    > .popover-arrow::before {
+      --#{$prefix}popover-bg: #{rgba(var(--#{$prefix}white-rgb), .1)};
+    }
+    &[data-popper-placement="bottom"] > {
+      .popover-arrow {
+        &::after {
+          border-block-end-color: var(--#{$prefix}popover-arrow-border);
+          inset-block-start: 1px;
+        }
+      }
+      .popover-header::before {
+        --#{$prefix}popover-border-width: 0;
+      }
+    }
+  }
+  &.popover-dark {
+    --#{$prefix}popover-bg: color-mix(in sRGB, var(--#{$prefix}base-color) 90%, var(--#{$prefix}paper-bg));
+  }
 }
 
-// popover header font size override
-.popover-header {
-  padding: $popover-header-padding-x $popover-header-padding-x $popover-header-padding-y;
-  @include font-size($popover-header-font-size);
+/* custom popover
+******************************************************************************* */
+.custom-popover {
+  --#{$prefix}popover-max-width: 200px;
+  --#{$prefix}popover-header-color: var(--#{$prefix}white);
+  --#{$prefix}popover-body-padding-x: 1rem;
+  --#{$prefix}popover-body-padding-y: .5rem;
+  .popover-header {
+    --#{$prefix}popover-header-bg: var(--#{$prefix}primary);
+  }
 }

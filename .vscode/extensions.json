@@ -10,5 +10,6 @@
     "mrmlnc.vscode-scss",
     "gamunu.vscode-yarn",
     "zignd.html-css-class-completion",
+    "stylelint.vscode-stylelint",
   ]
 }

@@ -1,8 +1,11 @@
 {
   "editor.wordWrap": "off",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
   "files.trimFinalNewlines": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "search.exclude": {
     "**/node_modules": true,
     "*.min.js": true,
@@ -30,9 +33,11 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // Extension: Stylelint
+  "stylelint.packageManager": "pnpm",
+  "stylelint.validate": [
+    "scss"
+  ],
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

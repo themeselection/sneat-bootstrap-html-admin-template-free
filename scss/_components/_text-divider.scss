@@ -1,90 +1,96 @@
-// Divider
-// *******************************************************************************
-
-@import '../../scss/_custom-variables/libs';
+/* Divider
+******************************************************************************* */
 
 .divider {
+  --#{$prefix}divider-color: #{$divider-color};
   display: block;
-  text-align: center;
-  margin: $divider-margin-y $divider-margin-x;
   overflow: hidden;
+  margin-block: $divider-margin-y;
+  margin-inline: $divider-margin-x;
+  text-align: center;
   white-space: nowrap;
 
   .divider-text {
     position: relative;
     display: inline-block;
-    font-size: $divider-font-size;
     color: $divider-text-color;
-    padding: $divider-text-padding-y $divider-text-padding-x;
+    font-size: $divider-font-size;
+    padding-block: $divider-text-padding-y;
+    padding-inline: $divider-text-padding-x;
 
-    i {
-      font-size: $divider-icon-size;
+    .icon-base {
+      @include icon-base($divider-icon-size);
     }
 
-    &:before,
-    &:after {
-      content: '';
+    &::before,
+    &::after {
       position: absolute;
-      top: 50%;
-      width: 100vw;
-      border-top: 1px solid $divider-color;
+      border-block-start: 1px solid var(--#{$prefix}divider-color);
+      content: "";
+      inline-size: 100vw;
+      inset-block-start: 50%;
     }
 
-    &:before {
-      right: 100%;
+    &::before {
+      inset-inline-end: 100%;
     }
 
-    &:after {
-      left: 100%;
+    &::after {
+      inset-inline-start: 100%;
     }
   }
+
   &.text-start {
     .divider-text {
-      padding-left: 0;
+      padding-inline-start: 0;
     }
   }
+
   &.text-end {
     .divider-text {
-      padding-right: 0;
+      padding-inline-end: 0;
     }
   }
+
   &.text-start-center {
     .divider-text {
-      left: -25%;
+      inset-inline-start: -25%;
     }
   }
+
   &.text-end-center {
     .divider-text {
-      right: -25%;
+      inset-inline-end: -25%;
     }
   }
+
   // Dotted Bordered Divider
   &.divider-dotted {
     .divider-text {
-      &:before,
-      &:after {
-        border-style: dotted;
+      &::before,
+      &::after {
         border-width: 0 1px 1px;
-        border-color: $divider-color;
+        border-style: dotted;
+        border-color: var(--#{$prefix}divider-color);
       }
     }
   }
+
   // Dashed Bordered Divider
   &.divider-dashed {
     .divider-text {
-      &:before,
-      &:after {
-        border-style: dashed;
+      &::before,
+      &::after {
         border-width: 0 1px 1px;
-        border-color: $divider-color;
+        border-style: dashed;
+        border-color: var(--#{$prefix}divider-color);
       }
     }
   }
 }
 
-// For Contextual Colors
-@each $color, $value in $theme-colors {
-  @if $color !=primary and $color !=light {
-    @include template-text-divider-variant('.divider.divider-#{$color}', $value);
+@each $state in map-keys($theme-colors) {
+  .divider-#{$state} {
+    --#{$prefix}divider-color: var(--#{$prefix}#{$state});
   }
 }

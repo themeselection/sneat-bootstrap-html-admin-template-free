@@ -1,61 +1,70 @@
-// Toasts
-// *******************************************************************************
+/* Toasts
+******************************************************************************* */
 
-// Toast Mixin
-@each $color, $value in $theme-colors {
-  @if $color != primary {
-    @include template-toast-variant('.bg-#{$color}', $value);
-  }
-}
-
-.bs-toast[class^='bg-'],
-.bs-toast[class*=' bg-'] {
-  border: none;
+.bs-toast[class^="bg-"],
+.bs-toast[class*=" bg-"] {
+  --#{$prefix}toast-header-color: var(--#{$prefix}white);
+  --#{$prefix}toast-color: var(--#{$prefix}white);
 }
 
 .toast.bs-toast {
-  background-color: rgba($toast-background-color, $toast-bg-factor);
+  --#{$prefix}toast-btn-close-bg: var(--#{$prefix}paper-bg);
+  --#{$prefix}toast-bg: rgba(var(--#{$prefix}white-rgb), .85);
+  --#{$prefix}toast-btn-close: #{$btn-close-gray};
   z-index: $zindex-toast;
+  background-color: var(--#{$prefix}toast-bg) !important;
   .toast-header {
-    padding-bottom: 0.5rem;
     position: relative;
+    padding-block-end: .5rem;
     .btn-close {
       position: absolute;
-      top: -8px;
-      border-radius: $border-radius;
-      padding: 0.45rem;
+      padding: .45rem;
+      background-color: var(--#{$prefix}toast-btn-close-bg);
+      background-image: var(--#{$prefix}toast-btn-close);
       background-size: $toast-btn-close-size;
-      transition: all 0.23s ease 0.1s;
-      background-color: $toast-background-color;
-      box-shadow: $box-shadow-sm;
-      @include ltr-style {
-        right: 2px;
-      }
+      box-shadow: var(--#{$prefix}toast-box-shadow);
+      filter: none;
+      inset-block-start: -8px;
+      inset-inline-end: 2px;
+      @include border-radius($border-radius);
+      @include transition(all .23s ease .1s);
 
-      // For hover effect of close btn
+      /* For hover effect of close btn */
       &:hover,
       &:focus,
       &:active {
         opacity: 1;
-        outline: none;
+        outline: 0;
       }
     }
   }
   .toast-header ~ .toast-body {
-    padding-top: 0;
+    padding-block-start: 0;
   }
 }
 .toast-container {
-  --#{$prefix}toast-zindex: 9;
+  --#{$prefix}toast-zindex: 8;
 }
 
-// Bootstrap Toasts Example
-.toast-ex {
-  position: fixed;
-  top: 4.1rem;
-  right: 2.5rem;
+.toast-header {
+  .btn-close {
+    margin-inline: $toast-padding-x $toast-padding-x * -.5;
+  }
 }
-// Placement Toast example
+
+/* Placement Toast example */
 .toast-placement-ex {
   position: fixed;
+}
+
+/* Generate contextual modifier classes for colorizing the alert */
+@each $state in map-keys($theme-colors) {
+  .bs-toast{
+    &.bg-#{$state} {
+      --#{$prefix}toast-bg: rgba(var(--#{$prefix}#{$state}-rgb), .85);
+      --#{$prefix}toast-box-shadow: 0 .25rem 1rem rgba(var(--#{$prefix}#{$state}-rgb), .4);
+      --#{$prefix}toast-btn-close-bg: var(--#{$prefix}#{$state});
+      --#{$prefix}toast-btn-close: #{$btn-close-white};
+    }
+  }
 }
