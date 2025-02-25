@@ -2,6 +2,23 @@
 
 All notable changes to this template will be documented in this file.
 
+## v3.0.0 (2025-02-25)
+
+### Added
+
+- New Design Alignments
+- New spacer & utility classes
+
+### Updated
+
+- SCSS structure - Build and extend in real-time with CSS variables
+- Fonts icons with SVG icons using iconify
+- Documentation
+
+### Fixed
+
+- UI improvements & bug fixes
+
 ## v2.0.0 (2024-07-25)
 
 ### Added
@@ -36,13 +53,13 @@ All notable changes to this template will be documented in this file.
 - Carousel HTML Structure as per latest Bootstrap
 - Minor improvements & Bugfixes
 
-## [1.1.1] - [2023-09-27]
+## v1.1.1 - (2023-09-27)
 
 ### Fixed
 
 - Minor Improvements
 
-## [1.1.0] - [2023-09-13]
+## v1.1.0 - (2023-09-13)
 
 ### Fixed
 
@@ -57,13 +74,13 @@ All notable changes to this template will be documented in this file.
 
 - Added highlight border on hover for inputs
 
-## [1.0.1] - [2022-04-29]
+## v1.0.1 - (2022-04-29)
 
 ### Fixed
 
 - Minor CSS fixes and improvements
 
-## [1.0.0] - [2022-02-11]
+## v1.0.0 - (2022-02-11)
 
 ### Added
 
