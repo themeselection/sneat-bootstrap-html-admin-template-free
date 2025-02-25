@@ -1,4 +1,4 @@
-import ApexCharts from 'apexcharts-clevision';
+import ApexCharts from 'apexcharts';
 
 try {
   window.ApexCharts = ApexCharts;

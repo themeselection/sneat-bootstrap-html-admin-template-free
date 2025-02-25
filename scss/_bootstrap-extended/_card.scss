@@ -2,163 +2,78 @@
 // *******************************************************************************
 
 .card {
-  background-clip: padding-box;
-  box-shadow: $card-box-shadow;
-  .card-link {
-    display: inline-block;
-  }
-  // ! FIX: to remove padding top from first card-body if used with card-header
+  --#{$prefix}card-hover-box-shadow: #{$box-shadow-lg};
+  --#{$prefix}card-border-bottom-color: #{$card-border-color};
+  --#{$prefix}card-subtitle-color: #{$card-subtitle-color};
+  box-shadow: var(--#{$prefix}card-box-shadow);
+
   .card-header + .card-body,
   .card-header + .card-content > .card-body:first-of-type,
   .card-header + .card-footer,
   .card-body + .card-footer {
-    padding-top: 0;
+    padding-block-start: 0;
   }
-}
-.bg-card {
-  background-color: $card-bg;
-}
 
-// Card action
-.card-action {
-  // Expand card(fullscreen)
-  &.card-fullscreen {
-    display: block;
-    z-index: 9999;
-    position: fixed;
-    width: 100% !important;
-    height: 100% !important;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    overflow: auto;
-    border: none;
-    border-radius: 0;
+  .card-header,
+  .card-footer {
+    --#{$prefix}card-border-width: #{$card-border-width};
   }
-  // Alert
-  .card-alert {
-    position: absolute;
-    width: 100%;
-    z-index: 999;
-    .alert {
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
-  }
-  // Collapsed
-  .card-header {
-    &.collapsed {
-      border-bottom: 0;
+
+  .card-link {
+    display: inline-block;
+    + .card-link {
+      margin-inline: $card-spacer-x 0;
     }
   }
 
-  // Card header
-  .card-header {
-    display: flex;
-    .card-action-title {
-      flex-grow: 1;
-      margin-right: 0.5rem;
-    }
-    .card-action-element {
-      flex-shrink: 0;
-      background-color: inherit;
-      top: 1rem;
-      right: 1.5rem;
-      color: $body-color;
-      a {
-        color: $headings-color;
-        .collapse-icon::after {
-          margin-top: -0.15rem;
-        }
-      }
+  hr {
+    color: var(--#{$prefix}card-border-color);
+  }
+
+  /* List groups */
+  > .list-group {
+    border-block-end-width: $border-width;
+    border-block-start-width: $border-width;
+    .list-group-item {
+      padding-inline: $card-spacer-x;
     }
   }
-  // Block UI loader
-  .blockUI {
-    .sk-fold {
-      margin: 0 auto;
-    }
-    h5 {
-      color: $body-color;
-      margin: 1rem 0 0 0;
-    }
+
+  .collapse > .card-body,
+  .collapsing > .card-body {
+    padding-block-start: 0;
   }
 }
 
-// card-subtitle
+/* card-subtitle */
 .card-subtitle {
   font-weight: $font-weight-normal;
 }
 
-// Card inner borders
-.card-header,
-.card-footer {
-  border-color: $card-inner-border-color;
-}
-.card hr {
-  color: $card-inner-border-color;
+/* adding class with card background color */
+.bg-card {
+  background-color: var(--#{$prefix}card-bg);
 }
 
-.card .row-bordered > [class*=' col '],
-.card .row-bordered > [class^='col '],
-.card .row-bordered > [class*=' col-'],
-.card .row-bordered > [class^='col-'],
-.card .row-bordered > [class='col'] {
-  .card .row-bordered > [class$=' col'],
-  &::before,
-  &::after {
-    border-color: $card-inner-border-color;
-  }
-}
-
-//Card header elements
-.card-header.header-elements,
-.card-title.header-elements {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.card-header {
-  &.card-header-elements {
-    padding-top: $card-spacer-y * 0.5;
-    padding-bottom: $card-spacer-y * 0.5;
-  }
-  .card-header-elements {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
-}
-
-.card-header-elements,
-.card-title-elements {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  & + &,
-  > * + * {
-    margin-left: 0.25rem;
-  }
-}
-
+/* Card header elements
+******************************************************** */
 .card-title {
   &:not(:is(h1, h2, h3, h4, h5, h6)) {
-    color: $body-color;
+    color: var(--#{$prefix}body-color);
   }
 }
 
-.card-title {
-  &:not(:is(h1, h2, h3, h4, h5, h6)) {
-    color: $body-color;
-  }
+/* Horizontal card radius issue fix
+******************************************************** */
+.card-img-left,
+.card-img-right {
+  block-size: 100%;
+  object-fit: cover;
 }
-
-// * Horizontal card radius issue fix
 .card-img-left {
   @include border-start-radius($card-inner-border-radius);
   @include border-end-radius(0);
+
   @include media-breakpoint-down(md) {
     @include border-top-radius($card-inner-border-radius);
     @include border-bottom-radius(0);
@@ -175,46 +90,63 @@
 }
 
 // Card group
+// ********************************************************
 .card-group {
-  box-shadow: $card-box-shadow;
-  background-color: $card-bg;
-  border-radius: $card-border-radius;
-  .card {
-    box-shadow: none;
-    @include media-breakpoint-down(sm) {
-      &:not(:first-child) .card-img-top {
-        @include border-top-radius(0);
+  --#{$prefix}card-box-shadow: #{$card-box-shadow};
+  --#{$prefix}card-bg: #{$card-bg};
+  @include media-breakpoint-up(sm) {
+    @include border-radius($card-border-radius);
+    background-color: var(--#{$prefix}card-bg);
+    box-shadow: var(--#{$prefix}card-box-shadow);
+    .card {
+      box-shadow: none;
+      + .card {
+        border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+        border-inline-start: 0;
+        margin-inline: 0;
+      }
+      .card-img-top,
+      .card-header,
+      .card-img-bottom,
+      .card-footer {
+        @include border-radius(0);
+      }
+      &:is(:last-child) {
+        .card-img-top,
+        .card-header {
+          @include border-top-end-radius($card-border-radius);
+        }
+        .card-img-bottom,
+        .card-footer {
+          @include border-bottom-end-radius($card-border-radius);
+        }
+      }
+      &:is(:first-child) {
+        .card-img-top,
+        .card-header {
+          @include border-top-start-radius($card-border-radius);
+        }
+        .card-img-bottom,
+        .card-footer {
+          @include border-bottom-start-radius($card-border-radius);
+        }
       }
     }
   }
 }
-// List groups
-// *******************************************************************************
 
-.card > .list-group .list-group-item {
-  padding-left: $card-spacer-x;
-  padding-right: $card-spacer-x;
-}
-
-// Card Statistics specific separator
-// *******************************************************************************
-.card {
-  .card-separator {
-    @include ltr-style {
-      border-right: $border-width solid $card-border-color;
+/* Card action */
+.card-action {
+  /* Card header */
+  .card-header {
+    display: flex;
+    &.collapsed {
+      border-block-end: 0;
     }
   }
-}
 
-@include media-breakpoint-down(lg) {
-  .card {
-    .card-separator {
-      border-bottom: $border-width solid $card-border-color;
-      padding-bottom: $card-spacer-y;
-
-      @include ltr-style {
-        border-right-width: 0 !important;
-      }
-    }
+  .collapse > .card-body,
+  .collapsing > .card-body {
+    padding-block-start: 0;
   }
 }

@@ -1,46 +1,47 @@
-// * Page Icons (Page specific only)
-// *******************************************************************************
+/* Page Icons (Page specific only)
+******************************************************************************* */
 
-@import '../_bootstrap-extended/include';
-@import '../_custom-variables/pages';
+@import "../_bootstrap-extended/include";
 
 #icons-container {
   .icon-card {
-    width: 128px;
+    inline-size: 128px;
 
-    i {
-      font-size: 2rem;
+    .icon-base {
+      @include icon-base(2rem);
     }
   }
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   #icons-container {
     .icon-card {
-      width: 126px;
+      flex: 1 1 auto;
+      inline-size: 126px;
     }
   }
 }
+
 @include media-breakpoint-down(md) {
   #icons-container {
     .icon-card {
-      width: 131px;
+      inline-size: 131px;
     }
   }
 }
 
-@media (max-width: 414px) {
+@media (width <= 414px) {
   #icons-container {
     .icon-card {
-      width: 110px;
+      inline-size: 110px;
     }
   }
 }
 
-@media (max-width: 375px) {
+@media (width <= 375px) {
   #icons-container {
     .icon-card {
-      width: 150px;
+      inline-size: 150px;
     }
   }
 }

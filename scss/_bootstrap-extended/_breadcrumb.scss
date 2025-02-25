@@ -1,13 +1,24 @@
 // Breadcrumbs
 // *******************************************************************************
 
-.breadcrumb-item,
-.breadcrumb-item a {
-  color: $breadcrumb-color;
 
-  &:hover,
-  &:focus {
-    color: $breadcrumb-active-color;
+.breadcrumb {
+  --#{$prefix}breadcrumb-color: #{$breadcrumb-color};
+}
+
+.breadcrumb-item {
+  line-height: 1.5rem;
+  a {
+    color: var(--#{$prefix}breadcrumb-color);
+
+    &:hover,
+    &:focus {
+      color: var(--#{$prefix}breadcrumb-item-active-color);
+    }
+  }
+  .icon-base.breadcrumb-icon {
+    color: var(--#{$prefix}breadcrumb-divider-color);
+    margin-inline-start: $breadcrumb-item-padding-x;
   }
 }
 
@@ -20,21 +31,6 @@
   }
 }
 
-// Breadcrumb divider styles
-.breadcrumb-style1,
-.breadcrumb-style2 {
-  .breadcrumb-item + .breadcrumb-item::before {
-    font-family: boxicons;
-    vertical-align: middle;
-  }
-}
-.breadcrumb-style1 .breadcrumb-item + .breadcrumb-item::before {
-  content: '\ea50';
-  font-size: 1.125rem;
-  line-height: 1.4;
-}
-.breadcrumb-style2 .breadcrumb-item + .breadcrumb-item::before {
-  content: '\ebe7';
-  font-size: $font-size-lg;
-  line-height: 1.35rem;
+.breadcrumb-custom-icon .breadcrumb-item + .breadcrumb-item::before {
+  content: none !important;
 }

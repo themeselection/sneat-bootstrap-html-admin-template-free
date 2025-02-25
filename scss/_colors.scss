@@ -1,39 +1,16 @@
-@import '_components/include';
-
-// * Bootstrap colors (Uncomment required colors)
-// *******************************************************************************
-
-$bootstrap-colors: () !default;
-
-@each $color-name, $color-value in $bootstrap-colors {
-  @include bg-variant('.bg-#{$color-name}', $color-value);
-  @include bg-label-variant('.bg-label-#{$color-name}', $color-value);
-
-  @include border-label-variant('.border-label-#{$color-name}', $color-value);
-  @include border-light-variant('.border-light-#{$color-name}', $color-value);
-
-  .border-#{$color-name} {
-    border-color: $color-value !important;
+/* Custom colors
+******************************************************************************* */
+:root {
+  @each $color, $value in $theme-colors {
+    --#{$prefix}#{$color}: #{$value};
+    --#{$prefix}#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
   }
 
-  @include template-button-variant('.btn-#{$color-name}', $color-value);
-  @include template-button-outline-variant('.btn-outline-#{$color-name}', $color-value);
-}
-
-// * Navbar
-// *******************************************************************************
-
-@each $color, $value in $theme-colors {
-  @if $color !=primary and $color !=light {
-    @include template-navbar-style('.navbar.bg-#{$color}', $value);
+  @each $state in map-keys($theme-colors) {
+    .bg-gradient-#{$state} {
+      --#{$prefix}bg-gradient-color-start: color-mix(in sRGB, var(--#{$prefix}pure-black) 10%, var(--#{$prefix}#{$state}));
+      --#{$prefix}bg-gradient-color-end: color-mix(in sRGB, var(--#{$prefix}white) 20%, var(--#{$prefix}#{$state}));
+      background-image: linear-gradient(45deg, var(--#{$prefix}bg-gradient-color-start) 0%, var(--#{$prefix}bg-gradient-color-end) 100%) !important;
+    }
   }
 }
-
-@include template-navbar-style('.navbar.bg-white', #fff, $color: $body-color, $active-color: $headings-color);
-@include template-navbar-style('.navbar.bg-light', $gray-100, $color: $body-color, $active-color: $headings-color);
-
-// * Footer
-// *******************************************************************************
-
-@include template-footer-style('.footer.bg-white', #fff, $color: $headings-color, $active-color: $body-color);
-@include template-footer-style('.footer.bg-light', $gray-100, $color: $headings-color, $active-color: $body-color);

@@ -1,37 +1,47 @@
 // Dropdowns
 // *****************************************************************
 
-// On hover outline
-[data-trigger='hover'] {
-  outline: 0;
-}
-
 .dropdown-menu {
-  margin-top: 1px !important;
-  box-shadow: $dropdown-box-shadow;
+  box-shadow: var(--#{$prefix}dropdown-box-shadow);
+  margin-block-start: 1px !important;
 
-  // Mega dropdown inside the dropdown menu
-  .mega-dropdown > & {
-    left: 0 !important;
-    right: 0 !important;
-  }
-
-  // Badge within dropdown menu
-  .badge[class^='float-'],
-  .badge[class*=' float-'] {
-    position: relative;
-    top: 0.071em;
+  text-align: start;
+  > li:not(.disabled) > a:not(.dropdown-item):active,
+  > li:not(.disabled) > a:not(.dropdown-item).active,
+  > li.active:not(.disabled) > a:not(.dropdown-item) {
+    background-color: var(--#{$prefix}dropdown-link-active-bg);
+    color: var(--#{$prefix}dropdown-link-active-color);
   }
 }
-// Dropdown item line height
+
+.btn-xs.dropdown-toggle::after {
+  @include caret-down(.45em);
+}
+
+/* Split dropdowns */
+.dropdown-toggle-split {
+  &::after,
+  .dropup &::after,
+  .dropend &::after {
+    margin-inline: 0;
+  }
+  .dropstart &::before {
+    margin-inline: 0;
+  }
+}
+
+/* Dropdown item line height */
 .dropdown-item {
   li:not(:first-child) &,
   .dropdown-menu &:not(:first-child) {
-    margin-top: 2px;
+    margin-block-start: 2px;
+  }
+  &.text-danger:active {
+    color: var(--#{$prefix}primary) !important;
   }
 }
 
-// Hidden dropdown toggle arrow
+/* Hidden dropdown toggle arrow */
 .dropdown-toggle.hide-arrow,
 .dropdown-toggle-hide-arrow > .dropdown-toggle {
   &::before,
@@ -40,31 +50,22 @@
   }
 }
 
-// Dropdown caret icon
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-@if $enable-caret {
-  // Dropdown arrow
-  .dropdown-toggle::after {
-    @include caret-down($caret-width);
-  }
-  // Dropend arrow
-  .dropend .dropdown-toggle::after {
-    @include caret-right($caret-width);
-  }
-  // Dropstart arrow
-  .dropstart .dropdown-toggle::before {
-    @include caret-left($caret-width);
-  }
-  // Dropup arrow
-  .dropup .dropdown-toggle::after {
-    @include caret-up($caret-width);
-  }
+    .dropdown-menu#{$infix}-start {
+      --bs-position: start;
+      &[data-bs-popper] {
+        inset-inline: 0 auto;
+      }
+    }
 
-  .dropstart .dropdown-toggle::before,
-  .dropend .dropdown-toggle::after {
-    vertical-align: $caret-vertical-align;
+    .dropdown-menu#{$infix}-end {
+      --bs-position: end;
+      &[data-bs-popper] {
+        inset-inline: auto 0;
+      }
+    }
   }
-}
-.dropdown-toggle-split:after {
-  margin-left: 0 !important;
 }

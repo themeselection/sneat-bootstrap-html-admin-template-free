@@ -2,159 +2,245 @@
 // *******************************************************************************
 
 .btn {
-  cursor: pointer;
-  display: inline-flex !important;
+  --#{$prefix}btn-box-shadow-rgb: transparent;
+  --#{$prefix}btn-focus-shadow-rgb: transparent;
+  --#{$prefix}btn-active-shadow-rgb: transparent;
+  --#{$prefix}btn-box-shadow: 0 .125rem .25rem 0 rgba(var(--#{$prefix}btn-box-shadow-rgb), .4);
+  --#{$prefix}btn-focus-box-shadow: none;
+  --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-active-shadow: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  &[class*='btn-outline-'] {
-    &:disabled,
-    &.disabled {
-      background: transparent !important;
-    }
+  &:not(:focus, :active) {
+    box-shadow: var(--#{$prefix}btn-box-shadow);
   }
-  .btn-check:focus + &,
-  &:focus,
-  &.focus,
-  &:active,
-  &.active {
-    box-shadow: none;
-    &:hover {
-      transform: $btn-focus-transform;
-    }
+
+  .btn-group &,
+  .input-group & {
+    border-inline-end: $input-btn-border-width solid var(--#{$prefix}btn-group-border-color);
+    border-inline-start: $input-btn-border-width solid var(--#{$prefix}btn-group-border-color);
   }
-  .bx {
-    line-height: 1.15;
+  .btn-group-vertical & {
+    border-block-end: $input-btn-border-width solid var(--#{$prefix}btn-group-border-color);
+    border-block-start: $input-btn-border-width solid var(--#{$prefix}btn-group-border-color);
   }
+
+  .btn-check:checked + &,
+  :not(.btn-check) + &:active,
+  &:first-child:active,
+  &.active,
+  &.show {
+    box-shadow: var(--#{$prefix}btn-active-shadow);
+  }
+
+  &:disabled,
   &.disabled,
-  &:disabled {
-    cursor: default;
+  fieldset:disabled & {
+    box-shadow: none;
+  }
+
+  /* Table Action Dropdown fix */
+  &:not([class*="btn-"]):active,
+  &:not([class*="btn-"]).active,
+  &:not([class*="btn-"]).show,
+  &:not([class*="btn-"]) {
+    --#{$prefix}btn-border-width: 0;
+  }
+
+  /* override bootstrap styles of the checkbox/radio buttons */
+  .btn-check + &:hover {
+    border-color: var(--#{$prefix}btn-hover-border-color);
+    background-color: var(--#{$prefix}btn-hover-bg);
+    color: var(--#{$prefix}btn-hover-color);
+  }
+
+  /* Buttons Variant */
+
+  /* Outline */
+  &[class*="btn-outline-"] {
+    --#{$prefix}btn-bg: transparent;
+    --#{$prefix}btn-focus-box-shadow: none;
+    --#{$prefix}btn-active-shadow: none;
+    --#{$prefix}btn-disabled-bg: transparent;
+
+    .badge {
+      --#{$prefix}badge-bg-color: var(--#{$prefix}btn-color);
+      --#{$prefix}badge-color: var(--#{$prefix}btn-hover-color);
+    }
+
+    &:not(:hover) {
+      --#{$prefix}btn-box-shadow: none;
+    }
+
+    &:hover .badge,
+    &:focus:hover .badge,
+    &:focus:not(:hover) .badge,
+    &:active .badge,
+    &.active .badge,
+    .show > &.dropdown-toggle .badge {
+      &:not([class*="badge-outline"]) {
+        --#{$prefix}badge-bg-color: var(--#{$prefix}btn-hover-color);
+        --#{$prefix}badge-color: var(--#{$prefix}btn-hover-bg);
+      }
+    }
+  }
+
+  &.btn-white {
+    --#{$prefix}btn-bg: var(--#{$prefix}white);
+    --#{$prefix}btn-color: var(--#{$prefix}body-color);
+    --#{$prefix}btn-border-color: var(--#{$prefix}white);
+    --#{$prefix}btn-hover-color: var(--#{$prefix}black);
+    --#{$prefix}btn-hover-bg: var(--#{$prefix}btn-bg);
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
+    --#{$prefix}btn-active-color: var(--#{$prefix}btn-hover-color);
+    --#{$prefix}btn-active-bg: var(--#{$prefix}btn-hover-bg);
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}btn-hover-border-color);
+    --#{$prefix}btn-box-shadow-rgb: var(--#{$prefix}white-rgb);
+    --#{$prefix}btn-active-shadow-rgb: var(--#{$prefix}btn-box-shadow-rgb);
   }
   &:hover {
     transform: $btn-hover-transform;
   }
-}
-.btn-group,
-.btn-group-vertical {
-  &:has(.btn.active),
-  &:has(.btn:active),
-  &:has(.btn.focus),
-  &:has(.btn:focus) {
-    .btn {
-      box-shadow: none !important;
-    }
+  &:focus {
+    transform: $btn-focus-transform;
   }
 }
-// Badge within button
+
+/* Badge within button */
 .btn .badge {
   @include transition($btn-transition);
+  inset-block-start: 0;
 }
 
 label.btn {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
-// Button Sizes
+/* Button Sizes */
 
 .btn-xl {
   @include button-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl);
-}
-
-.btn-sm {
-  line-height: $btn-line-height-sm;
 }
 
 .btn-xs {
   @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs);
 }
 
-// Buttons Variant
-
-@each $color, $value in $theme-colors {
-  @if $color != primary {
-    @include template-button-variant('.btn-#{$color}', $value);
-    @include template-button-outline-variant('.btn-outline-#{$color}', $value);
-  }
-}
-
-// Icon button
+/* Icon button */
 
 .btn-icon {
-  $btn-icon-size: ($btn-font-size * $btn-line-height) + ($btn-padding-y * 1.998);
   $btn-icon-size-xl: ($btn-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2);
-  $btn-icon-size-lg: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 1.998);
+  $btn-icon-font-size-xl: $btn-font-size-xl * $btn-line-height-xl;
+  $btn-icon-size-lg: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2);
+  $btn-icon-font-size-lg: $btn-font-size-lg * $btn-line-height-lg;
+  $btn-icon-size: ($btn-font-size * $btn-line-height) + ($btn-padding-y * 1.998);
+  $btn-icon-font-size: $btn-font-size * $btn-line-height;
   $btn-icon-size-sm: ($btn-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 1.998);
+  $btn-icon-font-size-sm: $btn-font-size-sm;
   $btn-icon-size-xs: ($btn-font-size-xs * $btn-line-height-xs) + ($btn-padding-y-xs * 1.998);
+  $btn-icon-font-size-xs: $btn-font-size-xs;
   $borders-width: calc(#{$btn-border-width} * 2);
-  --#{$prefix}btn-active-border-color: transparent;
 
-  padding: 0;
-  width: calc(#{$btn-icon-size} + #{$borders-width});
-  height: calc(#{$btn-icon-size} + #{$borders-width});
   display: inline-flex;
   flex-shrink: 0;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 0;
+  block-size: calc(#{$btn-icon-size} + #{$borders-width});
+  font-size: $btn-icon-font-size;
+  inline-size: calc(#{$btn-icon-size} + #{$borders-width});
+
+  .icon-base{
+    @include icon-base($btn-icon-font-size);
+  }
 
   &.btn-xl {
-    width: calc(#{$btn-icon-size-xl} + #{$borders-width});
-    height: calc(#{$btn-icon-size-xl} + #{$borders-width});
-    > span {
-      font-size: $btn-font-size-xl;
+    block-size: calc(#{$btn-icon-size-xl} + #{$borders-width});
+    inline-size: calc(#{$btn-icon-size-xl} + #{$borders-width});
+    .icon-base {
+      @include icon-base($btn-icon-font-size-xl);
     }
   }
 
   &.btn-lg {
-    width: calc(#{$btn-icon-size-lg} + #{$borders-width});
-    height: calc(#{$btn-icon-size-lg} + #{$borders-width});
-    font-size: $btn-font-size-lg;
+    block-size: calc(#{$btn-icon-size-lg} + #{$borders-width});
+    font-size: $btn-icon-font-size-lg;
+    inline-size: calc(#{$btn-icon-size-lg} + #{$borders-width});
+    .icon-base {
+      @include icon-base($btn-icon-font-size-lg);
+    }
   }
 
   &.btn-sm {
-    width: calc(#{$btn-icon-size-sm} + #{$borders-width});
-    height: calc(#{$btn-icon-size-sm} + #{$borders-width});
-    font-size: $btn-font-size-sm;
+    block-size: calc(#{$btn-icon-size-sm} + #{$borders-width});
+    font-size: $btn-icon-font-size-sm;
+    inline-size: calc(#{$btn-icon-size-sm} + #{$borders-width});
+    .icon-base {
+      @include icon-base($btn-font-size-sm);
+    }
   }
 
   &.btn-xs {
-    width: calc(#{$btn-icon-size-xs} + #{$borders-width});
-    height: calc(#{$btn-icon-size-xs} + #{$borders-width});
-    font-size: $btn-font-size-xs;
+    block-size: calc(#{$btn-icon-size-xs} + #{$borders-width});
+    font-size: $btn-icon-font-size-xs;
+    inline-size: calc(#{$btn-icon-size-xs} + #{$borders-width});
+    .icon-base {
+      @include icon-base($btn-font-size-xs);
+    }
   }
 }
 
-// Without border
-
-.btn.borderless {
-  &:not(.active):not(:active):not(:hover):not(:focus),
-  :not(.show) > &.dropdown-toggle:not(:hover):not(:focus) {
-    border-color: transparent;
-    box-shadow: none;
-  }
-}
-
-// Link buttons
+/* Link buttons */
 .btn.btn-link {
   font-size: inherit;
 }
 
 .btn-pinned {
   position: absolute;
-  top: 0.75rem;
-  @include ltr-style {
-    right: 0.75rem;
-  }
+  inset-block-start: .75rem;
+  inset-inline-end: .75rem;
 }
 
-// Button focus
+/* Button focus */
 button:focus,
 button:focus-visible {
-  outline: none;
+  outline: 0;
 }
 
-// Table Action Dropdown fix
-.btn:not([class*='btn-']):active,
-.btn:not([class*='btn-']).active,
-.btn:not([class*='btn-']).show,
-.btn:not([class*='btn-']) {
-  border: none;
+/* Generate contextual modifier classes for colorizing the button */
+@each $state in map-keys($theme-colors) {
+  /* Default */
+  .btn-#{$state} {
+    --#{$prefix}btn-bg: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-border-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-hover-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-hover-bg: color-mix(in sRGB, #{$color-contrast-dark} #{$btn-hover-bg-shade-amount}, var(--#{$prefix}#{$state}));
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-hover-bg);
+    --#{$prefix}btn-active-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-active-bg: color-mix(in sRGB, #{$color-contrast-dark} #{$btn-active-bg-shade-amount}, var(--#{$prefix}#{$state}));
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}btn-active-bg);
+    --#{$prefix}btn-box-shadow-rgb: var(--#{$prefix}#{$state}-rgb);
+    --#{$prefix}btn-disabled-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-disabled-bg: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-disabled-border-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-group-border-color: color-mix(in sRGB, #{$color-contrast-dark} #{$btn-active-bg-shade-amount}, var(--#{$prefix}#{$state}));
+  }
+
+  /* Outline */
+  .btn-outline-#{$state}{
+    --#{$prefix}btn-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-border-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-hover-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-hover-bg: color-mix(in sRGB, #{$color-contrast-dark} #{$btn-outline-active-bg-shade-amount}, var(--#{$prefix}#{$state}));
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-hover-bg);
+    --#{$prefix}btn-box-shadow-rgb: var(--#{$prefix}#{$state}-rgb);
+    --#{$prefix}btn-active-color: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}btn-active-bg: color-mix(in sRGB, #{$color-contrast-dark} #{$btn-outline-active-bg-shade-amount}, var(--#{$prefix}#{$state}));
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}btn-active-bg);
+    --#{$prefix}btn-disabled-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-disabled-border-color: var(--#{$prefix}#{$state});
+    --#{$prefix}btn-group-border-color: var(--#{$prefix}#{$state});
+  }
 }

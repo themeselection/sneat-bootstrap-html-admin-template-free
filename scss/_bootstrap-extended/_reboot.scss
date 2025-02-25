@@ -1,22 +1,34 @@
-// Reboot
-//
+/* Reboot */
 
 b,
 strong {
   font-weight: $font-weight-bold;
 }
 
-a:not([href]) {
-  color: inherit;
-  text-decoration: none;
+caption {
+  text-align: start;
+}
 
+dd {
+  margin-inline-start: 0;
+}
+
+// TODO: checkinbs6 - a new variable has been created because the $link-color scss variable was being used,and changing the color did not reflect the update. this new variable ensures that future color changes are applied correctly.
+a {
+  color: var(--#{$prefix}custom-link-color);
   &:hover {
-    color: inherit;
-    text-decoration: none;
+    color: color-mix(in sRGB, var(--#{$prefix}custom-link-color) 80%, var(--#{$prefix}base-color));
+  }
+  &:not([href]) {
+    &,
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }
 
-//! Fix: Autofill input bg and text color issue on different OS and browsers
+/* Autofill input bg and text color issue on different OS and browsers */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -28,12 +40,12 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus,
 input:-internal-autofill-selected {
   background-clip: text !important;
-  -webkit-background-clip: text !important;
 }
 
 h1 {
   line-height: $h1-line-height;
 }
+
 h2 {
   line-height: $h2-line-height;
 }
@@ -52,4 +64,8 @@ h5 {
 
 h6 {
   line-height: $h6-line-height;
+}
+
+img[data-app-light-img][data-app-dark-img] {
+  visibility: visible;
 }

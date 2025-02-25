@@ -1,87 +1,86 @@
-// Modals
-// *******************************************************************************
+/* Modals
+******************************************************************************* */
 
-// Modal Shadow
+/* Modal Shadow */
 .modal-content {
-  box-shadow: $modal-content-box-shadow-xs;
+  box-shadow: var(--#{$prefix}modal-box-shadow);
 }
 
-// Modal Header close btn style
 .modal {
   .btn-close {
-    background-color: $card-bg;
-    border-radius: $border-radius-sm;
-    background-image: str-replace(str-replace($btn-close-bg, '#{$btn-close-color}', $text-muted), '#', '%23');
+    padding: .563rem;
+    background-color: var(--#{$prefix}paper-bg);
+    background-image: none;
+    box-shadow: var(--#{$prefix}box-shadow-xs);
+    filter: none;
     opacity: 1;
-    padding: 0.563rem;
-    box-shadow: $box-shadow-xs;
-    background-size: 0.75rem 0.6875rem;
-    transition: all 0.23s ease 0.1s;
+    transform: translate(23px, -25px);
+    @include border-radius($border-radius-sm);
+    @include transition(all .23s ease .1s);
 
-    @include ltr-style {
-      transform: translate(23px, -25px);
-    }
-
-    // For hover effect of close btn
+    /* For hover effect of close btn */
     &:hover,
     &:focus,
     &:active {
       opacity: 1;
-      outline: none;
-
-      @include ltr-style {
-        transform: translate(20px, -20px);
-      }
+      outline: 0;
+      transform: translate(20px, -20px);
+    }
+    &::before{
+      display: block;
+      background-color: var(--#{$prefix}secondary-color);
+      block-size: .6875rem;
+      content: "";
+      inline-size: .6875rem;
+      mask-image: str-replace(str-replace($btn-close-bg, "#{$btn-close-color}", currentColor), "#", "%23");
+      mask-repeat: no-repeat;
+      mask-size: 100% 100%;
     }
   }
   .modal-header {
     position: relative;
     .btn-close {
       position: absolute;
-      top: $modal-dialog-margin + 0.1875rem;
-      right: $modal-footer-margin-between - 0.1875rem;
+      inset-block-start: $modal-dialog-margin - .5625rem;
+      inset-inline-end: $modal-dialog-margin - .6875rem;
     }
   }
-}
 
-// modal footer
-.modal-footer {
-  padding: $modal-footer-padding;
-  > * {
-    margin-block: 0;
-    &:last-child {
-      margin-left: 0;
-    }
-    &:first-child {
-      margin-right: 0;
+  /* modal footer */
+  .modal-footer {
+    padding: $modal-footer-padding;
+    > * {
+      margin-block: 0;
+      &:last-child {
+        margin-inline-end: 0;
+      }
+      &:first-child {
+        margin-inline-start: 0;
+      }
     }
   }
-}
 
-// ! remove close button animation & shadow for .modal-dialog-scrollable, .modal-fullscreen, .modal-top modal
-.modal-dialog-scrollable,
-.modal-fullscreen,
-.modal-top {
-  .btn-close {
-    box-shadow: none;
-    @include ltr-style {
-      transform: translate(0, 0) !important;
-    }
-
-    &:hover {
-      @include ltr-style {
-        transform: translate(0, 0) !important;
+  /*
+  ! remove close button animation & shadow for .modal-dialog-scrollable, .modal-fullscreen, .modal-top modal */
+  .modal-dialog-scrollable,
+  .modal-fullscreen,
+  &.modal-top {
+    .btn-close {
+      box-shadow: none;
+      transform: translate(0, 0);
+      &:hover {
+        transform: translate(0, 0);
       }
     }
   }
 }
 
-// Top modals
-// *******************************************************************************
+/* Top modals
+******************************************************************************* */
 
 .modal-top {
   .modal-dialog {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .modal-content {
@@ -89,36 +88,44 @@
   }
 }
 
-// Responsive
-// *******************************************************************************
+/* Modal Animations
+****************************************************************************** */
 
-@include media-breakpoint-down(lg) {
-  .modal-onboarding .onboarding-horizontal {
-    flex-direction: column;
-  }
+/* Slide from Top */
+.modal-top.fade .modal-dialog,
+.modal-top .modal.fade .modal-dialog {
+  transform: translateY(-100%);
 }
+
+.modal-top.show .modal-dialog,
+.modal-top .modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
+/* Responsive
+******************************************************************************* */
+
 @include media-breakpoint-down(md) {
   .modal {
     .modal-dialog:not(.modal-fullscreen) {
-      padding: 0 0.75rem;
-      padding-left: 0.75rem !important;
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-      display: none;
+      padding-block: 0;
+      padding-inline: .75rem;
     }
   }
 }
+
 @include media-breakpoint-up(sm) {
   .modal-content {
-    box-shadow: $modal-content-box-shadow-sm-up;
+    box-shadow: var(--#{$prefix}modal-box-shadow);
   }
-  .modal-sm .modal-dialog {
-    max-width: $modal-sm;
+
+  .modal-dialog.modal-sm {
+    max-inline-size: $modal-sm;
   }
 }
+
 @include media-breakpoint-up(xl) {
   .modal-xl .modal-dialog {
-    max-width: $modal-xl;
+    max-inline-size: $modal-xl;
   }
 }

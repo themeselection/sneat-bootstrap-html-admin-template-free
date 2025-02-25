@@ -1,17 +1,33 @@
-// Pagination
-// *******************************************************************************
+/* Pagination
+******************************************************************************* */
 
-// Pagination next, prev, first & last css padding
-.page-item {
-  &.first,
-  &.last,
-  &.next,
-  &.prev,
-  &.previous {
-    .page-link {
-      padding: $pagination-padding-y - 0.043rem $pagination-padding-x - 0.067rem;
+.pagination {
+  --#{$prefix}pagination-box-shadow-color: #{$pagination-box-shadow-color};
+  padding-inline-start: 0;
+  .page-link {
+    border-color: transparent;
+  }
+  &.pagination-lg {
+    --#{$prefix}pagination-font-size: #{$font-size-lg};
+  }
+  &.pagination-sm {
+    --#{$prefix}pagination-font-size: #{$font-size-sm};
+  }
+  .page-item .page-link,
+  & li > a:not(.page-link) {
+    &:focus {
+      color: var(--#{$prefix}pagination-focus-color);
     }
   }
+  .page-item.active .page-link,
+  & li.active > a:not(.page-link) {
+    box-shadow: 0 .125rem .25rem 0 rgba(var(--#{$prefix}pagination-box-shadow-color), .4);
+    color: var(--#{$prefix}pagination-active-color);
+  }
+}
+
+/* Pagination next, prev, first & last css padding */
+.page-item {
   &.disabled,
   &[disabled] {
     .page-link {
@@ -20,77 +36,68 @@
     }
   }
 }
-.page-item:last-child .tf-icon {
+.page-item:last-child .icon-base {
   transform: translateX(7%);
 }
 
-// Pagination basic style
+/* Pagination basic style */
 .page-link,
 .page-link > a {
   @include border-radius($border-radius);
-
-  text-align: center;
-  min-width: calc(
-    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-x * 1.923)} + calc(#{$pagination-border-width} * 2)'}
-  );
-  min-height: calc(
-    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + calc(#{$pagination-border-width} * 2)'}
-  );
-
-  &:focus {
-    color: $pagination-hover-color;
-  }
   display: inline-flex !important;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-block-size:
+    calc(
+      #{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + calc(#{$pagination-border-width} * 2)"}
+    );
+  min-inline-size:
+    calc(
+      #{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-x * 1.923)} + calc(#{$pagination-border-width} * 2)"}
+    );
 }
 
-// Add spacing between pagination items
-.page-item + .page-item .page-link,
-.pagination li + li > a:not(.page-link) {
-  .pagination-sm & {
-    margin-left: 0.25rem;
-  }
-  .pagination-lg & {
-    margin-left: 0.5rem;
-  }
-}
+/* Sizing
+******************************************************************************* */
 
-// Removed border from default pagination and set line-height of icons
-.pagination {
-  .page-link {
-    border-color: transparent;
-  }
-}
-
-.page-link.btn-primary {
-  box-shadow: none !important;
-}
-
-// Sizing
-// *******************************************************************************
-
-// Pagination Large
+/* Pagination Large */
 .pagination-lg .page-link,
 .pagination-lg > li > a:not(.page-link) {
-  min-width: calc(
-    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-x-lg * 1.615)} + calc(#{$pagination-border-width} * 2)'}
-  );
-  min-height: calc(
-    #{'#{($font-size-base * $pagination-line-height) + ($pagination-padding-y-lg * 2.33)} + calc(#{$pagination-border-width} * 2)'}
-  );
+  min-block-size:
+    calc(
+      #{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-y-lg * 2.33)} + calc(#{$pagination-border-width} * 2)"}
+    );
+  min-inline-size:
+    calc(
+      #{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-x-lg * 1.615)} + calc(#{$pagination-border-width} * 2)"}
+    );
 }
 
-// Pagination Small
+.pagination-lg > .page-item {
+  &.first,
+  &.last,
+  &.next,
+  &.prev,
+  &.previous {
+    .page-link {
+      padding-inline: $pagination-padding-y-lg - .0845rem;
+    }
+  }
+}
+
+/* Pagination Small */
 .pagination-sm .page-link,
 .pagination-sm > li > a:not(.page-link) {
-  min-width: calc(
-    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-x-sm * 2.356)} + calc(#{$pagination-border-width} * 2)'}
-  );
-  min-height: calc(
-    #{'#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + calc(#{$pagination-border-width} * 2)'}
-  );
+  min-block-size:
+    calc(
+      #{"#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + calc(#{$pagination-border-width} * 2)"}
+    );
+  min-inline-size:
+    calc(
+      #{"#{($font-size-sm * $pagination-line-height) + ($pagination-padding-x-sm * 2.356)} + calc(#{$pagination-border-width} * 2)"}
+    );
 }
+
 .pagination-sm > .page-item {
   &.first,
   &.last,
@@ -98,7 +105,19 @@
   &.prev,
   &.previous {
     .page-link {
-      padding: $pagination-padding-y-sm - 0.1055rem;
+      padding-block: $pagination-padding-y-sm - .1055rem;
+      padding-inline: $pagination-padding-y-sm - .1055rem;
     }
+  }
+}
+
+/* Add spacing between pagination items */
+.page-item + .page-item .page-link,
+.pagination li + li > a:not(.page-link) {
+  .pagination-sm & {
+    margin-inline-start: .25rem;
+  }
+  .pagination-lg & {
+    margin-inline-start: .5rem;
   }
 }

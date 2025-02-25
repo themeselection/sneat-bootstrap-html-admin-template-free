@@ -1,46 +1,46 @@
-// * Carets
+// Carets - for dropdown arrows
 // *******************************************************************************
 
 @mixin caret-up($caret-width) {
-  margin-top: 0.97 * divide($caret-width, 2);
-  margin-left: 0.8em;
-  width: $caret-width;
-  height: $caret-width;
-  border: 2px solid;
-  border-bottom: 0;
-  border-left: 0;
+  border: $caret-border-width solid;
+  block-size: $caret-width;
+  border-block-end: 0;
+  border-inline-start: 0;
+  inline-size: $caret-width;
+  margin-block-start: .97 * divide($caret-width, 2);
+  margin-inline: .8em 0;
   transform: rotate(-45deg);
 }
 
 @mixin caret-down($caret-width) {
-  margin-top: -1.07 * divide($caret-width, 2);
-  margin-left: 0.8em;
-  width: $caret-width;
-  height: $caret-width;
-  border: 2px solid;
-  border-top: 0;
-  border-left: 0;
+  border: $caret-border-width solid;
+  block-size: $caret-width;
+  border-block-start: 0;
+  border-inline-start: 0;
+  inline-size: $caret-width;
+  margin-block-start: -1.07 * divide($caret-width, 2);
+  margin-inline: .8em 0;
   transform: rotate(45deg);
 }
 
-@mixin caret-left($caret-width) {
-  margin-top: 0;
-  margin-right: 0.5em;
-  width: $caret-width;
-  height: $caret-width;
-  border: 2px solid;
-  border-top: 0;
-  border-right: 0;
+@mixin caret-start($caret-width) {
+  border: $caret-border-width solid;
+  block-size: $caret-width;
+  border-block-start: 0;
+  border-inline-end: 0;
+  inline-size: $caret-width;
+  margin-block-start: 0;
+  margin-inline: 0 $caret-spacing;
   transform: rotate(45deg);
 }
 
-@mixin caret-right($caret-width) {
-  margin-top: 0;
-  margin-right: 0.5em;
-  width: $caret-width;
-  height: $caret-width;
-  border: 2px solid;
-  border-top: 0;
-  border-left: 0;
+@mixin caret-end($caret-width) {
+  border: $caret-border-width solid;
+  block-size: $caret-width;
+  border-block-start: 0;
+  border-inline-start: 0;
+  inline-size: $caret-width;
+  margin-block-start: 0;
+  margin-inline: $caret-spacing 0;
   transform: rotate(-45deg);
 }

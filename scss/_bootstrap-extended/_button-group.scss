@@ -1,16 +1,80 @@
 // Button groups
 // *******************************************************************************
 
-// * Split button
-// *******************************************************************************
+.btn-group {
+  --#{$prefix}btn-group-border-radius: #{$btn-border-radius};
 
-.btn-group,
-.btn-group-vertical {
-  &:disabled,
-  &.disabled {
-    opacity: 0.45;
+  &.btn-group-sm {
+    --#{$prefix}btn-group-border-radius: #{$btn-border-radius-sm};
+  }
+  &.btn-group-xs {
+    --#{$prefix}btn-group-border-radius: #{$btn-border-radius-xs};
+  }
+  &.btn-group-lg {
+    --#{$prefix}btn-group-border-radius: #{$btn-border-radius-lg};
+  }
+  &.btn-group-xl {
+    --#{$prefix}btn-group-border-radius: #{$btn-border-radius-xl};
+  }
+
+  > :not(.btn-check:first-child) + .btn,
+  > .btn-group:not(:first-child) {
+    margin: 0;
+    margin-inline-start: calc(#{$btn-border-width} * -1);
+  }
+  &:not(.btn-group-vertical) {
+
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn.dropdown-toggle-split:first-child,
+    > .btn-group:not(:last-child) > .btn,
+    > .btn:nth-child(n + 3),
+    > :not(.btn-check) + .btn,
+    > .btn-group:not(:first-child) > .btn {
+      @include border-radius(var(--#{$prefix}btn-group-border-radius));
+    }
+
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn.dropdown-toggle-split:first-child,
+    > .btn-group:not(:last-child) > .btn {
+      border-end-end-radius: 0 !important;
+      border-start-end-radius: 0 !important;
+    }
+
+    > .btn:nth-child(n + 3),
+    > :not(.btn-check) + .btn,
+    > .btn-group:not(:first-child) > .btn {
+      border-end-start-radius: 0 !important;
+      border-start-start-radius: 0 !important;
+    }
+  }
+
+  &.btn-group-vertical {
+    > :not(.btn-check:first-child) + .btn,
+    > .btn-group:not(:first-child) {
+      margin: 0;
+      margin-block-start: calc(#{$btn-border-width} * -1);
+    }
+    .btn:not([class*="btn-outline-"]) {
+      border-inline-color: var(--#{$prefix}btn-bg);
+      &:hover {
+        border-inline-color: var(--#{$prefix}btn-hover-bg);
+      }
+    }
+    > .btn:first-child,
+    > .btn.dropdown-toggle-split:first-child,
+    > .btn-group:first-child > .btn {
+      @include border-top-radius(var(--#{$prefix}btn-group-border-radius));
+    }
+    > .btn:last-child,
+    > .btn.dropdown-toggle-split:last-child,
+    > .btn-group:last-child > .btn {
+      @include border-bottom-radius(var(--#{$prefix}btn-group-border-radius));
+    }
   }
 }
+
+// Split button
+// *******************************************************************************
 
 .dropdown-toggle-split,
 .btn-lg + .dropdown-toggle-split,
@@ -18,23 +82,21 @@
 .input-group-lg .btn + .dropdown-toggle-split,
 .btn-xl + .dropdown-toggle-split,
 .btn-group-xl > .btn + .dropdown-toggle-split {
-  padding: 0.92em;
+  padding-inline: .92em;
 }
 
 .btn-sm + .dropdown-toggle-split,
 .btn-group-sm > .btn + .dropdown-toggle-split,
 .input-group-sm .btn + .dropdown-toggle-split {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
+  padding-inline: .6em;
 }
 
 .btn-xs + .dropdown-toggle-split,
 .btn-group-xs > .btn + .dropdown-toggle-split {
-  padding-right: 0.5em;
-  padding-left: 0.5em;
+  padding-inline: .5em;
 }
 
-// * Sizing
+// Sizing
 // *******************************************************************************
 
 .btn-group-xs > .btn {
@@ -45,32 +107,28 @@
   @extend .btn-xl;
 }
 
-// Button groups border
+/* Button groups border */
 
-.btn-group > .btn-group:first-child > .btn:not([class*='btn-outline-']):first-child,
-.input-group > .btn:not([class*='btn-outline-']):first-child,
-:not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):first-child,
-.input-group > .btn-group:first-child > .btn:not([class*='btn-outline-']):first-child {
-  @include ltr-style {
-    border-left-color: transparent !important;
-  }
+.btn-group:not(.btn-group-vertical) > .btn-group:first-child > .btn:not([class*="btn-outline-"]):first-child,
+.input-group > .btn:not([class*="btn-outline-"]):first-child,
+:not(.btn-group, .input-group) > .btn-group:not(.btn-group-vertical) > .btn:not([class*="btn-outline-"]):first-child,
+.input-group > .btn-group:first-child > .btn:not([class*="btn-outline-"]):first-child {
+  border-inline-start-color: transparent;
 }
 
-.btn-group > .btn-group:last-child > .btn:not([class*='btn-outline-']):last-of-type,
-.input-group > .btn:not([class*='btn-outline-']):last-of-type,
-:not(.btn-group):not(.input-group) > .btn-group > .btn:not([class*='btn-outline-']):last-of-type,
-.input-group > .btn-group:last-child > .btn:not([class*='btn-outline-']):last-of-type {
-  @include ltr-style {
-    border-right-color: transparent !important;
-  }
+.btn-group:not(.btn-group-vertical) > .btn-group:last-child > .btn:not([class*="btn-outline-"]):last-of-type,
+.input-group > .btn:not([class*="btn-outline-"]):last-of-type,
+:not(.btn-group, .input-group) > .btn-group:not(.btn-group-vertical) > .btn:not([class*="btn-outline-"]):last-of-type,
+.input-group > .btn-group:last-child > .btn:not([class*="btn-outline-"]):last-of-type {
+  border-inline-end-color: transparent;
 }
 
-.btn-group-vertical > .btn-group-vertical:first-child > .btn:not([class*='btn-outline-']):first-child,
-:not(.btn-group-vertical):not(.input-group) > .btn-group-vertical > .btn:not([class*='btn-outline-']):first-child {
-  border-top-color: transparent !important;
+.btn-group-vertical > .btn-group-vertical:first-child > .btn:not([class*="btn-outline-"]):first-child,
+:not(.btn-group-vertical, .input-group) > .btn-group-vertical > .btn:not([class*="btn-outline-"]):first-child {
+  border-block-start-color: transparent;
 }
 
-.btn-group-vertical > .btn-group-vertical:last-child > .btn:not([class*='btn-outline-']):last-of-type,
-:not(.btn-group-vertical):not(.input-group) > .btn-group-vertical > .btn:not([class*='btn-outline-']):last-of-type {
-  border-bottom-color: transparent !important;
+.btn-group-vertical > .btn-group-vertical:last-child > .btn:not([class*="btn-outline-"]):last-of-type,
+:not(.btn-group-vertical, .input-group) > .btn-group-vertical > .btn:not([class*="btn-outline-"]):last-of-type {
+  border-block-end-color: transparent;
 }

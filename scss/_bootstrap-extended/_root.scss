@@ -1,4 +1,59 @@
-// The color-scheme CSS property https://web.dev/color-scheme/
-:root {
-  color-scheme: #{$color-scheme};
+/* The color-scheme CSS property https://web.dev/color-scheme/ */
+:root{
+  // variable prefix
+  --prefix: #{$prefix};
+
+  --#{$prefix}pure-black: #{$pure-black};
+
+  // Icons sizing
+  --#{$prefix}icon-size: #{$icon-size};
+  --#{$prefix}icon-size-xs: #{$icon-size-xs};
+  --#{$prefix}icon-size-sm: #{$icon-size-sm};
+  --#{$prefix}icon-size-md: #{$icon-size-md};
+  --#{$prefix}icon-size-lg: #{$icon-size-lg};
+  --#{$prefix}icon-size-xl: #{$icon-size-xl};
+
+  @function calculate-contrast($color) {
+    @return if(lightness($color) > 75%, var(--#{$prefix}pure-black), var(--#{$prefix}white));
+  }
+  @each $color, $value in $theme-colors {
+    // Construct CSS variable names with Sass interpolation
+    --#{$prefix}#{$color}-contrast: #{calculate-contrast($value)};
+  }
+
+  // global custom variables
+  --#{$prefix}bg-label-tint-amount: #{$bg-label-tint-amount};
+  --#{$prefix}border-subtle-amount: #{$border-subtle-amount};
+  --#{$prefix}base-color: #{$black};
+  --#{$prefix}base-color-rgb: #{$base-rgb};
+  --#{$prefix}paper-bg: #{$paper-bg};
+  --#{$prefix}paper-bg-rgb: #{$paper-bg-rgb};
+
+  --#{$prefix}min-contrast-ratio: #{$min-contrast-ratio};
+
+  // Box-shadow variables
+  --#{$prefix}box-shadow: #{$box-shadow};
+  --#{$prefix}box-shadow-xs: #{$box-shadow-xs};
+  --#{$prefix}box-shadow-sm: #{$box-shadow-sm};
+  --#{$prefix}box-shadow-lg: #{$box-shadow-lg};
+  --#{$prefix}box-shadow-xl: #{$box-shadow-xl};
+
+  --#{$prefix}floating-component-shadow: #{$floating-component-shadow};
+
+  // TODO: CheckInBS6 - A new variable has been created because the `$link-color` SCSS  #{to-rgb($link-color)} variable was being used, and changing the color did not reflect the update. This new variable ensures that future color changes are applied correctly.
+  --#{$prefix}custom-link-color: var(--#{$prefix}primary);
+
+  // Navbar
+  --#{$prefix}navbar-bg: #{$navbar-bg};
+  --#{$prefix}navbar-box-shadow: #{$navbar-box-shadow};
+  --#{$prefix}navbar-border-width: #{$border-width};
+  --#{$prefix}navbar-border-color: #{$navbar-bg};
+
+  // Menu
+  --#{$prefix}menu-header-color: #{$navbar-light-color};
+
+  // Tabs & Pills
+  --#{$prefix}nav-box-shadow: #{$nav-box-shadow};
+  --#{$prefix}nav-border-color: #{$nav-border-color};
+
 }

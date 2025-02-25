@@ -1,3 +1,5 @@
+/* Miscellaneous
+******************************************************************************* */
 .misc-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,12 +8,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: calc(100vh - 1.5rem * 2);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-block-size: calc(100vh - 1.5rem * 2); /* ?we have added container-p-y class to add padding on top & bottom */
   text-align: center;
 }

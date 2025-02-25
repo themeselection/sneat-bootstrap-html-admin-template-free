@@ -1,7 +1,6 @@
 // Carousel
 // *******************************************************************************
 
-//
 .carousel {
   .carousel-item.active,
   .carousel-item.carousel-item-start {
@@ -20,7 +19,12 @@
       color: $carousel-caption-color;
     }
   }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1);
+  }
 }
+
 .carousel.carousel-dark {
   .carousel-item.active,
   .carousel-item.carousel-item-start {
@@ -38,5 +42,9 @@
     .h6 {
       color: $carousel-dark-caption-color;
     }
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(0);
   }
 }

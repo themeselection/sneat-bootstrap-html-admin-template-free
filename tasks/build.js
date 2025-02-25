@@ -7,6 +7,7 @@ const exec = require('gulp-exec');
 const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+const useref = require('gulp-useref');
 const webpack = require('webpack');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
@@ -26,7 +27,12 @@ module.exports = (conf, srcGlob) => {
         gulpIf(
           localSass,
           exec(
-            conf.minify ? sassCommandWithMinify : conf.fastDev ? sassCommandWithoutSourceMap : sassCommand,
+            // If conf.minify == true, generate compressed style without sourcemap
+            gulpIf(
+              conf.minify,
+              `sass --load-path=node_modules/ scss:${conf.distPath}/css fonts:${conf.distPath}/fonts libs:${conf.distPath}/libs --style compressed --no-source-map`,
+              `sass --load-path=node_modules/ scss:${conf.distPath}/css fonts:${conf.distPath}/fonts libs:${conf.distPath}/libs --no-source-map`
+            ),
             function (err) {
               cb(err);
             }
@@ -63,7 +69,6 @@ module.exports = (conf, srcGlob) => {
       .pipe(gulpIf(conf.sourcemaps, sourcemaps.write()))
       .pipe(dest(conf.distPath + '/css'))
       .pipe(browserSync.stream());
-    cb();
   };
 
   // Build JS
@@ -112,33 +117,6 @@ module.exports = (conf, srcGlob) => {
     }, 1);
   };
 
-  // Build fonts
-  // -------------------------------------------------------------------------------
-
-  const FONT_TASKS = [
-    {
-      name: 'boxicons',
-      path: 'node_modules/boxicons/fonts/*'
-    }
-  ].reduce(function (tasks, font) {
-    const functionName = `buildFonts${font.name.replace(/^./, m => m.toUpperCase())}Task`;
-    const taskFunction = function () {
-      // return src(root(font.path))
-      return (
-        src(font.path)
-          // .pipe(dest(normalize(path.join(conf.distPath, 'fonts', font.name))))
-          .pipe(dest(path.join(conf.distPath, 'fonts', font.name)))
-      );
-    };
-
-    Object.defineProperty(taskFunction, 'name', {
-      value: functionName
-    });
-
-    return tasks.concat([taskFunction]);
-  }, []);
-
-  const buildFontsTask = parallel(FONT_TASKS);
   // Copy
   // -------------------------------------------------------------------------------
 
@@ -159,7 +137,35 @@ module.exports = (conf, srcGlob) => {
     ).pipe(dest(conf.distPath));
   };
 
-  const buildAllTask = series(buildCssTask, buildJsTask, buildFontsTask, buildCopyTask);
+  // Iconify task
+  // -------------------------------------------------------------------------------
+  const buildIconifyTask = function (cb) {
+    // Create required directories without copying files
+    const fs = require('fs');
+    const directories = ['./fonts/iconify', './assets/vendor/fonts', './dist/fonts'];
+
+    directories.forEach(dir => {
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+    });
+
+    const iconify = require('child_process').spawn('node', ['./fonts/iconify/iconify.js']);
+
+    iconify.stdout.on('data', data => {
+      console.log(data.toString());
+    });
+
+    iconify.stderr.on('data', data => {
+      console.error(data.toString());
+    });
+
+    iconify.on('close', code => {
+      cb();
+    });
+  };
+
+  const buildAllTask = series(buildCssTask, buildJsTask, buildCopyTask, buildIconifyTask);
 
   // Exports
   // ---------------------------------------------------------------------------
@@ -167,8 +173,8 @@ module.exports = (conf, srcGlob) => {
   return {
     css: series(buildCssTask, buildAutoprefixCssTask),
     js: buildJsTask,
-    fonts: buildFontsTask,
     copy: buildCopyTask,
+    iconify: buildIconifyTask,
     all: buildAllTask
   };
 };

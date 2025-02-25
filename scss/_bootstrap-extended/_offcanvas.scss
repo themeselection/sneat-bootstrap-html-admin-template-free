@@ -1,13 +1,18 @@
-// Offcanvas
-// *******************************************************************************
+/* Offcanvas
+******************************************************************************* */
 
 .offcanvas {
-  box-shadow: $offcanvas-box-shadow;
-}
-.offcanvas-header {
-  padding-bottom: $offcanvas-padding-y * 0.5;
+  box-shadow: var(--#{$prefix}offcanvas-box-shadow);
+  .offcanvas-header {
+    padding-block-end: $offcanvas-padding-y * .5;
+  }
 }
 
-.offcanvas-body {
-  padding-top: $offcanvas-padding-y * 0.5;
+/* styles for dark offcanvas */
+[data-bs-theme="dark"].offcanvas {
+  background-color: #2b2c40;
+  color: #b2b2c4;
+  .offcanvas-title {
+    color: #d5d5e2;
+  }
 }

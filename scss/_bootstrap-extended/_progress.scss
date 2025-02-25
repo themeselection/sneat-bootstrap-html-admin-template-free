@@ -1,27 +1,25 @@
-// Progress
-// *******************************************************************************
+/* Progress
+******************************************************************************* */
 
 .progress {
-  overflow: initial; //revet the default style for box-shadow
-}
+  --#{$prefix}progress-bar-shadow-color: #{$progress-bar-shadow-color};
+  overflow: initial;
+  .progress-bar {
+    background-color: var(--#{$prefix}primary);
+    box-shadow: 0 2px 4px 0 var(--#{$prefix}progress-bar-shadow-color);
+    color: var(--#{$prefix}white);
+  }
 
-// Progress Shadow Variant
-@each $color, $value in $theme-colors {
-  @if $color != primary {
-    @include template-progress-bar-shadow-variant('.bg-#{$color}', $value);
+  .progress-bar:first-child {
+    @include border-start-radius($progress-border-radius);
+  }
+  .progress-bar:last-child {
+    @include border-end-radius($progress-border-radius);
   }
 }
 
-@include ltr-only {
-  .progress {
-    //  border radius for first and last child
-    .progress-bar:last-child {
-      border-top-right-radius: $progress-border-radius;
-      border-bottom-right-radius: $progress-border-radius;
-    }
-    .progress-bar:first-child {
-      border-top-left-radius: $progress-border-radius;
-      border-bottom-left-radius: $progress-border-radius;
-    }
+@each $state in map-keys($theme-colors) {
+  .progress-bar.bg-#{$state} {
+    --#{$prefix}progress-bar-shadow-color: rgba(var(--#{$prefix}#{$state}-rgb), .4);
   }
 }

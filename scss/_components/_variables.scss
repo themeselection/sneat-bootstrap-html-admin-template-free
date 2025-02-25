@@ -1,18 +1,15 @@
-// Common
-// *******************************************************************************
-
-$ui-star-size: 1.1em !default;
-$ui-stars-spacer: -0.1em !default;
-$ui-star-filled-color: $yellow !default;
-
 // Navbar (custom navbar)
 // *******************************************************************************
-$navbar-height: 3.875rem !default;
+$navbar-height: 4rem !default;
 $navbar-suggestion-width: 100% !default;
 $navbar-suggestion-height: 28rem !default;
-$navbar-suggestion-border-radius: 0.5rem !default;
+$navbar-suggestion-border-radius: .5rem !default;
 $navbar-dropdown-width: 22rem !default;
 $navbar-dropdown-content-height: 30rem !default;
+$navbar-dropdown-hover-bg: var(--#{$prefix}gray-60) !default;
+$navbar-dropdown-icon-bg: var(--#{$prefix}gray-80) !default;
+$navbar-notifications-dropdown-item-padding-y: .75rem !default;
+$navbar-notifications-dropdown-item-padding-x: 1rem !default;
 
 // Menu
 // *******************************************************************************
@@ -22,71 +19,93 @@ $menu-collapsed-width: 5.25rem !default;
 $menu-collapsed-layout-breakpoint: xl !default;
 $menu-font-size: $font-size-base !default;
 
-$menu-item-spacer: 0.125rem !default;
+$menu-item-spacer: .125rem !default;
+$menu-link-spacer-x: .5rem !default;
 
-$menu-vertical-link-margin-y: 0rem !default;
 $menu-vertical-link-margin-x: 1rem !default;
-
+$menu-vertical-link-padding-y: .3125rem !default;
+$menu-vertical-link-padding-x: .9375rem !default;
 $menu-vertical-header-margin-y: 1rem !default;
 $menu-vertical-header-margin-x: 0 !default;
+$menu-vertical-menu-link-padding-y: .3125rem !default;
+$menu-vertical-menu-level-spacer: .65rem !default;
 
-$menu-vertical-link-padding-y: 0.3125rem !default;
-$menu-vertical-link-padding-x: 1rem !default;
-
-$menu-vertical-menu-link-padding-y: 0.3125rem !default;
-$menu-vertical-menu-level-spacer: 0.65rem !default;
-
-$menu-horizontal-link-padding-y: 0.565rem !default;
+$menu-horizontal-spacer-x: .375rem !default;
+$menu-horizontal-item-spacer: .5rem !default;
+$menu-horizontal-link-padding-y: .625rem !default;
+$menu-horizontal-link-padding-x: 1rem !default;
+$menu-horizontal-menu-link-padding-y: .625rem !default;
+$menu-horizontal-menu-level-spacer: 2rem !default;
 $menu-horizontal-menu-box-shadow: $dropdown-box-shadow !default;
 
 $menu-sub-width: 14.5rem !default;
 $menu-control-width: 2.25rem !default;
-$menu-control-arrow-size: 0.5rem !default;
+$menu-control-arrow-size: .5rem !default;
 
 $menu-icon-expanded-width: 1.5rem !default;
 $menu-icon-expanded-left-spacer: 1.675rem !default;
 $menu-icon-expanded-font-size: 1.375rem !default;
-$menu-icon-expanded-spacer: 0.5rem !default;
+$menu-icon-expanded-spacer: .5rem !default;
 
-$menu-animation-duration: 0.3s !default;
+$menu-animation-duration: .3s !default;
+
+$menu-bg: var(--#{$prefix}paper-bg) !default;
+$menu-bg-rgb: var(--#{$prefix}paper-bg-rgb) !default;
+$menu-color: $headings-color !default;
+$menu-color-rgb: #{to-rgb($menu-color)} !default;
+$menu-hover-bg: $gray-60 !default;
+$menu-hover-color: $headings-color !default;
+$menu-active-bg: var(--#{$prefix}primary-bg-subtle) !default;
+$menu-active-color: var(--#{$prefix}primary) !default;
+$menu-active-toggle-bg: $gray-80 !default;
+$menu-box-shadow: $box-shadow-sm !default;
+$menu-divider-color: transparent !default;
+
 
 $menu-max-levels: 5 !default;
 
-$menu-dark-border-color: rgba(255, 255, 255, 0.2) !default;
-$menu-dark-menu-bg: rgba(0, 0, 0, 0.06) !default;
-$menu-light-border-color: rgba(0, 0, 0, 0.06) !default;
-$menu-light-menu-bg: rgba(0, 0, 0, 0.05) !default;
+// Footer
+// *******************************************************************************
+
+
+$footer-bg: var(--#{$prefix}paper-bg) !default;
+$footer-color: var(--#{$prefix}body-color) !default;
+$footer-border-width: 0 !default;
+$footer-border-color: var(--#{$prefix}border-color) !default;
+$footer-link-color: var(--#{$prefix}primary) !default;
+$footer-link-hover-color: rgba(var(--#{$prefix}primary-rgb), .8) !default;
+$footer-link-disabled-color: var(--#{$prefix}gray-300) !default;
+$footer-link-active-color: var(--#{$prefix}primary) !default;
+$footer-brand-color: $footer-link-active-color !default;
+$footer-brand-hover-color: color-mix(in sRGB, #{$footer-link-active-color} #{$bg-label-tint-amount}, var(--#{$prefix}paper-bg)) !default;
+$footer-box-shadow: var(--#{$prefix}box-shadow-lg) !default;
 
 // Avatars
 // *******************************************************************************
 
-$avatar-size-xl: 4rem !default;
-$avatar-size-lg: 3.5rem !default;
-$avatar-size-md: 3rem !default;
-$avatar-size: 2.375rem !default; // Default
-$avatar-size-sm: 2rem !default;
-$avatar-size-xs: 1.5rem !default;
+// (Height & Width, Font Size, status indicator position)
 
-$avatar-initial-xl: 1.875rem !default;
-$avatar-initial-lg: 1.5rem !default;
-$avatar-initial-md: 1.125rem !default;
-$avatar-initial: $font-size-base !default;
-$avatar-initial-sm: 0.8125rem !default;
-$avatar-initial-xs: 0.625rem !default;
+$avatar-size: 2.375rem !default; /* Default */
+$avatar-sizes: (
+  xs: (1.5rem, .625rem, 1px),
+  sm: (2rem, .8125rem, 2px),
+  md: (3rem, 1.125rem, 3px),
+  lg: (3.5rem, 1.5rem, 4px),
+  xl: (4rem, 1.875rem, 5px)
+) !default;
 
-$avatar-group-border: $card-bg !default;
-$avatar-bg: #eeedf0 !default;
+$avatar-group-border: var(--#{$prefix}paper-bg) !default;
+$avatar-initial-bg: #eeedf0 !default;
 
 // Text Divider
 // *******************************************************************************
-$divider-color: $gray-200 !default;
-$divider-text-color: $headings-color !default;
+$divider-color: var(--#{$prefix}gray-200) !default;
+$divider-text-color: var(--#{$prefix}heading-color) !default;
 
 $divider-margin-y: 1rem !default;
 $divider-margin-x: 0 !default;
-
-$divider-text-padding-y: 0rem !default;
-$divider-text-padding-x: 0.677rem !default;
+$divider-text-padding-y: 0 !default;
+$divider-text-padding-x: .677rem !default;
 
 $divider-font-size: $font-size-base !default;
 $divider-icon-size: 1rem !default;

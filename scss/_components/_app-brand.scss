@@ -1,64 +1,86 @@
-// App Brand
-// *******************************************************************************
-
-@import 'mixins/app-brand';
-
+/* App Brand
+******************************************************************************* */
 .app-brand {
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  overflow: hidden;
-  line-height: 1;
-  min-height: 1px;
   align-items: center;
+
+
+  .app-brand-text {
+    opacity: 1;
+    transition: opacity $menu-animation-duration ease-in-out;
+  }
+
+
+  .layout-menu-toggle {
+    display: block;
+  }
+
+  .app-brand-img{
+    display: block;
+  }
+  .app-brand-img-collapsed{
+    display: none;
+  }
 }
 
 .app-brand-link {
   display: flex;
   align-items: center;
 }
-.app-brand-logo {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 0;
-  overflow: hidden;
-  min-height: 1px;
 
-  img,
-  svg {
-    display: block;
-  }
-}
-
-.app-brand-text {
-  flex-shrink: 0;
-  opacity: 1;
-  transition: opacity $menu-animation-duration * 0.5 ease-in-out;
-}
-
-.app-brand-img-collapsed {
-  display: none;
-}
-
-// App brand with vertical menu
-.menu-vertical .app-brand {
-  padding-right: $menu-vertical-link-padding-x + $menu-vertical-link-margin-x;
-  padding-left: $menu-vertical-link-padding-x + $menu-vertical-link-margin-x;
-}
-
-// App brand with vertical menu
+/* App brand with vertical menu */
 .menu-horizontal .app-brand,
 .menu-horizontal .app-brand + .menu-divider {
   display: none !important;
 }
 
-:not(.layout-menu) > .menu-vertical.menu-collapsed:not(.layout-menu):not(:hover) {
-  @include template-app-brand-collapsed();
+@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
+  // .layout-menu-collapsed:not(.layout-menu-hover, .layout-menu-offcanvas, .layout-menu-fixed-offcanvas) .layout-menu {
+  .layout-menu-collapsed:not(.layout-menu-hover) .layout-menu,
+  .menu-collapsed:not(:hover) .app-brand {
+    .app-brand-logo ~ .app-brand-text{
+      opacity: 0;
+    }
+    .app-brand-img{
+      display: none;
+    }
+    .app-brand-img-collapsed{
+      display: block;
+    }
+  }
 }
 
-@include media-breakpoint-up($menu-collapsed-layout-breakpoint) {
-  .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
-    .layout-menu {
-    @include template-app-brand-collapsed();
+/* Within menu */
+:not(.layout-menu) > .menu-vertical.menu-collapsed:not(.layout-menu):not(:hover),
+.layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu {
+  .app-brand {
+    inline-size: $menu-collapsed-width;
+  }
+
+  .app-brand-logo,
+  .app-brand-link,
+  .app-brand-text {
+    margin-inline: auto;
+  }
+
+  .app-brand-logo ~ .app-brand-text {
+    overflow: hidden;
+    opacity: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .app-brand .layout-menu-toggle {
+    inset-inline-start: calc(#{$menu-collapsed-width} - 1.5rem);
+    opacity: 0;
+  }
+
+  .app-brand-img {
+    display: none;
+  }
+
+  .app-brand-img-collapsed {
+    display: block;
   }
 }

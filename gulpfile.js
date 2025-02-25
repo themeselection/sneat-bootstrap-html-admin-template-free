@@ -52,9 +52,8 @@ const cleanTask = function () {
 // -------------------------------------------------------------------------------
 const watchTask = function () {
   watch(srcGlob('**/*.scss', '!fonts/**/*.scss'), buildTasks.css);
-  watch(srcGlob('fonts/**/*.scss'), parallel(buildTasks.css, buildTasks.fonts));
+  watch(srcGlob('fonts/**/*.scss'), parallel(buildTasks.css));
   watch(srcGlob('**/*.@(js|es6)', '!*.js'), buildTasks.js);
-  // watch(srcGlob('**/*.png', '**/*.gif', '**/*.jpg', '**/*.jpeg', '**/*.svg', '**/*.swf'), copyTasks.copyAssets)
 };
 
 // Serve
@@ -69,7 +68,6 @@ const serveTasks = function () {
     'html/**/*.html',
     'html-starter/**/*.html',
     'assets/vendor/css/*.css',
-    'assets/vendor/css/rtl/*.css',
     'assets/css/*.css',
     'assets/js/*.js'
   ]).on('change', browserSync.reload);

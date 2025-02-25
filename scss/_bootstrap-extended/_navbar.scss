@@ -1,58 +1,26 @@
-// Navbar
-// *******************************************************************************
+/* Navbar
+******************************************************************************* */
+.layout-navbar {
+  background-color: var(--#{$prefix}paper-bg);
+}
+
+/* IE fix */
 
 .navbar {
-  z-index: 2;
-  // ! Fix: navbar dropdown focus outline
-  .dropdown:focus,
-  .dropdown-toggle:focus {
-    outline: 0;
+  &.bg-body-tertiary {
+    --#{$prefix}navbar-color: var(--#{$prefix}body-color);
+    --#{$prefix}navbar-hover-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-disabled-color: color-mix(in sRGB, var(--#{$prefix}base-color) 40%, var(--#{$prefix}paper-bg));
+    --#{$prefix}navbar-active-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-brand-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-brand-hover-color: color-mix(in sRGB, var(--#{$prefix}base-color) 70%, var(--#{$prefix}paper-bg));
   }
-  .navbar-toggler {
-    border: none;
+  &.bg-light {
+    --#{$prefix}navbar-color: var(--#{$prefix}body-color);
+    --#{$prefix}navbar-hover-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-disabled-color: color-mix(in sRGB, var(--#{$prefix}base-color) 40%, var(--#{$prefix}paper-bg));
+    --#{$prefix}navbar-active-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-brand-color: var(--#{$prefix}heading-color);
+    --#{$prefix}navbar-brand-hover-color: color-mix(in sRGB, var(--#{$prefix}base-color) 70%, var(--#{$prefix}paper-bg));
   }
-  .navbar-toggler:focus {
-    box-shadow: none;
-  }
-}
-
-.fixed-top {
-  z-index: $zindex-fixed;
-}
-
-.navbar.navbar-light {
-  color: $navbar-light-color;
-}
-
-.navbar-light .navbar-nav .nav-link.disabled {
-  color: $navbar-light-disabled-color !important;
-}
-
-.navbar.navbar-dark {
-  color: $navbar-dark-color;
-}
-
-.navbar-dark .navbar-nav .nav-link.disabled {
-  color: $navbar-dark-disabled-color !important;
-}
-
-// IE fix
-.navbar-collapse,
-.navbar-brand,
-.navbar-text {
-  flex-shrink: 1;
-}
-
-// Icons
-// .navbar-icon {
-//   font-size: 130%;
-// }
-
-// Rulers
-.navbar-dark hr {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-light hr {
-  border-color: $gray-100;
 }
