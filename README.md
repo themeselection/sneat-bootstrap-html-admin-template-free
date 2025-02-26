@@ -147,10 +147,12 @@ If you want to [Free Admin Templates](https://themeselection.com/item/category/f
 
 ## Useful Links 🎁
 
-* [Vue CheatSheet](https://vue-cheatsheet.themeselection.com/)
-* [Freebies](https://themeselection.com/item/category/freebies/)
-* [Free Admin Templates](https://themeselection.com/item/category/free-admin-templates/)
-* [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
+- [Vue CheatSheet](https://vue-cheatsheet.themeselection.com/)
+- [Freebies](https://themeselection.com/item/category/freebies/)
+- [Free Admin Templates](https://themeselection.com/item/category/free-admin-templates/)
+- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
+- [FlyonUI](https://flyonui.com/)
+- [JetShip](https://demos.themeselection.com/jetship-laravel-starter-kit/)
 
 ## Social Media :earth_africa:
 
